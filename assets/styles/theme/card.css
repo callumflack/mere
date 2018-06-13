@@ -1,0 +1,14 @@
+.Card {
+  position: absolute;
+}
+
+.Card-figure {
+  margin: auto;
+  @mixin absolutePin;
+  position: absolute;
+}
+
+.Card-figure img {
+  @mixin absolutePin;
+  object-fit: cover;
+}

@@ -1,0 +1,17 @@
+/* 
+
+  http://nicolasgallagher.com/flexible-css-cover-images/
+
+*/
+
+@define-mixin CoverImage {
+  background-position: 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.CoverImage {
+  @mixin CoverImage;
+}

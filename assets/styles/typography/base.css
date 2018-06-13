@@ -1,0 +1,47 @@
+/* 
+
+  Web design starts with typography.
+  NB. font-feature-settings example: http://fadeyev.net 
+
+*/
+
+html {
+  background-color: var(--c-bg);
+  color: var(--c-text);
+  font-family: var(--ff-text-regular);
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: var(--fls-regular);
+  line-height: var(--flh-regular);
+  text-rendering: optimizeLegibility;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+@define-mixin responsive-scale {
+  font-size: var(--rfs-text-0) !important;
+
+  @media (max-width: 320px) {
+    font-size: var(--rfs-text-1) !important;
+  }
+  @media (--sm) {
+    font-size: var(--rfs-text-2) !important;
+  }
+  @media (--md) {
+    font-size: var(--rfs-text-3) !important;
+  }
+  @media (--lg) {
+    font-size: var(--rfs-text-4) !important;
+  }
+}
+
+body,
+.TypeScopeReset {
+  @mixin responsive-scale;
+}
+
+body {
+  text-align: left;
+}

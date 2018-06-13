@@ -1,0 +1,10 @@
+hr {
+  background-color: var(--c-rule);
+  border: 0;
+  box-sizing: content-box;
+  height: 1px;
+  margin-top: var(--space);
+  margin-bottom: var(--space);
+  overflow: visible;
+  padding: 0;
+}

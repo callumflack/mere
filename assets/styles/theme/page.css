@@ -1,0 +1,5 @@
+/* https://stackoverflow.com/questions/18485059/forward-slash-in-class-name */
+.page-\/ footer a {
+  color: var(--c-white) !important;
+  text-shadow: none;
+}

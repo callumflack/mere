@@ -1,0 +1,52 @@
+/* 
+
+  Avoid directly styling nuxt's `.link`.
+  Use it globally.
+
+ */
+
+.MenuLink {
+  align-items: center;
+  background-image: initial !important;
+  display: inline-flex;
+  height: var(--s-5);
+  padding-top: 1px; /* manage font's line-height */
+  text-decoration: initial;
+  text-shadow: initial !important;
+  text-transform: capitalize;
+}
+
+.MenuLink + .MenuLink {
+  margin-left: var(--s-3b);
+}
+
+/* variation */
+
+.MenuLink--block {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.MenuLink--block + .MenuLink--block {
+  margin-left: 0;
+  margin-top: var(--s-2);
+}
+
+/* Using nuxt's provider active link */
+
+.nuxt-link-active span {
+  position: relative;
+}
+
+.nuxt-link-active span:before {
+  background-color: currentColor;
+  content: "";
+  display: inline-block;
+  height: 0.15rem;
+  height: 1px;
+  left: 0;
+  right: 0;
+  bottom: -2px;
+  position: absolute;
+}
