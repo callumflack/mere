@@ -1,8 +1,11 @@
 <template lang="pug">
-  div(:class="currentPageClass")
+  // div(:class="currentPage.substring(currentPage.lastIndexOf('/') + 1)")
+  // div(:class="currentPageClass")
+  // div(:class="currentPageClass.slice(4)")
+  div(:class="currentPageClass.split('-/').join('-')")
     c-menu
-    nuxt
-    .u-hidden.u-sm-block
+    .Content
+      nuxt
       c-footer
 </template>
 
@@ -16,12 +19,12 @@ export default {
     "c-footer": Footer
   },
   computed: {
-    currentPageClass: function() {
+    currentPageClass() {
+      // requires middleware function
+      // https://nuxtjs.org/guide/routing/#middleware
       return `page-${this.$store.state.currentPage}`;
+      // return [{ home: $store.state.currentPage === "/" }];
     }
   }
 };
 </script>
-
-<style>
-</style>

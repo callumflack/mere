@@ -68,25 +68,25 @@ export default {
     return {
       menuPageLinks: [
         {
-          label: "shop",
+          label: "Shop",
           link: "/shop"
         },
         {
-          label: "about",
+          label: "About",
           link: "/about"
         },
         {
-          label: "contact",
+          label: "Contact",
           link: "/contact"
         }
       ],
       menuCartLinks: [
         {
-          label: "login",
+          label: "Login",
           link: "/login"
         },
         {
-          label: "cart",
+          label: "Cart",
           link: "/cart"
         }
       ],
@@ -136,7 +136,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped lang="postcss">
 @import "../assets/styles/variables.css";
 
 .MobileNav {

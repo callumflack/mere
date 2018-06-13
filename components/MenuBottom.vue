@@ -1,5 +1,5 @@
 <template lang="pug">
-  footer.Footer
+  footer.Footer.u-hidden.u-sm-block
     .f.f-justifyEnd
       div
         menu-link.Heading.Heading--md.fs-textSm(
@@ -8,7 +8,7 @@
           :label="item.label"
           :link="item.link"
         )
-      menu-social-links.m-l5.c-white
+      menu-social-links.m-l5
 </template>
 
 <script scoped>
@@ -22,7 +22,7 @@ export default {
     MenuSocialLinks
   },
   props: {
-    index: Boolean
+    home: Boolean
   },
   data() {
     return {
@@ -45,16 +45,28 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="postcss">
 @import "../assets/styles/variables.css";
 
 .Footer {
+  padding: 0 var(--s-4);
+
+  & a {
+    color: var(--c-brand);
+  }
+}
+
+.page- .Footer {
   bottom: 0;
   left: 0;
-  padding: 0 var(--s-4);
   position: fixed;
   width: 100%;
   z-index: 999;
   -webkit-backface-visibility: hidden;
+
+  & a {
+    color: var(--c-white) !important;
+    text-shadow: none;
+  }
 }
 </style>

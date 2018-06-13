@@ -39,7 +39,6 @@ export default {
   height: 100vh;
   height: calc(100vh - var(--menuHeight));
   position: relative;
-  top: var(--menuHeight);
   width: 100vw;
 }
 

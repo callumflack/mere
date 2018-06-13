@@ -21,19 +21,19 @@ html {
 }
 
 @define-mixin responsive-scale {
-  font-size: var(--rfs-text-0) !important;
+  font-size: var(--rfs-0) !important;
 
   @media (max-width: 320px) {
-    font-size: var(--rfs-text-1) !important;
+    font-size: var(--rfs-1) !important;
   }
   @media (--sm) {
-    font-size: var(--rfs-text-2) !important;
+    font-size: var(--rfs-2) !important;
   }
   @media (--md) {
-    font-size: var(--rfs-text-3) !important;
+    font-size: var(--rfs-3) !important;
   }
   @media (--lg) {
-    font-size: var(--rfs-text-4) !important;
+    font-size: var(--rfs-4) !important;
   }
 }
 

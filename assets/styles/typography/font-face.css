@@ -17,7 +17,7 @@
 }
 
 @font-face {
-  font-family: var(--ff-heading);
+  font-family: var(--ff-title);
   font-style: normal;
   font-weight: 700;
   src: url("~static/fonts/ChronicleDeck-Roman.woff") format("woff");

@@ -58,5 +58,5 @@
 
 /* Theme */
 @import "./theme/card.css";
-@import "./theme/nav.css";
+@import "./theme/menu.css";
 @import "./theme/page.css";

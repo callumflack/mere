@@ -13,7 +13,7 @@
   padding-top: 1px; /* manage font's line-height */
   text-decoration: initial;
   text-shadow: initial !important;
-  text-transform: capitalize;
+  /* text-transform: capitalize; */
 }
 
 .MenuLink + .MenuLink {

@@ -25,9 +25,6 @@
 */
 export default {
   props: {
-    iconBase: {
-      type: Object
-    },
     iconName: {
       type: String,
       default: "box"

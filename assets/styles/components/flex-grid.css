@@ -23,7 +23,7 @@
 }
 
 .FlexGrid {
-  @mixin flexGrid 1, auto, var(--s-3);
+  @mixin flexGrid 1, auto, var(--grid-gutter);
 }
 
 .FlexGrid--sm {
@@ -34,8 +34,17 @@
   @mixin flexGrid 1, auto, 5vw;
 }
 
+.FlexGrid--block {
+  @mixin flexGrid 0, auto, var(--space);
+
+  & > * {
+    padding-top: var(--space);
+    padding-bottom: var(--space);
+  }
+}
+
 .FlexGrid--noGrow {
-  @mixin flexGrid 0, auto, var(--s-3);
+  @mixin flexGrid 0, auto, var(--grid-gutter);
 }
 
 .FlexGrid--noGap {

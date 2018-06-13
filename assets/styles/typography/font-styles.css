@@ -31,7 +31,7 @@
   @mixin fw-medium;
 }
 @define-mixin ff-title {
-  font-family: var(--ff-heading), var(--ff-stack-heading);
+  font-family: var(--ff-title), var(--ff-stack-heading);
   @mixin fw-regular;
 }
 
@@ -95,11 +95,15 @@
   letter-spacing: var(--fls-loose);
 }
 
-/*
-
+/* 
+  -------------------------------------------------
+  
   Mixins applied
 
+  -------------------------------------------------
  */
+
+/* Text */
 
 @define-mixin Text {
   @mixin ff-text;
@@ -143,23 +147,28 @@ ol,
   @mixin fs-textLg;
 }
 
-/* Headings */
+/* Sans Headings */
 
 @define-mixin Heading {
   @mixin ff-text;
+  @mixin fs-text;
   @mixin flh-tight;
   @mixin fls-loose;
+  color: var(--c-brand);
+  text-align: center;
   text-transform: uppercase;
 }
 
 h1,
-.Heading {
+.Heading,
+.Heading--md,
+.Heading--lg,
+.Heading--mobile {
   @mixin Heading;
 }
 
 .Heading--md,
 .Heading--mobile {
-  @mixin Heading;
   @mixin ff-textMd;
 }
 
@@ -167,6 +176,10 @@ h1,
   font-size: var(--fs-heading-mobile);
   letter-spacing: 0;
   text-transform: initial;
+}
+
+.Heading--lg {
+  @mixin fs-textLg;
 }
 
 h2,
@@ -181,6 +194,8 @@ h2,
   letter-spacing: 0;
   text-transform: initial;
 }
+
+/* Serif Headings */
 
 .Title {
   @mixin ff-title;

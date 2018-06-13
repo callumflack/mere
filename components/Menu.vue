@@ -1,8 +1,6 @@
 <template lang="pug">
   nav.Nav(:class="navBar")
     .u-lg-hidden.h-100
-      .f-childrenCenter.h-100
-        logo.c-text(width="99" height="23")
       .u-absolutePin.p-r4
         .f.f-justifyEnd.h-100
           a.u-noVisualLink.c-text(href="#" @click.prevent="handleNavToggle")
@@ -10,8 +8,6 @@
               icon-hamburger-close
             icon-base.MenuLink(icon-name="icon-hamburger" v-else)
               icon-hamburger
-    
-    menu-mobile
     
     .u-hidden.f-lg.f-justifyBetween
       .Nav-left
@@ -32,6 +28,13 @@
           :currentPage="currentPage"
           :exact="item.exact"
         )
+
+    .Nav-logo.u-fixedCenter.f-childrenCenter
+      nuxt-link(to="/" exact)
+        logo.MenuLink.c-text(width="99" height="23")
+    
+    menu-mobile
+
 </template>
 
 <script>
@@ -158,7 +161,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style scoped lang="postcss">
 @import "../assets/styles/variables.css";
 
 .Nav {
@@ -178,8 +181,7 @@ export default {
 }
 
 .open {
-  animation: open 0.5s ease forwards;
-  /* background-color: var(--c-white); */
+  animation: open 1s ease forwards;
   /* box-shadow: 0 9px 25px 0 rgba(0, 0, 0, 0.25), 0 19px 70px 0 rgba(0, 0, 0, 0.1); */
   /* box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.15); */
 }
@@ -191,14 +193,15 @@ export default {
   }
   to {
     opacity: 0;
-    top: calc(-1 * var(--fixedMenuHeight));
+    /* top: calc(-1 * var(--fixedMenuHeight)); */
+    /* top: -100%; */
   }
 }
 
 @keyframes open {
   from {
     opacity: 0;
-    top: calc(-1 * var(--fixedMenuHeight));
+    /* top: -100%; */
   }
   to {
     opacity: 1;
@@ -213,5 +216,10 @@ export default {
 .Nav-right {
   background-color: var(--c-bg);
   padding: 0 var(--s-4);
+}
+
+.Nav-logo {
+  width: 25%;
+  position: absolute;
 }
 </style>

@@ -20,7 +20,7 @@ module.exports = {
   ** Customize the progress-bar color
   ** or loading: "~/components/PageLoading.vue",
   */
-  loading: { color: "#000" },
+  loading: { color: "hsl(77, 19%, 47%)" },
 
   /*
   ** Global CSS
@@ -44,6 +44,10 @@ module.exports = {
   */
   axios: {
     // See https://github.com/nuxt-community/axios-module#options
+  },
+
+  router: {
+    middleware: "currentPage"
   },
 
   /*

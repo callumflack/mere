@@ -1,7 +1,7 @@
 :root {
   --Container-max-width: 1120px;
   --Container-max-width-xs: 500px;
-  --Container-max-width-sm: 600px;
+  --Container-max-width-sm: 640px;
   --Container-max-width-md: 768px;
   --Container-max-width-hero: 1440px;
 }
@@ -10,8 +10,8 @@
   margin-left: auto;
   margin-right: auto;
   max-width: var(--Container-max-width);
-  padding-left: var(--s-3a);
-  padding-right: var(--s-3a);
+  padding-left: var(--grid-gutter);
+  padding-right: var(--grid-gutter);
   width: 100%;
 }
 
@@ -40,7 +40,7 @@
 
 .Container--hero {
   @mixin Container--hero;
-  padding: 0;
+  /* padding: 0; */
 }
 
 .Container--text {

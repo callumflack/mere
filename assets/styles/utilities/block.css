@@ -13,12 +13,12 @@
 
 @media (--md) {
   :root {
-    --responsive-space: 2.5rem;
+    --responsive-space: 3rem;
   }
 }
 @media (--lg) {
   :root {
-    --responsive-space: 5rem;
+    --responsive-space: 4rem;
   }
 }
 
