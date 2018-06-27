@@ -2,11 +2,11 @@
 
 .page- .Content,
 .home .Content {
-  height: auto;
+  /* height: auto; */
 }
 
 /* move everything below the nav */
 .Content {
-  margin-top: var(--menuHeight);
+  /* margin-top: var(--menuHeight); */
   height: 100vh;
 }

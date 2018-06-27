@@ -134,9 +134,16 @@
 
 /* 
 
-    Font sizes
+    Responsive font sizes
+    Handles responsive spacings as well.
 
    */
+
+  --rfs-0: 0.625rem;  /* 12pt if fs-text = 1em or 16px */
+  --rfs-1: 0.8125rem; /* 13pt */
+  --rfs-2: 0.875rem;  /* 14pt */
+  --rfs-3: 0.9375rem; /* 15pt */
+  --rfs-4: 1rem;      /* 16pt */
 
   --fs-text-unit: 1;
   
@@ -150,20 +157,10 @@
   --fs-subheading-mobile: calc(var(--fs-text-unit) * 2.25em);
   --fs-heading: calc(var(--fs-text-unit) * 2em);
   --fs-heading-mobile: calc(var(--fs-text-unit) * 3em);
-  --fs-title: calc(var(--fs-text-unit) * 4em);
+  --fs-subtitle: calc(var(--fs-text-unit) * 1.5em);
+  --fs-title: calc(var(--fs-text-unit) * 2em);
 
-/* 
 
-    Responsive font sizes
-    Handles responsive spacings as well.
-
-   */
-
-  --rfs-0: 0.75rem;   /* 12pt if fs-text = 1em or 16px */
-  --rfs-1: 0.8125rem; /* 13pt */
-  --rfs-2: 0.875rem;  /* 14pt */
-  --rfs-3: 0.9375rem; /* 15pt */
-  --rfs-4: 1rem;      /* 16pt */
 
   /* 
 
@@ -185,7 +182,7 @@
   --fls-tight: -0.02em;
   --fls-touch: -0.0025em;
   --fls-regular: 0.0075em;
-  --fls-loose: 0.075em;
+  --fls-loose: 0.025em;
 
   /* 
 

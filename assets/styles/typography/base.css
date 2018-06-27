@@ -6,7 +6,7 @@
 */
 
 html {
-  background-color: var(--c-bg);
+  background-color: var(--c-brand);
   color: var(--c-text);
   font-family: var(--ff-text-regular);
   font-size: 16px;
@@ -24,13 +24,13 @@ html {
   font-size: var(--rfs-0) !important;
 
   @media (max-width: 320px) {
-    font-size: var(--rfs-1) !important;
+    font-size: var(--rfs-0) !important;
   }
   @media (--sm) {
-    font-size: var(--rfs-2) !important;
+    font-size: var(--rfs-1) !important;
   }
   @media (--md) {
-    font-size: var(--rfs-3) !important;
+    font-size: var(--rfs-1) !important;
   }
   @media (--lg) {
     font-size: var(--rfs-4) !important;

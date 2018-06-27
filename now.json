@@ -1,4 +1,5 @@
 {
+  "name": "mere",
   "alias": ["mere-staging.now.sh"],
   "env": {
     "NODE_ENV": "production"
