@@ -30,7 +30,12 @@ module.exports = {
   /*
   ** Plugins to load before mounting the App
   */
-  plugins: [],
+  plugins: [
+    {
+      src: "~/plugins/v-lazy-image",
+      ssr: false
+    }
+  ],
 
   /*
   ** Nuxt.js modules

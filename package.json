@@ -23,7 +23,8 @@
     "postcss-mixins": "^6.2.0",
     "postcss-nesting": "^6.0.0",
     "postcss-preset-env": "^5.1.0",
-    "suitcss-base": "^4.0.0"
+    "suitcss-base": "^4.0.0",
+    "v-lazy-image": "^1.2.1"
   },
   "devDependencies": {
     "babel-eslint": "^8.2.1",

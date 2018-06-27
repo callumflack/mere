@@ -5,8 +5,10 @@
       local
       card
     )
-    .u-hidden.f-lg.f-alignItemsCenter.h-100.u-relative(v-if="title")
-      .Title.Title--reversed.u-textCenter.c-white.w-100(v-html="title")
+    .u-hidden.f-sm.f-alignItemsCenter.h-100.u-relative(v-if="title")
+      .w-100
+        h2.Title.Title--reversed.u-textCenter.c-white.m-b0(v-html="title")
+        h3.Title.Title--reversed.u-textCenter.c-white.m-t3(v-if="subtitle", v-html="subtitle")
 </template>
 
 <script>
@@ -22,7 +24,8 @@ export default {
       required: true
     },
     local: Boolean,
-    title: String
+    title: String,
+    subtitle: String
   }
 };
 </script>

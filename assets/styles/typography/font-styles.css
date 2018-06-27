@@ -60,6 +60,9 @@
 @define-mixin fs-heading {
   font-size: var(--fs-heading);
 }
+@define-mixin fs-subtitle {
+  font-size: var(--fs-subtitle);
+}
 @define-mixin fs-title {
   font-size: var(--fs-title);
 }
@@ -197,11 +200,20 @@ h2,
 
 /* Serif Headings */
 
+.Subtitle,
 .Title {
   @mixin ff-title;
   @mixin fs-title;
   font-weight: 300;
-  line-height: 0.9;
+  line-height: 1.1;
+}
+
+.Subtitle {
+  @mixin fs-subtitle;
+}
+
+.Title {
+  @mixin fs-title;
 }
 
 .Title--reversed {

@@ -156,6 +156,11 @@
 */
 
 @media (--sm) {
+  .w-sm-100,
+  .w-sm-full {
+    width: 100% !important;
+  }
+
   .w-sm-1x12 {
     width: calc(100% * 1 / 12) !important;
   }
