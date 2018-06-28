@@ -59,6 +59,7 @@ module.exports = {
   ** Build configuration
   */
   build: {
+    vendor: ["~/assets/js/bowser.js"],
     /*
     ** You can extend webpack config here
     */
