@@ -1,71 +1,33 @@
 <template lang="pug">
 .Collage
-  image-card.one.top.z-2(
-    src="/images/landing-v3-texture.jpg"
-    title="BORN IN AUSTRALIA"
-    subtitle="FROM THE EARTH'S MOST<br>POWERFUL LIFE FORCE"
+  image-card.one.top.left(src="/images/home-girl-1.jpg")
+  image-card.two.top(src="/images/home-texture-2.jpg")
+  image-card.three.top.right(src="/images/home-beach.jpg")
+  image-card.four.bottom.left.z-1(
+    src="/images/home-texture-1.jpg"
+    title="FUTURE<br>BEAUTY<br>NATURAL<br>AWOKEN"
   )
-  image-picture.two.top.right(
-    card
-    src="landing-v3-girl-m.jpg"
-    srcset="landing-v3-girl.jpg"
-  )
-  image-picture.three(
-    card
-    src="landing-v3-greensea-m.jpg"
-    srcset="landing-v3-greensea.jpg"
-  )
-  image-picture.four.bottom(
-    card
-    src="landing-v3-darksea-m.jpg"
-    srcset="landing-v3-darksea-1.jpg"
-    title="FUTURE BEAUTY<br>NATURALLY AWOKEN"
-    subtitle="BORN IN AUSTRALIA"
-  )
-
-  // hide it later…
-  // .u-absolutePin.u-hidden.f-lg.f-childrenCenter.vh-100
-  .u-absolutePin.z-3
-    .f.f-childrenCenter
-      .w-100.u-textCenter
-        logo.c-white.u-sm-hidden(width="214" height="50")
-        logo.c-white.u-hidden.u-sm-block.u-lg-hidden(width="321" height="75")
-        logo.c-white.u-hidden.u-lg-block(width="428" height="100")
-  .u-absolutePin.z-4.u-sm-hidden
-    .mt-top
-      .f.f-childrenCenter
-        .w-100
-          h1.Title.Title--reversed.u-textCenter.c-white.m-b2
-            | BORN IN AUSTRALIA
-          h2.Title.Title--reversed.u-textCenter.c-white
-            | FROM THE EARTH'S MOST<br>POWERFUL LIFE FORCE
-    .mt-bottom
-      .f.f-childrenCenter
-        .w-100
-          h2.Title.Title--reversed.u-textCenter.c-white.m-b2
-            | FUTURE BEAUTY<br>NATURALLY AWOKEN
-          h2.Title.Title--reversed.u-textCenter.c-white
-            | ACTIVATING SOON
-    
+  image-card.five.bottom(src="/images/home-cactus.jpg")
+  image-card.six.bottom.right(src="/images/home-girl-2.jpg")
+  
+  .u-absolutePin.u-hidden.f-lg.f-childrenCenter.vh-100
+    // span.u-icon.u-icon--logo.c-white.z-1000
+    logo.c-white.z-1000
 </template>
 
 <script>
 import Logo from "~/components/Logo2.vue";
 import ImageCard from "~/components/ImageCard.vue";
-import ImagePicture from "~/components/ImageAsPicture.vue";
-import LazyImage from "v-lazy-image";
 
 export default {
   components: {
     Logo,
-    ImageCard,
-    ImagePicture,
-    LazyImage
+    ImageCard
   }
 };
 </script>
 
-<style lang="postcss" scoped>
+<style lang="postcss">
 @import "../assets/styles/variables.css";
 
 .HeroLogo {
@@ -78,8 +40,8 @@ export default {
 
 /* image containers */
 .Collage {
-  height: calc(100vh - var(--menuHeight));
   height: 100vh;
+  height: calc(100vh - var(--menuHeight));
   position: relative;
   width: 100vw;
 }
@@ -100,63 +62,61 @@ export default {
 
 /* the images */
 .one {
+  height: 65%;
+  width: 62%;
+
+  & >>> img {
+    left: -10%;
+  }
+
+  @media (--sm) {
+    height: 60%;
+  }
+}
+.two {
+  height: 43%;
+  left: 62%;
+  width: 38%;
+
+  @media (--sm) {
+    width: 19%;
+  }
+}
+.three {
   display: none;
+  height: 43%;
+  width: 19%;
 
   @media (--sm) {
     display: block;
-    height: 49.8%;
-    width: 51.3%;
   }
 }
-
-.two {
-  height: 100%;
-  left: 50%;
-  width: 50%;
-
-  @media (--sm) {
-    height: 68%;
-  }
-}
-
-.three {
-  height: 25%;
-  width: 50%;
-
-  & >>> img {
-    object-position: bottom;
-  }
-
-  @media (--sm) {
-    bottom: 0;
-    height: 52%;
-    left: 0;
-
-    & >>> img {
-      object-position: top;
-    }
-  }
-}
-
 .four {
-  height: 75%;
-  width: 90%;
+  height: 45%;
+  display: none;
+  width: 26%;
 
   @media (--sm) {
-    height: 32%;
-    width: 50%;
-    left: 50%;
+    display: block;
   }
 }
+.five {
+  height: 35%;
+  width: 55%;
 
-/* mobile-only text */
-.mt-top {
-  height: 25%;
+  @media (--sm) {
+    height: 40%;
+    left: 26%;
+    width: calc(100% * 1 / 3);
+  }
 }
-.mt-bottom {
-  bottom: 0;
-  height: 25%;
-  position: absolute;
-  width: 100%;
+.six {
+  height: 57%;
+  width: 45%;
+
+  @media (--sm) {
+    height: 57%;
+    width: calc(100% - (100% * 1 / 3) - 26%);
+  }
 }
 </style>

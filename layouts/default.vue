@@ -3,10 +3,10 @@
   // div(:class="currentPageClass")
   // div(:class="currentPageClass.slice(4)")
   div(:class="currentPageClass.split('-/').join('-')")
-    // c-menu
+    c-menu
     .Content
       nuxt
-      // c-footer
+      c-footer
 </template>
 
 <script>
