@@ -1,35 +1,35 @@
 <template lang="pug">
 .Collage
   image-card.one.top.z-2(
-    src="/images/landing-v3-texture.jpg"
+    src="https://res.cloudinary.com/pw-img-cdn/image/upload/f_auto,q_70,w_1300/v1530177052/mere/landing-v3-texture.jpg"
     title="BORN IN AUSTRALIA"
     subtitle="FROM THE EARTH'S MOST<br>POWERFUL LIFE FORCE"
   )
   image-picture.two.top.right(
     card
-    src="landing-v3-girl-m.jpg"
-    srcset="landing-v3-girl.jpg"
+    src="https://res.cloudinary.com/pw-img-cdn/image/upload/f_auto,q_70,w_400,c_fill,g_auto/v1530177029/mere/landing-v3-girl-m.jpg"
+    srcset="https://res.cloudinary.com/pw-img-cdn/image/upload/f_auto,q_70,w_1300,c_fill,g_auto/v1530177024/mere/landing-v3-girl.jpg"
   )
   image-picture.three(
     card
-    src="landing-v3-greensea-m.jpg"
-    srcset="landing-v3-greensea.jpg"
+    src="https://res.cloudinary.com/pw-img-cdn/image/upload/f_auto,q_70,w_400/v1530177018/mere/landing-v3-greensea-m.jpg"
+    srcset="https://res.cloudinary.com/pw-img-cdn/image/upload/f_auto,q_70,w_1300/v1530177029/mere/landing-v3-greensea.jpg"
   )
   image-picture.four.bottom(
     card
-    src="landing-v3-darksea-m.jpg"
-    srcset="landing-v3-darksea-1.jpg"
+    src="https://res.cloudinary.com/pw-img-cdn/image/upload/f_auto,q_70,w_700/v1530177026/mere/landing-v3-darksea-m.jpg"
+    srcset="https://res.cloudinary.com/pw-img-cdn/image/upload/f_auto,q_70,w_1300/v1530177015/mere/landing-v3-darksea-1.jpg"
     title="FUTURE BEAUTY<br>NATURALLY AWOKEN"
     subtitle="ACTIVATING SOON"
   )
 
-  .u-absolutePin.z-3.mt-logo
+  // .u-absolutePin.z-3.mt-logo
     .f.f-childrenCenter
       .w-100.u-textCenter
         logo.c-white.u-sm-hidden(width="214" height="50")
         logo.c-white.u-hidden.u-sm-block.u-lg-hidden(width="321" height="75")
         logo.c-white.u-hidden.u-lg-block(width="428" height="100")
-  .u-absolutePin.z-4.u-sm-hidden
+  // .u-absolutePin.z-4.u-sm-hidden
     .mt-top
       .f.f-childrenCenter
         .w-100

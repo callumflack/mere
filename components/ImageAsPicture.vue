@@ -3,6 +3,7 @@
   figure(:class="figureClasses", ref="placeholder")
     picture
       source(
+        v-if="srcSetLg"
         media="(min-width: 769px)"
         :srcset="srcSetLg"
         sizes="100vw"
@@ -47,13 +48,10 @@ export default {
       ];
     },
     srcImg() {
-      return `images/${this.src}`;
-    },
-    srcSetSm() {
-      return this.srcset && `srcset="images/${this.srcset} 400w"`;
+      return `${this.src}`;
     },
     srcSetLg() {
-      return this.srcset && `images/${this.srcset} 769w`;
+      return this.srcset && `${this.srcset} 769w`;
     }
   }
 };
