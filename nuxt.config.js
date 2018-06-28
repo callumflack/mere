@@ -42,7 +42,7 @@ module.exports = {
   */
   modules: [
     // Doc: https://github.com/nuxt-community/axios-module#usage
-    "@nuxtjs/axios"
+    // "@nuxtjs/axios"
   ],
   /*
   ** Axios module configuration
@@ -59,6 +59,10 @@ module.exports = {
   ** Build configuration
   */
   build: {
+    /*
+    ** Add axios globally
+    */
+    vendor: ["axios"],
     /*
     ** You can extend webpack config here
     */
