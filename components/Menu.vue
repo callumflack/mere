@@ -72,7 +72,8 @@ export default {
       // Classes assigned to nav on scroll
       navBar: {
         collapse: false,
-        open: false
+        open: false,
+        static: false
       },
       // Used to keep track of scroll position
       scrollState: 0,
@@ -111,6 +112,7 @@ export default {
   methods: {
     handleNavToggle() {
       this.$store.commit("SET_MODAL_VISIBILITY", !this.$store.state.isMobileNavVisible);
+      this.navBar.static = this.$store.state.isMobileNavVisible;
     },
     scrollDetect(home, down, up) {
       // Current scroll position
@@ -184,6 +186,10 @@ export default {
   animation: open 1s ease forwards;
   /* box-shadow: 0 9px 25px 0 rgba(0, 0, 0, 0.25), 0 19px 70px 0 rgba(0, 0, 0, 0.1); */
   /* box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.15); */
+}
+
+.static {
+  animation: initial;
 }
 
 @keyframes collapse {
