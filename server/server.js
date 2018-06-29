@@ -14,8 +14,8 @@ export default function(app) {
     .expose({
       Post: {
         methods: ["list", "retrieve"],
-        populate: "category",
-        show: "_id slug category title image",
+        populate: "author",
+        show: "_id slug category title image content.extended",
         filter: {
           state: "published"
         }

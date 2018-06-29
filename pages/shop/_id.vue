@@ -1,13 +1,7 @@
 <template>
   <div class="post">
-    <div class="author">
-      <div class="author__body">
-        {{ post.author.name.first }} {{ post.author.name.last }}
-      </div>
-    </div>
     <h1 class="post__title">{{ post.category }}</h1>
     <h1 class="post__title">{{ post.title }}</h1>
-    <span>{{ post.publishedDate }}</span>
     <p v-html="post.content.extended"></p>
   </div>
 </template>

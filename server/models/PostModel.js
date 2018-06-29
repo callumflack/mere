@@ -40,7 +40,6 @@ Post.add({
     type: Types.Relationship,
     ref: "PostCategory"
   },
-  // from Raatsicc
   category: {
     type: Types.Select,
     options: ["MERE PHYTISPHERE", "Other"],

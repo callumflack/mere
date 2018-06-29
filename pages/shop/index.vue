@@ -11,10 +11,11 @@
         v-for="post in posts" 
         :key="post._id"
       )
-        nuxt-link(:to="`/shop/${post.slug}`")
+        nuxt-link(:to="`/shop/${post._id}`")
           .Product-inner
             h5.Heading.Heading--md.fs-textSm {{ post.category }}
             h2.Product-heading {{ post.title }}
+            p {{ post.slug }}
             figure.Product-image
               img(src="/images/products-super-natural-dermal-serum-vaccine-bottle.png")
           .Product-button.Heading.fs-textMd.c-brand.u-noVisualLink $69.95 AUD
