@@ -2,18 +2,22 @@
 .b-pb2
   .b-py3
     .Container.Container--text
-      h1.Heading.Heading--md {{ title }}
-      p.c-brand.u-textCenter {{ intro }}
+      h1.Heading.Heading--md {{ pageTitle }}
+      p.c-brand.u-textCenter {{ pageIntro }}
 
   .Container.Container--hero
-    .FlexGrid--block(v-for="post in posts" v-bind:key="i")
-      .Product.w-sm-1x2.w-lg-1x3
-        .Product-inner
-          h5.Heading.Heading--md.fs-textSm {{ post.categories }}
-          h2.Product-heading {{ post.title }}
-          figure.Product-image
-            img(src="/images/products-super-natural-dermal-serum-vaccine-bottle.png")
-        a.Product-button.Heading.fs-textMd.c-brand.u-noVisualLink(href="#") $69.95 AUD
+    .FlexGrid--block
+      .Product.w-sm-1x2.w-lg-1x3(
+        v-for="post in posts" 
+        :key="post._id"
+      )
+        nuxt-link(:to="`/shop/${post.slug}`")
+          .Product-inner
+            h5.Heading.Heading--md.fs-textSm {{ post.category }}
+            h2.Product-heading {{ post.title }}
+            figure.Product-image
+              img(src="/images/products-super-natural-dermal-serum-vaccine-bottle.png")
+          .Product-button.Heading.fs-textMd.c-brand.u-noVisualLink $69.95 AUD
 
 </template>
 
@@ -29,9 +33,10 @@ export default {
   },
   data() {
     return {
-      title: "Beyond beautiful",
-      intro:
-        "Our super natural skin care range champions the natural environment and provides cleaner and safer products of the highest quality"
+      pageTitle: "Beyond beautiful",
+      pageIntro:
+        "Our super natural skin care range champions the natural environment and provides cleaner and safer products of the highest quality",
+      productLabel: "MERE PHYTISPHERE"
     };
   },
   computed: {
@@ -46,12 +51,13 @@ export default {
   },
   async asyncData() {
     const posts = await postsRepository.list();
+    console.log(posts);
     return { posts };
   }
 };
 </script>
 
-<style>
+<style lang="postcss">
 @import "../../assets/styles/variables.css";
 
 .Product-inner {

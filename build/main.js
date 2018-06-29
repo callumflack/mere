@@ -85,6 +85,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 
+// const pkg = require("./package.json");
 
 __WEBPACK_IMPORTED_MODULE_0_keystone___default.a.init({
   name: "Keystone Boilerplate",
@@ -98,7 +99,15 @@ __WEBPACK_IMPORTED_MODULE_0_keystone___default.a.init({
   "user model": "User",
   compress: true,
   headless: false // true to disable admin
+
+  // 'session': process.env.NODE_ENV !== 'production',
+  // 'cookie secret': process.env.COOKIE_SECRET,
+  // 'mongo': process.env.MONGO_URI || `mongodb://localhost/${pkg.name}`,
+  // 'cloudinary config': process.env.CLOUDINARY_URI,
 });
+
+// set a base URL to use with <head> attributes on each page
+// keystone.set('baseUrl', keystone.get('env') === 'production' ? 'https://mereskincare.com' : 'http://localhost:3000');
 
 __WEBPACK_IMPORTED_MODULE_0_keystone___default.a.import("../server/models");
 
@@ -111,11 +120,20 @@ __WEBPACK_IMPORTED_MODULE_0_keystone___default.a.set("locals", {
 
 __WEBPACK_IMPORTED_MODULE_0_keystone___default.a.set("routes", __WEBPACK_IMPORTED_MODULE_2__server__["a" /* default */]);
 
+// Force cloudinary to serve images over https
+// keystone.set('cloudinary secure', true);
+
 __WEBPACK_IMPORTED_MODULE_0_keystone___default.a.set("nav", {
   posts: ["posts", "post-categories"],
   enquiries: "enquiries",
   users: "users"
 });
+
+// if (process.env.NODE_ENV !== 'test') {
+//   keystone.start();
+// }
+
+// if (process.env.NODE_ENV !== "production") require("dotenv").config();
 
 __WEBPACK_IMPORTED_MODULE_0_keystone___default.a.start();
 
@@ -140,7 +158,7 @@ module.exports = require("lodash");
 
 
 const restfulKeystone = __WEBPACK_IMPORTED_MODULE_1_restful_keystone___default()(__WEBPACK_IMPORTED_MODULE_0_keystone___default.a, {
-  root: '/api/v1'
+  root: "/api/v1"
 });
 
 /* harmony default export */ __webpack_exports__["a"] = (function (app) {
@@ -149,14 +167,15 @@ const restfulKeystone = __WEBPACK_IMPORTED_MODULE_1_restful_keystone___default()
    */
   restfulKeystone.expose({
     Post: {
-      methods: ['list', 'retrieve'],
+      methods: ["list", "retrieve"],
+      populate: "category",
+      show: "_id slug category title image",
       filter: {
-        state: 'published'
-      },
-      populate: 'author'
+        state: "published"
+      }
     },
     PostCategory: {
-      methods: ['list', 'retrieve']
+      methods: ["list", "retrieve"]
     }
   }).start();
 

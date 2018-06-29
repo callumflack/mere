@@ -21,7 +21,7 @@ button {
 /*.visualLink,
 .project:hover .project-visualLink,
 a:not(.Button),
-a:not(.LinkSignal),*/
+a:not(.LinkSignal),
 a:not(.Button),
 h1 a:hover,
 h1 a:active,
@@ -40,7 +40,7 @@ h1 a:active,
   @media screen and (-webkit-min-device-pixel-ratio: 0) {
     background-position-y: 102%, 102%, 102%;
   }
-}
+}*/
 
 h1 a:hover,
 h1 a:active,
