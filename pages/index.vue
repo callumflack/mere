@@ -23,13 +23,13 @@
     subtitle="ACTIVATING SOON"
   )
 
-  // .u-absolutePin.z-3.mt-logo
+  .u-absolutePin.z-3.mt-logo
     .f.f-childrenCenter
       .w-100.u-textCenter
         logo.c-white.u-sm-hidden(width="214" height="50")
         logo.c-white.u-hidden.u-sm-block.u-lg-hidden(width="321" height="75")
         logo.c-white.u-hidden.u-lg-block(width="428" height="100")
-  // .u-absolutePin.z-4.u-sm-hidden
+  .u-absolutePin.z-4.u-sm-hidden
     .mt-top
       .f.f-childrenCenter
         .w-100
