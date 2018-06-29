@@ -1,6 +1,6 @@
 <template lang="pug">
-  footer.Footer.u-hidden.u-sm-block
-    .f.f-justifyEnd
+  footer.Footer
+    .f.f-justifyCenter.f-sm-justifyEnd
       div
         menu-link.Heading.Heading--md.fs-textSm(
           v-for="item in footerLinks"

@@ -12,12 +12,11 @@
         :key="post._id"
       )
         nuxt-link(:to="`/shop/${post._id}`")
-          .Product-inner
-            h5.Heading.Heading--md.fs-textSm {{ post.category }}
-            h2.Product-heading {{ post.title }}
-            p {{ post.slug }}
-            figure.Product-image
-              img(src="/images/products-super-natural-dermal-serum-vaccine-bottle.png")
+          .Product-heading
+            h5.Heading.Heading--md.fs-textSm.m-b3 {{ post.category }}
+            h2.Product-title.Product-title--card {{ post.title }}
+          .Product-image
+            img(src="/images/products-super-natural-dermal-serum-vaccine-bottle.png")
           .Product-button.Heading.fs-textMd.c-brand.u-noVisualLink $69.95 AUD
 
 </template>
@@ -61,32 +60,28 @@ export default {
 <style lang="postcss">
 @import "../../assets/styles/variables.css";
 
-.Product-inner {
-  background-color: var(--c-neutral);
-  padding: var(--s-4) var(--s-4);
-}
-
 .Product-heading {
-  /* @mixin ff-title;
-  @mixin fs-textLg; */
-  font-family: var(--ff-title), var(--ff-stack-heading);
-  font-size: var(--fs-textLg);
-
-  color: var(--c-text);
-  font-weight: 300;
-  letter-spacing: 0;
-  line-height: 1.2;
-  margin: var(--s-3) auto;
-  text-transform: initial;
+  background-color: var(--c-neutral);
+  padding: var(--s-4) var(--s-4) var(--s-2);
 
   @media (--lg) {
-    width: 66%;
+    & .Heading,
+    & .Product-title {
+      margin: auto;
+      width: 66%;
+    }
   }
 }
 
 .Product-image {
-  height: 340px;
+  background-color: var(--c-neutral);
+  height: 240px;
+  padding: 0 0 var(--s-3);
   text-align: center;
+
+  @media (--sm) {
+    height: 340px;
+  }
 
   & img {
     height: 100%;

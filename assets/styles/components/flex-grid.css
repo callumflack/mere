@@ -31,11 +31,12 @@
 }
 
 .FlexGrid--lg {
-  @mixin flexGrid 1, auto, 5vw;
+  @mixin flexGrid 1, auto, 3vw;
 }
 
 .FlexGrid--block {
   @mixin flexGrid 0, auto, var(--space);
+  margin: calc(-1 * var(--space));
 
   & > * {
     padding-top: var(--space);

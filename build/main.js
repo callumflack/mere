@@ -169,7 +169,7 @@ const restfulKeystone = __WEBPACK_IMPORTED_MODULE_1_restful_keystone___default()
     Post: {
       methods: ["list", "retrieve"],
       populate: "author",
-      show: "_id slug category title image content.extended",
+      show: "_id slug category title image content.brief content.extended",
       filter: {
         state: "published"
       }

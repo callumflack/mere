@@ -198,11 +198,20 @@
   .f-sm-col {
     flex-direction: column !important;
   }
+  .f-sm-justifyStart {
+    justify-content: flex-start !important;
+  }
+  .f-sm-justifyEnd {
+    justify-content: flex-end !important;
+  }
+  .f-sm-justifyCenter {
+    justify-content: center !important;
+  }
   .f-sm-justifyBetween {
     justify-content: space-between !important;
   }
-  .f-sm-justifyStart {
-    justify-content: flex-start !important;
+  .f-sm-justifyAround {
+    justify-content: space-around !important;
   }
 }
 
@@ -217,10 +226,19 @@
   .f-lg-col {
     flex-direction: column !important;
   }
+  .f-lg-justifyStart {
+    justify-content: flex-start !important;
+  }
+  .f-lg-justifyEnd {
+    justify-content: flex-end !important;
+  }
+  .f-lg-justifyCenter {
+    justify-content: center !important;
+  }
   .f-lg-justifyBetween {
     justify-content: space-between !important;
   }
-  .f-lg-justifyStart {
-    justify-content: flex-start !important;
+  .f-lg-justifyAround {
+    justify-content: space-around !important;
   }
 }

@@ -15,7 +15,7 @@ export default function(app) {
       Post: {
         methods: ["list", "retrieve"],
         populate: "author",
-        show: "_id slug category title image content.extended",
+        show: "_id slug category title image content.brief content.extended",
         filter: {
           state: "published"
         }

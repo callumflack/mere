@@ -3,8 +3,8 @@
 }
 
 .Card-figure {
-  margin: auto;
   @mixin absolutePin;
+  margin: auto;
   position: absolute;
 }
 

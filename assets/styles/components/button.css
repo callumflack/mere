@@ -8,7 +8,7 @@
   --Button-font-weight: var(--fw-semibold);
   --Button-height: var(--fieldHeight);
   --Button-xpadding: 1.5em;
-  --Button-radius: var(--borderRadius);
+  --Button-radius: 0;
 }
 
 .Button {

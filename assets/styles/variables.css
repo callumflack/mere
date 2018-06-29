@@ -74,6 +74,10 @@
   --c-danger: hsl(352, 95%, 61%);
   --c-success: hsl(158, 73%, 48%);
   
+  --c-pale-text: rgba(155,175,185,1);
+  --c-pale-green: rgba(120,173,155,0.2);
+  --c-pale-purple: rgba(240,232,234,1);
+  
   --c-inputHover: var(--c-success);
   --c-inputFocus: var(--c-success);
 
@@ -82,19 +86,13 @@
 
   /* 
   
-    Fields
+    Fields, radii, elements
   
    */
 
   --fieldHeight: 3rem;
-
-  /* 
-  
-    Radii
-  
-   */
-
   --borderRadius: 4px;
+  --block-element-margin-bottom: 0;
 
   /* 
   
@@ -138,6 +136,13 @@
     Handles responsive spacings as well.
 
    */
+
+  /* for holding pg
+  --rfs-0: 0.625rem; 
+  --rfs-1: 0.8125rem;
+  --rfs-2: 0.875rem; 
+  --rfs-3: 0.9375rem;
+  --rfs-4: 1rem; */
 
   --rfs-0: 0.625rem;  /* 12pt if fs-text = 1em or 16px */
   --rfs-1: 0.8125rem; /* 13pt */
