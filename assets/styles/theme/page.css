@@ -13,6 +13,7 @@
 
 /* holding page */
 .Content--holdingpage {
-  height: auto;
+  height: 100vh;
   margin-top: 0;
+  position: relative;
 }

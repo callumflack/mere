@@ -29,7 +29,7 @@
         logo.c-white.u-sm-hidden(width="214" height="50")
         logo.c-white.u-hidden.u-sm-block.u-lg-hidden(width="321" height="75")
         logo.c-white.u-hidden.u-lg-block(width="428" height="100")
-  .u-absolutePin.z-4.u-sm-hidden
+  .u-absolutePin.z-4.mt-logo.u-sm-hidden
     .mt-top
       .f.f-childrenCenter
         .w-100
@@ -44,7 +44,8 @@
             | FUTURE BEAUTY<br>NATURALLY AWOKEN
           h2.Title.Title--reversed.u-textCenter.c-white
             | ACTIVATING SOON
-    
+  // .u-absolutePin.z-5.fakeSafariBottomMenu
+
 </template>
 
 <script>
@@ -65,8 +66,10 @@ export default {
   mounted() {
     // toggle body class to manage Safari iOS 44px bottom menu until scrolled…
     // https://github.com/lancedikson/bowser
-    if (bowser.ios && bowser.chrome) {
-      document.body.classList.add("is-chrome-ios");
+    if (bowser.ios && bowser.safari) {
+      document.body.classList.add("is-safari-ios");
+    } else if (bowser.ios && !bowser.safari) {
+      document.body.classList.add("is-not-safari-ios");
       // alert("Hello Chrome on iOS");
     }
   }
@@ -86,18 +89,21 @@ export default {
 
 /* image containers */
 .Collage {
+  display: block;
   height: 100vh;
+  overflow: hidden;
   position: relative;
   width: 100vw;
+  width: 100%;
 }
 
 /* 
-  allow for the gnarly bottom menu in safari ios,
-  specifically targeting w/ media-queries
-  using the detections in mounted()
+  allow for the gnarly bottom menu in safari ios
+  by specifically targeting w/ media-queries
+  using the bowser detections in mounted()
 */
 
-.Collage {
+/* .Collage {
   @media only screen and (max-device-width: 667px) and (orientation: portrait) {
     height: calc(100vh - 75px);
   }
@@ -111,7 +117,7 @@ export default {
   @media only screen and (max-device-width: 667px) and (orientation: portrait) {
     height: 100vh;
   }
-}
+} */
 
 /* image utils */
 .left {
@@ -178,9 +184,23 @@ export default {
   }
 }
 
-/* mobile-only text */
+/* 
+
+  Mobile-only text.
+  Revise mobile-onnly text on Safari iOS only
+  using the bowser detections in mounted()
+
+*/
+
+.fakeSafariBottomMenu {
+  background-color: chartreuse;
+  height: 75px;
+  top: auto;
+}
+
 .mt-logo {
   top: 25%;
+  height: 75%;
 
   @media (--sm) {
     top: 0;
@@ -195,10 +215,48 @@ export default {
 }
 
 .mt-top {
-  top: 25%;
+  top: 0;
 }
 
 .mt-bottom {
   bottom: 0;
 }
+
+/* is-safari-ios */
+.is-safari-ios {
+  @media only screen and (max-device-width: 667px) and (orientation: portrait) {
+    & .mt-logo {
+      bottom: auto;
+      height: calc(75% - 75px);
+    }
+
+    & .mt-top,
+    & .mt-bottom {
+      height: 33%;
+    }
+  }
+
+  @media only screen and (max-device-width: 667px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait) {
+    & .mt-logo {
+      height: calc(75% - 70px);
+    }
+  }
+}
+
+/* is-NOT-safari-ios */
+/* .is-not-safari-ios {
+  & .mt-logo {
+    bottom: 0;
+    height: 100%;
+  }
+
+  & .mt-top,
+  & .mt-bottom {
+    height: 25%;
+  }
+
+  & .mt-top {
+    top: 25%;
+  }
+} */
 </style>
