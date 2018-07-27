@@ -63,6 +63,17 @@
   text-decoration: none;
 }
 
+.Button {
+  &:hover {
+    box-shadow: var(--c-bg) 0 0 0 1px;
+  }
+
+  &:focus {
+    outline: 0;
+    box-shadow: var(--c-bg) 0 0 0 3px;
+  }
+}
+
 .Button:disabled,
 .Button.is-disabled {
   cursor: default;
