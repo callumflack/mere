@@ -18,7 +18,7 @@
 </template>
 
 <script>
-import Logo from "~/components/Logo2.vue";
+import Logo from "~/components/Logo.vue";
 import ProductCard from "~/components/ProductCard.vue";
 
 export default {

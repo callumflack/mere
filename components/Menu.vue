@@ -38,7 +38,7 @@
 </template>
 
 <script>
-import Logo from "~/components/Logo2.vue";
+import Logo from "~/components/Logo.vue";
 import MenuLink from "~/components/MenuLink.vue";
 import MenuMobile from "~/components/MenuMobile.vue";
 import IconBase from "~/components/IconBase.vue";
