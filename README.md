@@ -1,22 +1,27 @@
-# mere
+# Mere ecommerce website
 
-> mere ecommerce shop
+## Local dev
 
-## Build Setup
+Run the Keystone server on port 4000: `PORT=4000 nodemon server.js`
 
-``` bash
-# install dependencies
-$ yarn install
+Run the next.js client: `npm run dev`
 
-# serve with hot reload at localhost:3000
-$ yarn run dev
+## To deploy the next client
 
-# build for production and launch server
-$ yarn run build
-$ yarn start
+Simply `now && now alias` as per `now.json`.
 
-# generate static project
-$ yarn run generate
-```
+## To deploy the keystone server
 
-For detailed explanation on how things work, checkout [Nuxt.js docs](https://nuxtjs.org).
+1. Create a `now` deployment.
+2. `now alias` the deployment to admin.vjraystrata.com.au
+3. The client's footer login link is `admin.vjraystrata.com.au/keystone`, no further fixes required.
+4. You don't need to do anything to the client, because it's `@vjr_server_uri` `now secret` is always set to the aliased server URI.
+
+## Learnings
+
+If you ever move to a new mongodb instance, remember to:
+
+* update both `server.env` & `client.env`
+* run new client & server deployments and alias them to the production website's URLs
+* you won't need to update the `@vjr_server_uri` `now secret` as it is always set to the aliased server URI.
+* more info: https://www.evernote.com/l/ACyk1xhr6BFM_6mF_wsLe086BAG76tktx90
