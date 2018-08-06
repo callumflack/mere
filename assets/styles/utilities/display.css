@@ -71,7 +71,7 @@
     display: inline-block;
 
     &:not(:last-child) {
-      margin-right: var(--inlineBlockChildrenSpace);
+      margin-right: var(--inline-block-children-space);
     }
   }
 }

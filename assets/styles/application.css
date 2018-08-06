@@ -37,10 +37,9 @@
 /* Typography */
 @import "./typography/font-face.css";
 @import "./typography/font-styles.css";
-/* @import "./typography/type.css"; */
 @import "./typography/font-spacing.css";
 @import "./typography/base.css";
-@import "./typography/links.css";
+@import "./typography/link.css";
 @import "./typography/lists.css";
 @import "./typography/horizontal-rule.css";
 @import "./typography/scope.css";
@@ -53,11 +52,11 @@
 @import "./components/cover-image.css";
 @import "./components/flex-grid.css";
 @import "./components/image-blend.css";
-@import "./components/image-loader.css";
 @import "./components/modal.css";
 @import "./components/popover.css";
 
 /* Theme */
 @import "./theme/card.css";
+@import "./theme/link.css";
 @import "./theme/menu.css";
 @import "./theme/page.css";

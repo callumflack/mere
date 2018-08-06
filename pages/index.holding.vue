@@ -53,15 +53,13 @@
 import Logo from "~/components/Logo2.vue";
 import ImageCard from "~/components/ImageCard.vue";
 import ImagePicture from "~/components/ImageAsPicture.vue";
-import LazyImage from "v-lazy-image";
 
 export default {
   layout: "holding",
   components: {
     Logo,
     ImageCard,
-    ImagePicture,
-    LazyImage
+    ImagePicture
   },
   mounted() {
     // Safari iOS always displays a 44px bottom menu until scrolled…
@@ -91,7 +89,7 @@ export default {
 
 /* image containers */
 .Collage {
-  /* height: calc(100vh - var(--menuHeight)); */
+  /* height: calc(100vh - var(--menu-height)); */
   height: 100vh;
   position: relative;
   width: 100vw;

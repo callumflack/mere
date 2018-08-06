@@ -88,8 +88,8 @@ export default {
           link: "/about"
         },
         {
-          label: "contact",
-          link: "/contact"
+          label: "footprint",
+          link: "/footprint"
         }
       ],
       menuLeftLinks: [

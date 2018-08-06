@@ -30,12 +30,7 @@ module.exports = {
   /*
   ** Plugins to load before mounting the App
   */
-  plugins: [
-    {
-      src: "~/plugins/v-lazy-image",
-      ssr: false
-    }
-  ],
+  plugins: [{ src: "~/plugins/vue-flickity.js", ssr: false }],
 
   /*
   ** Nuxt.js modules
@@ -62,7 +57,7 @@ module.exports = {
     /*
     ** Add axios globally
     */
-    vendor: ["axios"],
+    vendor: ["axios", "vue-flickity"],
     /*
     ** You can extend webpack config here
     */

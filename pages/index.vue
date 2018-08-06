@@ -41,7 +41,7 @@ export default {
 /* image containers */
 .Collage {
   height: 100vh;
-  height: calc(100vh - var(--menuHeight));
+  height: calc(100vh - var(--menu-height));
   position: relative;
   width: 100vw;
 }

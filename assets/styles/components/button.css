@@ -1,16 +1,3 @@
-:root {
-  --Button-background-color: transparent;
-  --Button-border-color: currentcolor;
-  --Button-border-width: 1px;
-  --Button-color: inherit;
-  --Button-disabled-opacity: 0.6;
-  --Button-font: inherit;
-  --Button-font-weight: var(--fw-semibold);
-  --Button-height: var(--fieldHeight);
-  --Button-xpadding: 1.5em;
-  --Button-radius: 0;
-}
-
 .Button {
   align-items: center;
   background-color: var(--Button-background-color);
@@ -31,6 +18,7 @@
   padding-right: var(--Button-xpadding);
   position: relative;
   text-decoration: none;
+  text-transform: var(--Button-font-case);
   user-select: none;
 }
 
@@ -65,12 +53,13 @@
 
 .Button {
   &:hover {
-    box-shadow: var(--c-bg) 0 0 0 1px;
+    box-shadow: var(--Button-box-shadow-color) 0 0 0 2px;
   }
 
-  &:focus {
+  &:focus,
+  &:active {
     outline: 0;
-    box-shadow: var(--c-bg) 0 0 0 3px;
+    box-shadow: var(--Button-box-shadow-color) 0 0 0 3px;
   }
 }
 
@@ -84,27 +73,68 @@
   Variations
  */
 
-.Button--primary {
-  --Button-background-color: var(--c-brand);
-  --Button-border-color: var(--c-brand) !important;
-  --Button-border-width: 1px;
-  --Button-color: var(--c-white);
+.Button--alt {
+  --Button-background-color: var(--c-brand-highlight);
+  --Button-box-shadow-color: var(--c-brand-highlight);
 }
 
 .Button--outline {
-  --Button-background-color: var(--c-brand);
-  --Button-border-color: currentcolor;
-  --Button-border-width: 1px;
-  --Button-color: var(--c-white);
+  --Button-background-color: var(--c-bg);
+  --Button-border-color: var(--c-brand);
+  --Button-box-shadow-color: var(--c-brand);
+  --Button-color: var(--c-brand);
+
+  &:hover {
+    border-color: var(--c-bg);
+    box-shadow: var(--Button-box-shadow-color) 0 0 0
+        var(--Button-box-shadow-stroke-inset) inset,
+      var(--Button-box-shadow-color) 0 0 0 var(--Button-box-shadow-stroke-hover);
+  }
+
+  &:focus,
+  &:active {
+    border-color: var(--c-bg);
+    box-shadow: var(--Button-box-shadow-color) 0 0 0
+        var(--Button-box-shadow-stroke-inset) inset,
+      var(--Button-box-shadow-color) 0 0 0 var(--Button-box-shadow-stroke-active);
+  }
 }
 
-.Button--reverse {
-  --Button-background-color: transparent;
-  --Button-border-width: 1px;
-  /* --Button-color: var(--c-brand); */
+.Button--outline-alt {
+  --Button-background-color: var(--c-bg);
+  --Button-border-color: var(--c-brand-highlight);
+  --Button-box-shadow-color: var(--c-brand-highlight);
+  --Button-color: var(--c-brand-highlight);
+
+  &:hover {
+    border-color: var(--c-bg);
+    box-shadow: var(--Button-box-shadow-color) 0 0 0
+        var(--Button-box-shadow-stroke-inset) inset,
+      var(--Button-box-shadow-color) 0 0 0 var(--Button-box-shadow-stroke-hover);
+  }
+
+  &:focus,
+  &:active {
+    border-color: var(--c-bg);
+    box-shadow: var(--Button-box-shadow-color) 0 0 0
+        var(--Button-box-shadow-stroke-inset) inset,
+      var(--Button-box-shadow-color) 0 0 0 var(--Button-box-shadow-stroke-active);
+  }
 }
 
 .Button--transparent {
   --Button-background-color: transparent;
   --Button-border-color: transparent;
+  --Button-box-shadow-color: var(--Button-border-color);
+
+  &:hover {
+    border-color: none;
+    box-shadow: initial;
+  }
+
+  &:focus,
+  &:active {
+    border-color: none;
+    box-shadow: initial;
+  }
 }

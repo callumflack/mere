@@ -9,60 +9,39 @@
 
  */
 
-/*
-@define-mixin icon $network, $color: blue {
-    .icon.is-$(network) {
-        color: $color;
-        @mixin-content;
-    }
-    .icon.is-$(network):hover {
-        color: white;
-        background: $color;
-    }
-}
-
-@mixin icon twitter {
-    background: url(twt.png);
-}
-@mixin icon youtube, red {
-    background: url(youtube.png);
-}
-*/
-
 @define-mixin imageBlend $color: var(--initialBlendColor) {
   background-blend-mode: multiply;
   background-color: $color;
 }
 
-.c-imageBlend { 
-  @mixin imageBlend; 
+.c-imageBlend {
+  @mixin imageBlend;
 }
 
 /*
-.o-imageBlend--deep       { @include imageBlend($color: rgba( palette(brand-purplemud), 0.9 ) ); }
-.o-imageBlend--dark       { @include imageBlend($color: $darkBlendColor); }
-.o-imageBlend--grey       { @include imageBlend($color: $greyBlendColor); }
-.o-imageBlend--light      { @include imageBlend($blend: overlay, $color: $lightBlendColor); }
-.o-imageBlend--whiten     { @include imageBlend($blend: overlay, $color: $whiteBlendColor); filter: grayscale(100%); }
 
-.o-imageBlend--brand      { @include imageBlend($color: $brandBlendColor); }
-.o-imageBlend--brandLight { @include imageBlend($color: $brandLightBlendColor); }
+    Other examples…
 
-.o-imageBlend--gradient   { @include imageBlend($gradient: true); }
-
-.o-imageBlend--darkGradient:after { 
-    @include o-posFullScreen(absolute);
-    background-image: linear-gradient( rgba( palette(black), 0 ), rgba( palette(black), 1 ) 100% ); 
-    background-image: linear-gradient( rgba( palette(brand-purplemud), 0 ), rgba( palette(brand-purplemud), 1 ) 100% ); 
-    //background-image: linear-gradient( rgba( $color-brand-purplemud-dark, 0 ), rgba( $color-brand-purplemud-dark, 1 ) 100% ); 
-    background-blend-mode: multiply;
-    content: "";
+@define-mixin icon $network, $color: blue {
+  .icon.is-$(network) {
+    color: $color;
+    @mixin-content;
+  }
+  .icon.is-$(network):hover {
+    color: white;
+    background: $color;
+  }
 }
 
-.o-imageBlend--stormGradient:after { 
-    @include o-posFullScreen(absolute);
-    background-image: linear-gradient( rgba( 30, 27, 34, 0 ), rgba( 30, 27, 34, 0.85 ) 70% ); 
-    background-blend-mode: multiply;
-    content: "";
+@mixin icon twitter {
+  background: url(twt.png);
 }
-*/
+@mixin icon youtube, red {
+  background: url(youtube.png);
+}
+
+.o-imageBlend--linearGradient:after {
+  background-image: linear-gradient(rgba(30, 27, 34, 0), rgba(30, 27, 34, 0.85) 70%);
+  content: "";
+}
+ */

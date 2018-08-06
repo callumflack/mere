@@ -1,40 +1,50 @@
 <template lang="pug">
-// Mismatching childNodes vs. VNodes
-// https://github.com/nuxt/nuxt.js/issues/1594
-no-ssr
   .u-relative
     nuxt-link.ClosePage(to="/shop")
       icon-base.c-brand.p-a3.p-sm-a5(icon-name="icon-close", height="48", width="48")
         icon-close
     .b-py2.p-msm-b3
-      .Container.Container--text
-        h3.Heading.Heading--md.m-b3 {{ post.category }}
-        h1.Product-title {{ post.title }}
+      .Container.Container--sm
+        h3.Heading.Heading--md.m-b3 {{ category }}
+        h1.Product-title {{ title }}
       
-    .Container.Container--hero.b-pb2
+    .Container.Container--su.b-pb3
       .FlexGrid
         .w-sm-1x3
           .f-childrenCenter
             .w-100
-              p.c-brand.u-textCenter.m-b3 $69.95
-              p.c-brand.u-textCenter(v-html="post.content.brief")
+              p.c-brand.u-textCenter.m-b3 ${{ price }}
+              p.c-brand.u-textCenter {{ intro }}
+              .u-textCenter.m-t4
+                .Heading.c-brand.fw-medium.m-b3
+                  a.LinkUnderline(@click="handleToggle") 
+                    span(v-if="isVisible") Show 
+                    span(v-if="!isVisible") Hide 
+                    span all ingredients
+                p.c-brand.u-textCenter.toggle(:class="{ 'is-hidden': isVisible }") {{ ingredients }}
+
         .w-sm-1x3
-          figure
-              img(src="/images/products-super-natural-dermal-serum-vaccine-bottle.png")
+          flickity.Slider(ref="flickity" :options="flickityOptions")
+            .Slider-cell(v-for="image in images" :key="image")
+              img(:src="image")
+          // p.Heading Super natural properties
+            
         .w-sm-1x3
           .f-childrenCenter
             .w-100
               .Product-add.w-sm-3x4.m-xA.m-b4
-                button.Button.c-brand.u-block.w-100.m-b3 1
-                button.Button.c-brand.u-block.w-100 add to cart
-              .w-sm-3x4.m-xA.m-b4
+                .Button.Button--outline.Button--stateless.f.f-justifyBetween.p-x0.m-b3
+                  button.Button.Button--transparent.w-1x3(v-on:click="addToCart") +
+                  span.u-textCenter.w-1x3 {{ cart }}
+                  button.Button.Button--transparent.w-1x3(v-on:click="removeFromCart") -
+                button.Button.u-block.w-100 add to cart
+              .w-sm-3x4.m-xA
                 p.c-brand.u-textCenter 
                   | Free shipping on orders over $89
                 p.c-brand.u-textCenter.Text--sm
                   | Add more than $49 worth of MERE to your bag and receive free shipping on the order
     
-    // floaty shit
-    .Container.Container--super
+    .Container.Container--su.b-pb3
       .FlexGrid--lg
         .w-sm-1x2.one
           .Card.p-sm-l7.p-sm-b5
@@ -94,7 +104,6 @@ no-ssr
 <script>
 import IconBase from "~/components/IconBase";
 import IconClose from "~/components/icons/IconClose";
-import { postsRepository } from "~/shared/repositories";
 
 export default {
   name: "id",
@@ -102,17 +111,53 @@ export default {
     IconBase,
     IconClose
   },
-  async asyncData({ params, error }) {
-    const { id } = params;
-    const post = await postsRepository
-      .get({ id })
-      .catch(e => error({ statusCode: 404, message: "Post not found" }));
-
-    return { post };
+  data() {
+    return {
+      title: "Activated Dermal Corrective Tonic",
+      category: "Mere Phytisphere",
+      intro:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempo incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat",
+      ingredients:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempo incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat",
+      images: [
+        "/images/products-pack-1.png",
+        "/images/products-super-natural-dermal-serum-vaccine-bottle.png",
+        "/images/products-pack-2.png"
+      ],
+      price: 69.95,
+      cart: 1,
+      flickityOptions: {
+        // autoPlay: true,
+        prevNextButtons: false,
+        pageDots: false,
+        wrapAround: true,
+        cellSelector: ".Slider-cell"
+      }
+    };
+  },
+  computed: {
+    isVisible() {
+      return !this.$store.state.isToggleVisible;
+    }
+  },
+  methods: {
+    addToCart() {
+      this.cart += 1;
+    },
+    removeFromCart() {
+      if (this.cart <= 0) {
+        this.cart = 0;
+      } else {
+        this.cart -= 1;
+      }
+    },
+    handleToggle() {
+      this.$store.commit("SET_TOGGLE_VISIBILITY", !this.$store.state.isToggleVisible);
+    }
   },
   head() {
     return {
-      title: `Post: ${this.post.title}`
+      title: "Shop product"
     };
   }
 };
@@ -138,38 +183,17 @@ export default {
   text-align: center;
 }
 
+/* flickity wtf */
+
+.Slider-cell {
+  width: 420px;
+}
+.Slider-cell img {
+  height: auto;
+  margin: auto;
+}
+
 /* comp utils */
-
-/* .one { 
-  order: 1;
-}
-.two { 
-  order: 2; 
-}
-.three { 
-  order: 4;
-  @media (--sm) {
-    order: 3;
-  }
-}
-.four { 
-  order: 3; 
-  @media (--sm) {
-    order: 4;
-  }
-}
-.five { 
-  order: 5; 
-}
-.six { 
-  order: 6; 
-} */
-
-.six .Card {
-  @media(--md) {
-    transform:translateY(-7vh);
-  }
-}
 
 .c-pale-text {
   color: var(--c-pale-text);
@@ -179,5 +203,19 @@ export default {
 }
 .bg-pale-purple {
   background-color: var(--c-pale-purple);
+}
+
+/* simple toggle */
+
+.toggle {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.toggle.is-hidden {
+  opacity: 0;
+  transform: translateY(100%);
+  transition: opacity var(--transition-duration),
+    transform 0s var(--transition-duration);
 }
 </style>

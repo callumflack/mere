@@ -76,8 +76,8 @@ export default {
           link: "/about"
         },
         {
-          label: "Contact",
-          link: "/contact"
+          label: "Footprint",
+          link: "/footprint"
         }
       ],
       menuCartLinks: [
@@ -141,10 +141,10 @@ export default {
 
 .MobileNav {
   background-color: var(--c-white);
-  height: calc(100vh - var(--menuHeight));
+  height: calc(100vh - var(--menu-height));
   height: calc(100vh - 60px);
   padding: var(--s-3a) 0;
-  top: var(--menuHeight);
+  top: var(--menu-height);
   width: 100%;
 }
 </style>

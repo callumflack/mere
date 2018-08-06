@@ -15,3 +15,14 @@
 .CoverImage {
   @mixin CoverImage;
 }
+
+.CoverImage--withScreen:before {
+  background-color: var(--cover-image-screen-color);
+  content: "";
+  height: 100%;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 100%;
+}

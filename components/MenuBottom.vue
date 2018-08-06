@@ -28,16 +28,24 @@ export default {
     return {
       footerLinks: [
         {
-          label: "faq",
-          link: "/faq"
+          label: "t+cs",
+          link: "/terms-and-conditions"
         },
         {
-          label: "privacy",
+          label: "privacy policy",
           link: "/privacy"
         },
         {
-          label: "ts+cs",
-          link: "/terms-and-conditions"
+          label: "delivery & returns",
+          link: "/delivery-and-returns"
+        },
+        {
+          label: "faqs",
+          link: "/faq"
+        },
+        {
+          label: "contact us",
+          link: "/contact"
         }
       ]
     };

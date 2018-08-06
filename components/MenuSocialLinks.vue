@@ -6,9 +6,6 @@
     nuxt-link.MenuLink(to="tbc")
       icon-base(icon-name="icon-facebook")
         icon-facebook
-    nuxt-link.MenuLink(to="tbc")
-      icon-base(icon-name="icon-youtube")
-        icon-youtube
 </template>
 
 <script scoped>

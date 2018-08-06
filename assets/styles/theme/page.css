@@ -7,7 +7,7 @@
 
 /* move everything below the nav */
 .Content {
-  margin-top: var(--menuHeight);
+  margin-top: var(--menu-height);
   /* height: 100vh; */
 }
 

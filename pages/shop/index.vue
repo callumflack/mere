@@ -1,30 +1,30 @@
 <template lang="pug">
 .b-pb2
   .b-py3
-    .Container.Container--text
+    .Container.Container--sm
       h1.Heading.Heading--md {{ pageTitle }}
       p.c-brand.u-textCenter {{ pageIntro }}
 
-  .Container.Container--hero
+  .Container.Container--su
     .FlexGrid--block
       .Product.w-sm-1x2.w-lg-1x3(
-        v-for="post in posts" 
-        :key="post._id"
+        v-for="item in products" 
+        :key="item.title"
       )
-        nuxt-link(:to="`/shop/${post._id}`")
+        // nuxt-link(:to="`/shop/${item.title}`")
+        nuxt-link(to="/shop/id")
           .Product-heading
-            h5.Heading.Heading--md.fs-textSm.m-b3 {{ post.category }}
-            h2.Product-title.Product-title--card {{ post.title }}
+            h5.Heading.Heading--md.fs-textSm.m-b3 {{ item.category }}
+            h2.Product-title.Product-title--card {{ item.title }}
           .Product-image
-            img(src="/images/products-super-natural-dermal-serum-vaccine-bottle.png")
-          .Product-button.Heading.fs-textMd.c-brand.u-noVisualLink $69.95 AUD
+            img(:src="item.image")
+          .Product-button.Heading.fs-textMd.c-brand.u-noVisualLink ${{ item.price }} AUD
 
 </template>
 
 <script>
 import Logo from "~/components/Logo2.vue";
 import ProductCard from "~/components/ProductCard2.vue";
-import { postsRepository } from "~/shared/repositories";
 
 export default {
   components: {
@@ -36,7 +36,21 @@ export default {
       pageTitle: "Beyond beautiful",
       pageIntro:
         "Our super natural skin care range champions the natural environment and provides cleaner and safer products of the highest quality",
-      productLabel: "MERE PHYTISPHERE"
+      productLabel: "MERE PHYTISPHERE",
+      products: [
+        {
+          title: "Activated Dermal Corrective Tonic",
+          category: "Mere Phytisphere",
+          image: "/images/products-super-natural-dermal-serum-vaccine-bottle.png",
+          price: 69.95
+        },
+        {
+          title: "Super Natural Dermal Serum Vaccine",
+          category: "Mere Phytisphere",
+          image: "/images/products-super-natural-dermal-serum-vaccine-bottle.png",
+          price: 69.95
+        }
+      ]
     };
   },
   computed: {
@@ -46,13 +60,8 @@ export default {
   },
   head() {
     return {
-      title: "Posts"
+      title: "Shop"
     };
-  },
-  async asyncData() {
-    const posts = await postsRepository.list();
-    console.log(posts);
-    return { posts };
   }
 };
 </script>
