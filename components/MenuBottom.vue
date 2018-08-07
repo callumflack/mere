@@ -2,13 +2,13 @@
   footer.Footer
     .f.f-justifyCenter.f-sm-justifyEnd
       div
-        menu-link.Heading.Heading--md.fs-textSm(
+        menu-link.Heading.fw-medium(
           v-for="item in footerLinks"
           :key="item.label"
           :label="item.label"
           :link="item.link"
         )
-      menu-social-links.m-l5
+      menu-social-links(style="margin-left:3rem")
 </template>
 
 <script scoped>

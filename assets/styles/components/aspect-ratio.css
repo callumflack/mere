@@ -46,7 +46,7 @@
 
 /* Child class pinned to the parent's area */
 
-.AspectRatio-content {
+.AspectRatio-object {
   position: absolute;
   top: 0;
   right: 0;
@@ -59,7 +59,8 @@
 
 .AspectRatio-object {
   & figure,
-  & img {
+  & img,
+  & iframe {
     position: absolute;
     top: 0;
     right: 0;

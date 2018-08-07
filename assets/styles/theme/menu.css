@@ -9,8 +9,8 @@
   align-items: center;
   background-image: initial !important;
   display: inline-flex;
-  height: var(--s-5);
-  padding-top: 1px; /* manage font's line-height */
+  height: var(--menu-height);
+  /* padding-top: 1px; */
   text-decoration: initial;
   text-shadow: initial !important;
   /* text-transform: capitalize; */

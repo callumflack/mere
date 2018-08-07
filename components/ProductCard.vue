@@ -1,7 +1,7 @@
 <template lang="pug">
 .Product.w-sm-1x2.w-lg-1x3
   .Product-inner
-    h5.Heading.Heading--md.fs-textSm {{ type }}
+    h5.Heading.fw-medium.fs-text-sm {{ type }}
     h2.Product-heading {{ name }}
     figure.Product-image
       img(src="/images/products-super-natural-dermal-serum-vaccine-bottle.png")
@@ -44,7 +44,7 @@ export default {
   /* @mixin ff-title;
   @mixin fs-textLg; */
   font-family: var(--ff-title), var(--ff-stack-heading);
-  font-size: var(--fs-textLg);
+  font-size: var(--fs-text-lg);
 
   color: var(--c-text);
   font-weight: 300;

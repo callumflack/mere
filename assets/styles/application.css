@@ -23,16 +23,17 @@
 @import "./utilities/zindex.css";
 
 /* Forms */
-@import "./forms/base.css";
-@import "./forms/checkboxes.css";
-@import "./forms/color-inputs.css";
-@import "./forms/datalists.css";
-@import "./forms/file-inputs.css";
-@import "./forms/radio-buttons.css";
-@import "./forms/range-inputs.css";
-@import "./forms/selects.css";
-@import "./forms/temporal-inputs.css";
-@import "./forms/text-inputs.css";
+@import "./utilities/forms/base.css";
+@import "./utilities/forms/checkboxes.css";
+@import "./utilities/forms/color-inputs.css";
+@import "./utilities/forms/datalists.css";
+@import "./utilities/forms/file-inputs.css";
+@import "./utilities/forms/radio-buttons.css";
+@import "./utilities/forms/range-inputs.css";
+@import "./utilities/forms/selects.css";
+@import "./utilities/forms/temporal-inputs.css";
+@import "./utilities/forms/textareas.css";
+@import "./utilities/forms/text-inputs.css";
 
 /* Typography */
 @import "./typography/font-face.css";
@@ -57,6 +58,9 @@
 
 /* Theme */
 @import "./theme/card.css";
+@import "./theme/colors.css";
+@import "./theme/form.css";
 @import "./theme/link.css";
 @import "./theme/menu.css";
 @import "./theme/page.css";
+@import "./theme/type.css";

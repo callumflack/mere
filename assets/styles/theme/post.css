@@ -50,7 +50,7 @@
 
 .Post-meta {
   @mixin fs-textXs;
-  color: var(--c-textLight);
+  color: var(--c-text-light);
   margin: var(--s-2) 0;
 }
 

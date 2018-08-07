@@ -5,7 +5,7 @@
         icon-close
     .b-py2.p-msm-b3
       .Container.Container--sm
-        h3.Heading.Heading--md.m-b3 {{ category }}
+        h3.Heading.fw-medium.m-b3 {{ category }}
         h1.Product-title {{ title }}
       
     .Container.Container--su.b-pb3
@@ -24,6 +24,22 @@
                 p.c-brand.u-textCenter.toggle(:class="{ 'is-hidden': isVisible }") {{ ingredients }}
 
         .w-sm-1x3
+          // .CssOnlyLightbox
+            .thumb-wrapper
+              a(href="#img1")
+                img.thumbnail(src="https://unsplash.it/800/400?image=179")
+              a(href="#img2")
+                img.thumbnail(src="https://unsplash.it/800/400?image=134")
+              a(href="#img3")
+                img.thumbnail(src="https://unsplash.it/800/400?image=22")
+
+            a.lightbox(href="#" id="img1")
+              img(src="https://unsplash.it/800/400?image=179")
+            a.lightbox(href="#" id="img2")
+              img(src="https://unsplash.it/800/400?image=134")
+            a.lightbox(href="#" id="img3")
+              img(src="https://unsplash.it/800/400?image=22")
+          
           flickity.Slider(ref="flickity" :options="flickityOptions")
             .Slider-cell(v-for="image in images" :key="image")
               img(:src="image")
@@ -41,7 +57,7 @@
               .w-sm-3x4.m-xA
                 p.c-brand.u-textCenter 
                   | Free shipping on orders over $89
-                p.c-brand.u-textCenter.Text--sm
+                p.c-brand.u-textCenter.fs-text-sm
                   | Add more than $49 worth of MERE to your bag and receive free shipping on the order
     
     .Container.Container--su.b-pb3
@@ -70,9 +86,9 @@
             .Card.p-sm-t5
               .Card-block
                 | Customer insights
-                .Product-title.Product-title--card.m-b0 Emma Rose-Lapthorn
+                .Product-title.fs-text-lg.m-b0 Emma Rose-Lapthorn
                 | Lorem Ipsum Magazine
-                .Product-title.Product-title--card
+                .Product-title.fs-text-lg
                   | “Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te facilisi”
         .w-sm-1x3.five
           .Card
@@ -145,8 +161,8 @@ export default {
       this.cart += 1;
     },
     removeFromCart() {
-      if (this.cart <= 0) {
-        this.cart = 0;
+      if (this.cart <= 1) {
+        this.cart = 1;
       } else {
         this.cart -= 1;
       }
@@ -165,6 +181,7 @@ export default {
 
 <style lang="postcss" scoped>
 @import "../../assets/styles/variables.css";
+@import "../../assets/styles/components/lightbox.css";
 
 .ClosePage {
   position: fixed;
@@ -193,18 +210,6 @@ export default {
   margin: auto;
 }
 
-/* comp utils */
-
-.c-pale-text {
-  color: var(--c-pale-text);
-}
-.bg-pale-green {
-  background-color: var(--c-pale-green);
-}
-.bg-pale-purple {
-  background-color: var(--c-pale-purple);
-}
-
 /* simple toggle */
 
 .toggle {
@@ -215,7 +220,39 @@ export default {
 .toggle.is-hidden {
   opacity: 0;
   transform: translateY(100%);
-  transition: opacity var(--transition-duration),
-    transform 0s var(--transition-duration);
+  transition: opacity var(--transition-speed), transform 0s var(--transition-speed);
+}
+
+/* flex cards */
+
+/* .one { 
+  order: 1;
+}
+.two { 
+  order: 2; 
+}
+.three { 
+  order: 4;
+  @media (--sm) {
+    order: 3;
+  }
+}
+.four { 
+  order: 3; 
+  @media (--sm) {
+    order: 4;
+  }
+}
+.five { 
+  order: 5; 
+}
+.six { 
+  order: 6; 
+} */
+
+.six .Card {
+  @media (--md) {
+    transform: translateY(-7vh);
+  }
 }
 </style>

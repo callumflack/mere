@@ -20,7 +20,7 @@
 .MobileNav-trigger,
 .MobileNav-close {
   color: var(--c-brand);
-  font-weight: var(--fw-bold);
+  font-weight: 700;
   // line-height: 38px;
   margin-left: auto;
   padding: 0 0 0 16px);

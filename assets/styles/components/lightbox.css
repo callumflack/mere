@@ -1,0 +1,41 @@
+/* http://youmightnotneedjs.com/ */
+
+:root {
+  --thumbnail-size: 80px;
+  --background-color: rgba(0, 0, 0, 0.8);
+}
+
+.thumbnail {
+  max-width: --thumbnail-size;
+  margin: 1em;
+  float: left;
+}
+
+.lightbox {
+  background: --background-color;
+  display: none;
+  height: 100%;
+  left: 0;
+  position: fixed;
+  text-align: center;
+  top: 0;
+  width: 100%;
+  z-index: 999;
+}
+
+.lightbox img {
+  max-width: 90%;
+  max-height: 80%;
+  margin-top: 2%;
+}
+
+.lightbox:target {
+  outline: none;
+  display: block;
+}
+
+.thumb-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

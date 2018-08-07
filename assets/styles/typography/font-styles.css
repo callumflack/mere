@@ -1,338 +1,173 @@
 /* 
-  Font weights
+  Responsive typography with ems.
+  <size you want>/(16*1.125)
+  Example: 18/(16*1.125) = x
+
+  Applied to <nuxt>.
 */
 
-@define-mixin fw-light {
-  font-weight: var(--fw-light);
-}
-@define-mixin fw-regular {
-  font-weight: var(--fw-regular);
-}
-@define-mixin fw-medium {
-  font-weight: var(--fw-medium);
-}
-@define-mixin fw-semibold {
-  font-weight: var(--fw-semibold);
-}
-@define-mixin fw-bold {
-  font-weight: var(--fw-bold);
+.fs-scale-reset {
+  font-size: var(--rfs-0) !important;
+
+  /* @media (max-width: 320px) {
+    font-size: 0.722222222rem !important;
+  } */
+  @media (--sm) {
+    font-size: var(--rfs-1) !important;
+  }
+  @media (--md) {
+    font-size: var(--rfs-2) !important;
+  }
+  @media (--md-landscape) {
+    font-size: var(--rfs-3) !important;
+  }
+  @media (--lg) {
+    font-size: var(--rfs-4) !important;
+  }
 }
 
 /* 
   Font families
-*/
+ */
 
-@define-mixin ff-text {
-  font-family: var(--ff-text-regular), var(--ff-stack-text);
-  @mixin fw-regular;
+.ff-text {
+  font-family: var(--ff-text), var(--ff-stack-text) !important;
 }
-@define-mixin ff-textMd {
-  font-family: var(--ff-text-medium), var(--ff-stack-text);
-  @mixin fw-medium;
-}
-@define-mixin ff-title {
-  font-family: var(--ff-title), var(--ff-stack-heading);
-  @mixin fw-regular;
+.ff-title {
+  font-family: var(--ff-title), var(--ff-stack-heading) !important;
 }
 
 /* 
   Font sizes
-*/
+ */
 
-@define-mixin fs-text {
-  font-size: var(--fs-text);
+.fs-text {
+  font-size: var(--fs-text) !important;
 }
-@define-mixin fs-textXs {
-  font-size: var(--fs-textXs);
+.fs-text-xs {
+  font-size: var(--fs-text-xs) !important;
 }
-@define-mixin fs-textSm {
-  font-size: var(--fs-textSm);
+.fs-text-sm {
+  font-size: var(--fs-text-sm) !important;
 }
-@define-mixin fs-textMd {
-  font-size: var(--fs-textMd);
+.fs-text-md {
+  font-size: var(--fs-text-md) !important;
 }
-@define-mixin fs-textLg {
-  font-size: var(--fs-textLg);
+.fs-text-lg {
+  font-size: var(--fs-text-lg) !important;
 }
-@define-mixin fs-subheading {
-  font-size: var(--fs-subheading);
+.fs-subheading {
+  font-size: var(--fs-subheading) !important;
 }
-@define-mixin fs-heading {
-  font-size: var(--fs-heading);
+.fs-heading {
+  font-size: var(--fs-heading) !important;
 }
-@define-mixin fs-subtitle {
-  font-size: var(--fs-subtitle);
+.fs-subtitle {
+  font-size: var(--fs-subtitle) !important;
 }
-@define-mixin fs-title {
-  font-size: var(--fs-title);
+.fs-title {
+  font-size: var(--fs-title) !important;
+}
+.fs-supertitle {
+  font-size: var(--fs-supertitle) !important;
 }
 
 /* 
   Font line-height
-*/
+ */
 
-@define-mixin flh-super {
-  line-height: var(--flh-super);
+.flh-super {
+  line-height: var(--flh-super) !important;
 }
-@define-mixin flh-tight {
-  line-height: var(--flh-tight);
+.flh-tight {
+  line-height: var(--flh-tight) !important;
 }
-@define-mixin flh-regular {
-  line-height: var(--flh-regular);
+.flh-reduced {
+  line-height: var(--flh-reduced) !important;
 }
-@define-mixin flh-loose {
-  line-height: var(--flh-loose);
+.flh-regular {
+  line-height: var(--flh-regular) !important;
+}
+.flh-loose {
+  line-height: var(--flh-loose) !important;
 }
 
 /* 
   Font letter-spacing
-*/
+ */
 
-@define-mixin fls-tight {
-  letter-spacing: var(--fls-tight);
+.fls-tight {
+  letter-spacing: var(--fls-tight) !important;
 }
-@define-mixin fls-regular {
-  letter-spacing: var(--fls-regular);
+.fls-regular {
+  letter-spacing: var(--fls-regular) !important;
 }
-@define-mixin fls-loose {
-  letter-spacing: var(--fls-loose);
+.fls-loose {
+  letter-spacing: var(--fls-loose) !important;
 }
 
 /* 
-  -------------------------------------------------
-  
-  Mixins applied
-
-  -------------------------------------------------
+  Font weights
  */
-
-/* Text */
-
-@define-mixin Text {
-  @mixin ff-text;
-  @mixin fs-text;
-  @mixin flh-regular;
-  @mixin fls-regular;
-}
-
-p,
-ul,
-ol,
-.Text,
-.Text--xs,
-.Text--sm,
-.Text--md {
-  @mixin Text;
-}
-
-/* .Button, */
-.Text--meta {
-  @mixin fs-textXs;
-  @mixin fw-medium;
-  @mixin fls-loose;
-  font-family: var(--ff-text-medium), var(--ff-stack-sans);
-  text-transform: uppercase;
-}
-
-.Text--xs {
-  @mixin fs-textXs;
-}
-
-.Text--sm {
-  @mixin fs-textSm;
-}
-
-.Text--md {
-  @mixin fs-textMd;
-}
-
-.Text--lg {
-  @mixin fs-textLg;
-}
-
-/* Sans Headings */
-
-@define-mixin Heading {
-  @mixin ff-text;
-  @mixin fs-text;
-  @mixin flh-tight;
-  @mixin fls-loose;
-  color: var(--c-brand);
-  text-align: center;
-  text-transform: uppercase;
-}
-
-h1,
-.Heading,
-.Heading--md,
-.Heading--lg,
-.Heading--mobile {
-  @mixin Heading;
-}
-
-.Heading--md,
-.Heading--mobile {
-  @mixin ff-textMd;
-}
-
-.Heading--mobile {
-  font-size: var(--fs-heading-mobile);
-  letter-spacing: 0;
-  text-transform: initial;
-}
-
-.Heading--lg {
-  @mixin fs-textLg;
-}
-
-h2,
-.Subheading {
-  @mixin Heading;
-  @mixin fs-subheading;
-}
-
-.Subheading--mobile {
-  @mixin ff-textMd;
-  font-size: var(--fs-subheading-mobile);
-  letter-spacing: 0;
-  text-transform: initial;
-}
-
-/* Page headings */
-
-.Product-title {
-  @mixin ff-title;
-  @mixin fs-heading;
-  color: var(--c-text);
-  font-weight: 300;
-  letter-spacing: 0;
-  line-height: 1.2;
-  margin: var(--s-3) auto;
-  text-transform: initial;
-}
-
-.Product-title--card {
-  @mixin fs-textLg;
-}
-
-/* Home card headings */
-
-.Subtitle,
-.Title {
-  @mixin ff-title;
-  @mixin fs-title;
-  font-weight: 300;
-  line-height: 1.1;
-}
-
-.Subtitle {
-  @mixin fs-subtitle;
-}
-
-.Title {
-  @mixin fs-title;
-}
-
-.Title--reversed {
-  color: var(--c-bg);
-  text-shadow: 0 0 10em rgba(0, 0, 0, 0.7);
-}
-
-/*
-
-  Text blocks
-
- */
-
-.TextBlock--sm {
-  & > p,
-  & > ul,
-  & > li {
-    @mixin fs-textSm;
-  }
-}
-
-.TextBlock--md {
-  & > p,
-  & > ul,
-  & > li {
-    @mixin fs-textMd;
-  }
-}
-
-.TextBlock--lg {
-  & > p,
-  & > ul,
-  & > li {
-    @mixin fs-textLg;
-    @mixin fw-light;
-  }
-}
-
-/*
-
-  Mixins as utilities (last source order)
-
- */
-
-.fs-text {
-  @mixin fs-text;
-}
-.fs-textSm {
-  @mixin fs-textSm;
-}
-.fs-textMd {
-  @mixin fs-textMd;
-}
-.fs-textLg {
-  @mixin fs-textLg;
-}
-.fs-heading {
-  @mixin fs-heading;
-}
-.fs-subheading {
-  @mixin fs-subheading;
-}
-
-.ff-text {
-  @mixin ff-text;
-}
-.ff-textMd {
-  @mixin ff-textMd;
-}
-.ff-title {
-  @mixin ff-title;
-}
 
 .fw-light {
-  @mixin fw-light;
+  font-weight: var(--fw-light) !important;
 }
 .fw-regular {
-  @mixin fw-regular;
+  font-weight: var(--fw-regular) !important;
 }
 .fw-medium {
-  @mixin fw-medium;
+  font-weight: var(--fw-medium) !important;
+}
+.fw-semibold {
+  font-weight: var(--fw-semibold) !important;
 }
 .fw-bold {
-  @mixin fw-bold;
+  font-weight: 700 !important;
+}
+.fw-heavy {
+  font-weight: var(--fw-heavy) !important;
+}
+.fw-black {
+  font-weight: var(--fw-black) !important;
 }
 
-.flh-tight {
-  @mixin flh-tight;
-}
-.flh-regular {
-  @mixin flh-regular;
-}
-.flh-loose {
-  @mixin flh-loose;
+/*
+
+  Font style blocks
+
+ */
+
+.fs-block {
+  & > p,
+  & > ul,
+  & > li {
+    font-family: var(--fs-text);
+  }
 }
 
-.fls-tight {
-  @mixin fls-tight;
+.fs-block-sm {
+  & > p,
+  & > ul,
+  & > li {
+    font-family: var(--fs-text-sm);
+  }
 }
-.fls-regular {
-  @mixin fls-regular;
+
+.fs-block-md {
+  & > p,
+  & > ul,
+  & > li {
+    font-family: var(--fs-text-md);
+    line-height: var(--flh-reduced);
+  }
 }
-.fls-loose {
-  @mixin fls-loose;
+
+.fs-block-lg {
+  & > p,
+  & > ul,
+  & > li {
+    font-family: var(--fs-text-lg);
+    font-weight: 200;
+  }
 }

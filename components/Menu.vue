@@ -11,7 +11,7 @@
     
     .u-hidden.f-lg.f-justifyBetween
       .Nav-left
-        menu-link.Heading.Heading--md.c-brand(
+        menu-link.Heading.fw-medium.c-brand(
           v-for="item in menuRightLinks"
           :key="item.label"
           :label="item.label"
@@ -20,7 +20,7 @@
           :exact="item.exact"
         )
       .Nav-right
-        menu-link.Heading.Heading--md.fs-textSm.c-brand(
+        menu-link.Heading.fw-medium.c-brand(
           v-for="item in menuLeftLinks"
           :key="item.label"
           :label="item.label"
@@ -167,9 +167,8 @@ export default {
 @import "../assets/styles/variables.css";
 
 .Nav {
-  background-color: var(--c-bg);
   background-color: var(--c-brand-bg);
-  height: var(--s-5);
+  height: var(--menu-height);
   left: 0;
   position: fixed;
   top: 0;

@@ -7,11 +7,11 @@
 .c-brand {
   color: var(--c-brand) !important;
 }
-.c-brandHover {
-  color: var(--c-brandHover) !important;
+.c-brand-hover {
+  color: var(--c-brand-hover) !important;
 }
-.c-brandLight {
-  color: var(--c-brandLight) !important;
+.c-brand-light {
+  color: var(--c-brand-light) !important;
 }
 .c-black {
   color: black !important;
@@ -19,8 +19,8 @@
 .c-text {
   color: var(--c-text) !important;
 }
-.c-textLight {
-  color: var(--c-textLight) !important;
+.c-text-light {
+  color: var(--c-text-light) !important;
 }
 .c-gray {
   color: var(--c-gray) !important;
@@ -57,19 +57,22 @@
 
  */
 
-.c-blackBlock > * {
+.c-block-brand > * {
+  color: var(--c-brand) !important;
+}
+.c-block-black > * {
   color: var(--c-black) !important;
 }
-.c-textBlock > * {
+.c-block-text > * {
   color: var(--c-text) !important;
 }
-.c-textLightBlock > * {
-  color: var(--c-textLight) !important;
+.c-block-text-light > * {
+  color: var(--c-text-light) !important;
 }
-.c-neutralBlock > * {
+.c-block-neutral > * {
   color: var(--c-neutral) !important;
 }
-.c-whiteBlock > * {
+.c-block-white > * {
   color: var(--c-white) !important;
 }
 
@@ -82,7 +85,7 @@
 .bg-brand {
   background-color: var(--c-brand) !important;
 }
-.bg-brandRule {
+.bg-brand-rule {
   background-color: var(--c-brand-rule) !important;
 }
 .bg-brandBg {
@@ -97,8 +100,8 @@
 .bg-text {
   background-color: var(--c-text) !important;
 }
-.bg-textLight {
-  background-color: var(--c-textLight) !important;
+.bg-text-light {
+  background-color: var(--c-text-light) !important;
 }
 .bg-gray {
   background-color: var(--c-gray) !important;
@@ -112,8 +115,8 @@
 .bg-neutral {
   background-color: var(--c-neutral) !important;
 }
-.bg-neutralAlt {
-  background-color: var(--c-neutralAlt) !important;
+.bg-neutral-alt {
+  background-color: var(--c-neutral-alt) !important;
 }
 .bg-bg {
   background-color: var(--c-bg) !important;

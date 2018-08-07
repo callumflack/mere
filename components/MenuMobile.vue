@@ -5,7 +5,7 @@
   )
     .Container
       .p-y1
-        menu-link.Heading.Heading--mobile.c-brand.u-textCenter(
+        menu-link.Heading.Heading--mobile.fw-medium.c-brand.u-textCenter(
           v-for="item in menuPageLinks"
           :key="item.label"
           :label="item.label"
@@ -15,7 +15,7 @@
           block
         )
       .p-t3
-        hr.bg-brandRule.m-0
+        hr.bg-brand-rule.m-0
         .f.f-justifyCenter.p-y3
           menu-link.Subheading.Subheading--mobile.c-brand(
             v-for="item in menuCartLinks"
@@ -24,10 +24,10 @@
             :link="item.link"
             :currentPage="currentPage"
           )
-        hr.bg-brandRule.m-0
+        hr.bg-brand-rule.m-0
       .p-t1
         .f.f-justifyCenter.p-y3
-          menu-link.Text.Text--md.ff-textMd.c-brand(
+          menu-link.Text.fs-text-md.ff-textMd.c-brand(
             v-for="item in menuOtherLinks"
             :key="item.label"
             :label="item.label"

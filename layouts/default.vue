@@ -22,7 +22,7 @@ export default {
     currentPageClass() {
       // requires middleware function
       // https://nuxtjs.org/guide/routing/#middleware
-      return `page-${this.$store.state.currentPage}`;
+      return `fs-scale-reset page-${this.$store.state.currentPage}`;
       // return [{ home: $store.state.currentPage === "/" }];
     }
   }

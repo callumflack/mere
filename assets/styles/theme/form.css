@@ -7,6 +7,82 @@
 
  */
 
+/* METHOD 1 */
+.form-field {
+  position: relative;
+  width: 100%;
+}
+
+.form-field label {
+  /* @mixin input; */
+  display: block;
+  height: var(--field-height);
+  line-height: var(--field-height);
+  padding: 0 var(--field-xpadding);
+  position: relative;
+}
+
+.form-field input {
+  cursor: text;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: 0.2s all ease-out;
+  width: 100%;
+  z-index: 1000;
+
+  /* &:required:invalid, */
+  &:required:valid {
+    background-color: var(--c-bg);
+  }
+}
+
+.form-field label,
+.form-field input {
+  border-left-color: transparent;
+  border-right-color: transparent;
+  border-top-color: transparent;
+
+  &:hover,
+  &:focus,
+  &:active {
+    border-left-color: transparent;
+    border-right-color: transparent;
+    border-top-color: transparent;
+  }
+}
+
+/* METHOD 2 */
+
+.form-entry {
+  position: relative;
+  padding-top: 1.25rem;
+
+  & input:required:invalid,
+  & input:required:valid {
+    background-color: var(--c-bg);
+  }
+}
+
+.form-entry + .form-entry {
+  margin-top: var(--s-2a);
+}
+
+.form-entry label {
+  font-size: var(--fs-text-sm);
+  opacity: 1;
+  position: absolute;
+  top: 0;
+  transform: translateY(0);
+  transition: all 0.2s var(--transition-easing-cubic-state);
+}
+
+.form-entry input:placeholder-shown + label {
+  opacity: 0;
+  transform: translateY(1rem);
+}
+
+/* OLD STUFF */
 .t-form-group {
 }
 
@@ -17,7 +93,7 @@
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
   border-color: var(--c-gray) !important;
-  font-size: var(--fs-textSm);
+  font-size: var(--fs-text-sm);
 }
 
 .t-form-group input:placeholder-shown + label {
@@ -34,7 +110,7 @@
 .t-form-group label {
   position: absolute;
   top: 50%;
-  font-size: var(--fs-textXs);
+  font-size: var(--fs-text-xs);
   opacity: 1;
   transform: translateY(0);
   transition: all 0.2s ease-out;

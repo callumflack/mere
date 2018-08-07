@@ -1,18 +1,17 @@
 /* 
 
-  Web design starts with typography.
-  NB. font-feature-settings example: http://fadeyev.net 
+  The web is typography.
+  1. font-feature-settings from http://fadeyev.net 
 
 */
 
 html {
-  background-color: var(--c-brand);
   background-color: var(--c-bg);
   color: var(--c-text);
-  font-family: var(--ff-text-regular);
+  font-family: var(--ff-text), var(--ff-stack-serif);
   font-size: 16px;
   font-weight: 400;
-  letter-spacing: var(--fls-regular);
+  letter-spacing: var(--fls-text);
   line-height: var(--flh-regular);
   text-rendering: optimizeLegibility;
   -moz-osx-font-smoothing: grayscale;
@@ -21,28 +20,36 @@ html {
   -webkit-text-size-adjust: 100%;
 }
 
-@define-mixin responsive-scale {
-  font-size: var(--rfs-2) !important;
-
-  @media (max-width: 320px) {
-    font-size: var(--rfs-2) !important;
-  }
-  @media (--sm) {
-    font-size: var(--rfs-3) !important;
-  }
-  @media (--md) {
-    font-size: var(--rfs-3) !important;
-  }
-  @media (--lg) {
-    font-size: var(--rfs-4) !important;
-  }
-}
-
-body,
-.TypeScopeReset {
-  @mixin responsive-scale;
-}
-
 body {
-  text-align: left;
+  font-size: 16px;
+}
+
+/*
+
+  Resets
+
+ */
+
+p,
+ul,
+ol,
+li,
+em,
+strong {
+  font-style: normal;
+}
+
+em,
+strong {
+  font-weight: inherit;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-style: normal;
+  font-weight: normal;
 }

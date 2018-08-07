@@ -1,4 +1,9 @@
-/* FYI: https://stackoverflow.com/questions/18485059/forward-slash-in-class-name */
+/* 
+
+  Content block
+  FYI: https://stackoverflow.com/questions/18485059/forward-slash-in-class-name
+
+*/
 
 .page- .Content,
 .home .Content {
@@ -15,4 +20,19 @@
 .Content--holdingpage {
   height: auto;
   margin-top: 0;
+}
+
+/* 
+
+  Pages
+
+ */
+
+.page-contact {
+  @mixin CoverImage;
+  background-image: url("/images/home-girl-1.jpg");
+}
+
+.page-contact .Footer a {
+  color: var(--c-bg);
 }

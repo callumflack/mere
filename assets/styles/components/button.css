@@ -1,24 +1,24 @@
 .Button {
   align-items: center;
-  background-color: var(--Button-background-color);
-  border-color: var(--Button-border-color);
-  border-radius: var(--Button-radius);
+  background-color: var(--button-background-color);
+  border-color: var(--button-border-color);
+  border-radius: var(--button-radius);
   border-style: solid;
-  border-width: var(--Button-border-width);
+  border-width: var(--button-border-width);
   box-sizing: border-box;
-  color: var(--Button-color);
+  color: var(--button-color);
   cursor: pointer;
   display: inline-flex;
-  font: var(--Button-font);
-  font-weight: var(--Button-font-weight);
-  height: var(--Button-height);
+  font: var(--button-font);
+  font-weight: var(--button-font-weight);
+  height: var(--button-height);
   justify-content: center;
   margin: 0;
-  padding-left: var(--Button-xpadding);
-  padding-right: var(--Button-xpadding);
+  padding-left: var(--button-xpadding);
+  padding-right: var(--button-xpadding);
   position: relative;
   text-decoration: none;
-  text-transform: var(--Button-font-case);
+  text-transform: var(--button-font-case);
   user-select: none;
 }
 
@@ -53,20 +53,20 @@
 
 .Button {
   &:hover {
-    box-shadow: var(--Button-box-shadow-color) 0 0 0 2px;
+    box-shadow: var(--button-box-shadow-color) 0 0 0 2px;
   }
 
   &:focus,
   &:active {
     outline: 0;
-    box-shadow: var(--Button-box-shadow-color) 0 0 0 3px;
+    box-shadow: var(--button-box-shadow-color) 0 0 0 3px;
   }
 }
 
 .Button:disabled,
 .Button.is-disabled {
   cursor: default;
-  opacity: var(--Button-disabled-opacity);
+  opacity: var(--button-disabled-opacity);
 }
 
 /*
@@ -74,58 +74,58 @@
  */
 
 .Button--alt {
-  --Button-background-color: var(--c-brand-highlight);
-  --Button-box-shadow-color: var(--c-brand-highlight);
+  --button-background-color: var(--c-brand-highlight);
+  --button-box-shadow-color: var(--c-brand-highlight);
 }
 
 .Button--outline {
-  --Button-background-color: var(--c-bg);
-  --Button-border-color: var(--c-brand);
-  --Button-box-shadow-color: var(--c-brand);
-  --Button-color: var(--c-brand);
+  --button-background-color: var(--c-bg);
+  --button-border-color: var(--c-brand);
+  --button-box-shadow-color: var(--c-brand);
+  --button-color: var(--c-brand);
 
   &:hover {
     border-color: var(--c-bg);
-    box-shadow: var(--Button-box-shadow-color) 0 0 0
-        var(--Button-box-shadow-stroke-inset) inset,
-      var(--Button-box-shadow-color) 0 0 0 var(--Button-box-shadow-stroke-hover);
+    box-shadow: var(--button-box-shadow-color) 0 0 0
+        var(--button-box-shadow-stroke-inset) inset,
+      var(--button-box-shadow-color) 0 0 0 var(--button-box-shadow-stroke-hover);
   }
 
   &:focus,
   &:active {
     border-color: var(--c-bg);
-    box-shadow: var(--Button-box-shadow-color) 0 0 0
-        var(--Button-box-shadow-stroke-inset) inset,
-      var(--Button-box-shadow-color) 0 0 0 var(--Button-box-shadow-stroke-active);
+    box-shadow: var(--button-box-shadow-color) 0 0 0
+        var(--button-box-shadow-stroke-inset) inset,
+      var(--button-box-shadow-color) 0 0 0 var(--button-box-shadow-stroke-active);
   }
 }
 
 .Button--outline-alt {
-  --Button-background-color: var(--c-bg);
-  --Button-border-color: var(--c-brand-highlight);
-  --Button-box-shadow-color: var(--c-brand-highlight);
-  --Button-color: var(--c-brand-highlight);
+  --button-background-color: var(--c-bg);
+  --button-border-color: var(--c-brand-highlight);
+  --button-box-shadow-color: var(--c-brand-highlight);
+  --button-color: var(--c-brand-highlight);
 
   &:hover {
     border-color: var(--c-bg);
-    box-shadow: var(--Button-box-shadow-color) 0 0 0
-        var(--Button-box-shadow-stroke-inset) inset,
-      var(--Button-box-shadow-color) 0 0 0 var(--Button-box-shadow-stroke-hover);
+    box-shadow: var(--button-box-shadow-color) 0 0 0
+        var(--button-box-shadow-stroke-inset) inset,
+      var(--button-box-shadow-color) 0 0 0 var(--button-box-shadow-stroke-hover);
   }
 
   &:focus,
   &:active {
     border-color: var(--c-bg);
-    box-shadow: var(--Button-box-shadow-color) 0 0 0
-        var(--Button-box-shadow-stroke-inset) inset,
-      var(--Button-box-shadow-color) 0 0 0 var(--Button-box-shadow-stroke-active);
+    box-shadow: var(--button-box-shadow-color) 0 0 0
+        var(--button-box-shadow-stroke-inset) inset,
+      var(--button-box-shadow-color) 0 0 0 var(--button-box-shadow-stroke-active);
   }
 }
 
 .Button--transparent {
-  --Button-background-color: transparent;
-  --Button-border-color: transparent;
-  --Button-box-shadow-color: var(--Button-border-color);
+  --button-background-color: transparent;
+  --button-border-color: transparent;
+  --button-box-shadow-color: var(--button-border-color);
 
   &:hover {
     border-color: none;

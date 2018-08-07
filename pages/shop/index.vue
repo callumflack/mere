@@ -2,7 +2,7 @@
 .b-pb2
   .b-py3
     .Container.Container--sm
-      h1.Heading.Heading--md {{ pageTitle }}
+      h1.Heading.fw-medium {{ pageTitle }}
       p.c-brand.u-textCenter {{ pageIntro }}
 
   .Container.Container--su
@@ -14,8 +14,8 @@
         // nuxt-link(:to="`/shop/${item.title}`")
         nuxt-link(to="/shop/id")
           .Product-heading
-            h5.Heading.Heading--md.fs-textSm.m-b3 {{ item.category }}
-            h2.Product-title.Product-title--card {{ item.title }}
+            h5.Heading.fw-medium.fs-text-sm.m-b3 {{ item.category }}
+            h2.Product-title.fs-text-lg {{ item.title }}
           .Product-image
             img(:src="item.image")
           .Product-button.Heading.fs-textMd.c-brand.u-noVisualLink ${{ item.price }} AUD

@@ -138,6 +138,6 @@ h1 a:active,
 }
 
 .LinkBuried-target {
-  transition: all var(--speed) var(--easing);
+  transition: all var(--transition-speed) var(--transition-easing);
   transform: translateX(0);
 }
