@@ -1,13 +1,10 @@
 /* 
 
-  See:
-  https://jonathan-harrell.com/experiment/advanced-form-styling/
-  https://jonathan-harrell.com/advanced-css-form-styling/
-  https://jonathanharrell.github.io/hiq/guide/forms-inputs/
+  METHOD 1
+  label wraps input, giving auto selection when clicking either label or input.
 
  */
 
-/* METHOD 1 */
 .form-field {
   position: relative;
   width: 100%;
@@ -52,7 +49,13 @@
   }
 }
 
-/* METHOD 2 */
+/* 
+
+  METHOD 2 
+  using :placeholder-shown
+  https://jonathan-harrell.com/advanced-css-form-styling/
+
+*/
 
 .form-entry {
   position: relative;
@@ -82,7 +85,12 @@
   transform: translateY(1rem);
 }
 
-/* OLD STUFF */
+/* 
+
+  OLD STUFF
+
+*/
+
 .t-form-group {
 }
 
