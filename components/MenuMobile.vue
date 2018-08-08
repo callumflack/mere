@@ -3,48 +3,47 @@
     @click="close"
     :class="[{'u-hidden': !isVisible}]"
   )
-    .Container
-      .p-y1
-        menu-link.Heading.Heading--mobile.fw-medium.c-brand.u-textCenter(
-          v-for="item in menuPageLinks"
-          :key="item.label"
-          :label="item.label"
-          :link="item.link"
-          :currentPage="currentPage"
-          :exact="item.exact"
-          block
-        )
-      .p-t3
-        hr.bg-brand-rule.m-0
-        .f.f-justifyCenter.p-y3
-          menu-link.Subheading.Subheading--mobile.c-brand(
-            v-for="item in menuCartLinks"
+    .Container.f.f-col.f-justifyCenter
+      div
+        .p-y3
+          menu-link.MenuLink--block.Heading.Heading--mobile.fw-medium.c-brand.u-textCenter(
+            v-for="item in menuPageLinks"
             :key="item.label"
             :label="item.label"
             :link="item.link"
             :currentPage="currentPage"
+            :exact="item.exact"
+            block
           )
-        hr.bg-brand-rule.m-0
-      .p-t1
-        .f.f-justifyCenter.p-y3
-          menu-link.Text.fs-text-md.ff-textMd.c-brand(
-            v-for="item in menuOtherLinks"
-            :key="item.label"
-            :label="item.label"
-            :link="item.link"
-            :currentPage="currentPage"
-          )
-        .f.f-justifyCenter.c-brand
-          // menu-social-links
-          nuxt-link.MenuLink(to="tbc")
-            icon-base(icon-name="icon-instagram" height="32" width="32")
-              icon-instagram
-          nuxt-link.MenuLink(to="tbc")
-            icon-base(icon-name="icon-facebook" height="32" width="32")
-              icon-facebook
-          nuxt-link.MenuLink(to="tbc")
-            icon-base(icon-name="icon-youtube" height="32" width="32")
-              icon-youtube
+
+        .p-t1
+          hr.bg-brand-rule
+          .f.f-justifyCenter.p-y1
+            menu-link.MenuLink--wide.Subheading.Subheading--mobile.c-brand(
+              v-for="item in menuCartLinks"
+              :key="item.label"
+              :label="item.label"
+              :link="item.link"
+              :currentPage="currentPage"
+            )
+          hr.bg-brand-rule
+
+        .p-t2.p-b3
+          .f.f-wrap.f-justifyCenter.p-t3
+            menu-link.MenuLink--mobileFooter.Heading.fw-medium.c-brand.u-initialCase(
+              v-for="item in menuOtherLinks"
+              :key="item.label"
+              :label="item.label"
+              :link="item.link"
+              :currentPage="currentPage"
+            )
+          .f.f-justifyCenter.c-brand
+            nuxt-link.MenuLink(to="tbc")
+              icon-base(icon-name="icon-instagram" height="32" width="32")
+                icon-instagram
+            nuxt-link.MenuLink(to="tbc")
+              icon-base(icon-name="icon-facebook" height="32" width="32")
+                icon-facebook
 </template>
 
 <script>
@@ -92,16 +91,24 @@ export default {
       ],
       menuOtherLinks: [
         {
-          label: "FAQ",
-          link: "/faq"
+          label: "T+Cs",
+          link: "/terms-and-conditions"
         },
         {
-          label: "Privacy",
+          label: "PRIVACY",
           link: "/privacy"
         },
         {
-          label: "Ts+Cs",
-          link: "/terms-and-conditions"
+          label: "DELIVERY + RETURNS",
+          link: "/delivery-and-returns"
+        },
+        {
+          label: "FAQs",
+          link: "/faqs"
+        },
+        {
+          label: "CONTACT",
+          link: "/contact"
         }
       ],
       menuSocialLinks: [
@@ -111,10 +118,6 @@ export default {
         },
         {
           iconName: "icon-facebook",
-          link: "/tbc"
-        },
-        {
-          iconName: "icon-youtube",
           link: "/tbc"
         }
       ]
@@ -141,9 +144,9 @@ export default {
 
 .MobileNav {
   background-color: var(--c-white);
-  height: calc(100vh - var(--menu-height));
   height: calc(100vh - 60px);
-  padding: var(--s-3a) 0;
+  height: calc(100vh - var(--menu-height));
+  /* padding: var(--s-3a) 0; */
   top: var(--menu-height);
   width: 100%;
 }

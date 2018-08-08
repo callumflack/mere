@@ -23,7 +23,7 @@
   } */
 }
 
-a:not(.Button),
+/* a:not(.Button), */
 .Text a:not(.Button),
 .Scope-post p a:not(.Button) {
   &:hover {

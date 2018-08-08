@@ -35,7 +35,6 @@
   --Container-max-width: 1120px;
   --Container-max-width-hero: 1440px;
 
-  --s-0: 0;
   --s-1: 0.25rem;
   --s-2: 0.5rem;
   --s-2a: 0.75rem;
@@ -63,10 +62,8 @@
   --c-brand: hsl(77, 19%, 47%);
   --c-brand-rule: hsl(77, 19%, 70%);
   --c-brand-bg: hsl(77, 19%, 96%);
-  
   --c-brand-hover: hsl(288, 100%, 40%);
   --c-brand-hover: #9bbbdc;
-  --c-brandNeutral: #ebedf1;
 
   --c-black: hsl(0, 0%, 3%);
   --c-ash: hsl(213, 11%, 8%);
@@ -121,19 +118,15 @@
     <desired-pt-size>/<text-unit>/16 * 16
     48/19/16 * 16 = 2.526315789
 
+    <desired-pt-size>/<responsive-text-unit>/16 * 16
+    27/13/16 * 16
+
     <text-unit> * 16 * 1
     1.1875 * 16 * 1 = 19pt
 
    */
 
-  /* for holding pg
-  --rfs-0: 0.625rem; 
-  --rfs-1: 0.8125rem;
-  --rfs-2: 0.875rem; 
-  --rfs-3: 0.9375rem;
-  --rfs-4: 1rem; */
-
-  --rfs-0: 0.631578947rem;  /* 12pt */
+  --rfs-0: 0.8125rem;  /* 13pt */
   --rfs-1: 0.8125rem; /* 13pt */
   --rfs-2: 0.875rem;  /* 14pt */
   --rfs-3: 0.9375rem; /* 15pt */
@@ -149,9 +142,9 @@
   --fs-button: var(--fs-text-xs);
   
   --fs-subheading: calc(var(--fs-text-unit) * 1.6875em);
-  --fs-subheading-mobile: calc(var(--fs-text-unit) * 2.25em);
+  --fs-subheading-mobile: calc(var(--fs-text-unit) * 2.076923077em);
   --fs-heading: calc(var(--fs-text-unit) * 2em);
-  --fs-heading-mobile: calc(var(--fs-text-unit) * 3em);
+  --fs-heading-mobile: calc(var(--fs-text-unit) * 2.461538462em);
   --fs-subtitle: calc(var(--fs-text-unit) * 1.5em);
   --fs-title: calc(var(--fs-text-unit) * 2em);
   --fs-supertitle: calc(var(--fs-text-unit) * 3.789473684em);
@@ -205,7 +198,7 @@
   --figcaption-font-weight: 400;
   --figcaption-text-color: var(--c-text-light);
   --horizontal-rule-color: var(--c-rule);
-  --horizontal-rule-space: var(--space);
+  --horizontal-rule-space: calc(0.5 * var(--space));
   --inline-block-children-space: calc(1.25 * var(--s-3));
   --progress-height: 32px;
   --text-link-decoration: none;
@@ -270,8 +263,8 @@
 
   --transition-speed: 0.15s;
   --transition-easing: ease-out;
-  --transition-easing-cubic-state: cubic-bezier(0, -0.1, 1, -0.1);
   --transition-easing-cubic-state: cubic-bezier(0, 1.1, 1, 1.1);
+  --transition-easing-cubic-state: cubic-bezier(0, -0.1, 1, -0.1);
   --transition-easing-thisalso: cubic-bezier(0.19, 1, 0.22, 1);
 
   /* 

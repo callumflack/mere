@@ -21,7 +21,8 @@
     "postcss-mixins": "^6.2.0",
     "postcss-preset-env": "^5.1.0",
     "suitcss-base": "^4.0.0",
-    "vue-flickity": "^1.1.2"
+    "vue-flickity": "^1.1.2",
+    "vue-foldable": "^0.5.0"
   },
   "devDependencies": {
     "babel-eslint": "^8.2.1",

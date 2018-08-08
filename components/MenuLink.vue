@@ -14,19 +14,12 @@ export default {
     label: String,
     year: String,
     link: String,
-    block: Boolean,
     external: Boolean,
     exact: Boolean
   },
   computed: {
     classes() {
-      return [
-        "currentPage",
-        "MenuLink",
-        {
-          "MenuLink--block": this.block
-        }
-      ];
+      return ["currentPage", "MenuLink"];
     },
     currentPage() {
       let classes = ["link"];

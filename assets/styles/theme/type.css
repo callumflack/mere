@@ -79,7 +79,7 @@ h2,
 /* 
   -------------------------------------------------
 
-  Page headings
+  Product headings
 
   -------------------------------------------------
 */
@@ -95,9 +95,40 @@ h2,
 }
 
 .Product-title--accent {
-  margin-top: calc(-1 * var(--s-1));
-  margin-bottom: calc(1.5 * var(--s-4));
+  /* margin-bottom: calc(1.5 * var(--s-4)); */
+  margin-bottom: calc(0.75 * var(--responsive-space));
   text-align: left;
+
+  @media (--sm) {
+    margin-top: calc(-1 * var(--s-1));
+  }
+}
+
+/* 
+  -------------------------------------------------
+
+  Account headings
+
+  -------------------------------------------------
+*/
+
+.Account-subtitle,
+.Account-title {
+  color: var(--c-text);
+  font-family: var(--ff-text), var(--ff-stack-sans) !important;
+  font-weight: 500;
+  letter-spacing: 0;
+  line-height: 1.2;
+  text-align: left;
+  text-transform: initial;
+}
+
+.Account-subtitle {
+  font-size: var(--fs-subheading);
+}
+
+.Account-title {
+  font-size: var(--fs-heading);
 }
 
 /* 
@@ -137,7 +168,16 @@ h2,
   -------------------------------------------------
 */
 
-.AccentParagraph {
-  margin: calc(1.5 * var(--s-4)) 0;
-  margin-left: var(--s-5);
+.AccentParagraph,
+.AccentParagraph--max-sm {
+  /* margin: calc(1.5 * var(--s-4)) 0; */
+  margin: calc(0.75 * var(--responsive-space)) 0;
+  /* margin-left: var(--s-5); */
+  margin-left: calc(1.25 * var(--responsive-space));
+}
+
+.AccentParagraph--max-sm {
+  @media (--sm) {
+    margin: 0;
+  }
 }

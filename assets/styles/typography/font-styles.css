@@ -1,9 +1,17 @@
 /* 
-  Responsive typography with ems.
-  <size you want>/(16*1.125)
-  Example: 18/(16*1.125) = x
 
-  Applied to <nuxt>.
+  Responsive typography with ems.
+
+  The maths:
+
+  <desired-pt-size>/<text-unit>/16 * 16
+  48/19/16 * 16 = 2.526315789
+
+  <text-unit> * 16 * 1
+  1.1875 * 16 * 1 = 19pt
+
+  Applied to first child of <nuxt>.
+
 */
 
 .fs-scale-reset {

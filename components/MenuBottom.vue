@@ -28,23 +28,23 @@ export default {
     return {
       footerLinks: [
         {
-          label: "t+cs",
+          label: "T+Cs",
           link: "/terms-and-conditions"
         },
         {
-          label: "privacy policy",
+          label: "PRIVACY",
           link: "/privacy"
         },
         {
-          label: "delivery & returns",
+          label: "DELIVERY + RETURNS",
           link: "/delivery-and-returns"
         },
         {
-          label: "faqs",
-          link: "/faq"
+          label: "FAQs",
+          link: "/faqs"
         },
         {
-          label: "contact us",
+          label: "CONTACT",
           link: "/contact"
         }
       ]
@@ -62,6 +62,11 @@ export default {
   & a {
     color: var(--c-brand);
   }
+
+  /* don't display on mobile */
+  @media (max-width: 512px) {
+    display: none;
+  }
 }
 
 .page- .Footer {
@@ -69,7 +74,7 @@ export default {
   left: 0;
   position: fixed;
   width: 100%;
-  z-index: 999;
+  z-index: 1;
   -webkit-backface-visibility: hidden;
 
   & a {

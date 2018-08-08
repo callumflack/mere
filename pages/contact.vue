@@ -8,19 +8,20 @@
         .c-block-brand
           form
             .form-entry
-              input(type="text" id="first-name" placeholder="First name" required)
-              label(for="first-name") First name
+              input(type="text" id="first-name" placeholder="First name*" required)
+              label(for="first-name") First name*
+              span.help-text
             .form-entry
-              input(type="text" placeholder="Last name" required)
-              label Last name
+              input(type="text" placeholder="Last name*" required)
+              label Last name*
             .form-entry
-              input(type="email" placeholder="Email" required)
-              label Email
+              input(type="email" placeholder="Email*" required)
+              label Email*
             .form-entry
-              input(type="tel" placeholder="Phone number" required)
-              label Phone
+              input(type="tel" placeholder="Phone number*" required)
+              label Phone*
             .form-entry
-              textarea(id="textarea" placeholder="Enter your message" rows="4")
+              textarea(id="textarea" placeholder="Enter your message*" rows="4")
 
             p.u-textCenter.m-y5
               a.Button Submit
