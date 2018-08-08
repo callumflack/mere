@@ -1,10 +1,20 @@
 /* 
 
-  Content block
+  Content block 
+  …with fixed nav
+  …with sticky footer
+
   FYI: https://stackoverflow.com/questions/18485059/forward-slash-in-class-name
 
 */
 
+div[class*="page-"] {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+/* the home page is different… */
 .page- .Content,
 .home .Content {
   height: auto;
@@ -12,6 +22,7 @@
 
 /* move everything below the nav */
 .Content {
+  flex: 1;
   margin-top: var(--menu-height);
   /* height: 100vh; */
 }

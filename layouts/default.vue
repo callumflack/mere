@@ -6,7 +6,7 @@
     c-menu
     .Content
       nuxt
-      c-footer
+    c-footer
 </template>
 
 <script>
