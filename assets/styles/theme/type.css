@@ -46,11 +46,11 @@ ol,
   line-height: var(--flh-tight);
   letter-spacing: var(--fls-loose);
   color: var(--c-brand);
-  text-align: center;
+  /* text-align: center; */
   text-transform: uppercase;
 }
 
-h1,
+/* h1, */
 .Heading,
 .Heading--lg,
 .Heading--mobile {
@@ -63,7 +63,7 @@ h1,
   text-transform: initial;
 }
 
-h2,
+/* h2, */
 .Subheading {
   @mixin Heading;
   font-size: var(--fs-subheading);
@@ -85,10 +85,11 @@ h2,
 */
 
 .Product-title {
+  color: var(--c-text);
   font-family: var(--ff-title), var(--ff-stack-serif) !important;
   font-size: var(--fs-heading);
   font-weight: 300;
-  letter-spacing: 0;
+  letter-spacing: 0.01em;
   line-height: 1.2;
   margin: var(--s-3) auto;
   text-transform: initial;

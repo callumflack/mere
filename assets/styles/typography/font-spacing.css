@@ -1,13 +1,3 @@
-:root {
-  --responsive-typography-space: 1rem;
-}
-
-@media (--md) {
-  :root {
-    --responsive-typography-space: 1.5rem;
-  }
-}
-
 /* 
 
   Text spacing
@@ -35,7 +25,7 @@ figure,
 }
 
 figure {
-  padding: var(--figure-space-within-text) 0;
+  padding: var(--figure-space-align-within-text) 0;
 }
 
 blockquote {
@@ -51,8 +41,7 @@ blockquote {
 
 button + button,
 .Button + .Button {
-  margin-left: calc(0.5 * var(--inline-block-children-space));
-  margin-left: var(--s-2);
+  margin-left: var(--button-inline-spacing);
 }
 
 /*

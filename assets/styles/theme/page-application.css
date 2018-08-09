@@ -68,7 +68,7 @@
 }
 
 .Tabs-container .Subheading {
-  @media (max-width: 512px) {
+  @media (--mo) {
     font-size: 1em;
   }
 }

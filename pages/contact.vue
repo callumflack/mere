@@ -1,10 +1,10 @@
 <template lang="pug">
   .b-py3
     .Container
-      .Card-block.bg-brandBg
+      .Card-block.bg-sm-brand-bg.p-mo-a0
         .b-mb1
-          h1.Product-title.c-text We would love to hear from you. 
-          p.c-brand.u-textCenter.m-a0 Please enter your details below and we will be in touch. 
+          h1.Product-title.c-text.u-sm-textCenter We would love to hear from you. 
+          p.c-brand.u-sm-textCenter.m-a0 Please enter your details below and we will be in touch. 
         .c-block-brand
           form
             .form-entry
@@ -31,7 +31,7 @@
             | Po Box 663 NSW 1655 Australia
       
       // submitted state
-      // .Card-block.bg-brandBg
+      // .Card-block.bg-brand-bg
         .f-childrenCenter
           .m-b5
             h2.Product-title.c-text.fs-supertitle Thank you 
@@ -46,35 +46,9 @@
 
 export default {
   components: {},
-  data() {
-    return {
-      isActive: false
-    };
-  },
-  methods: {
-    play: function() {
-      this.$refs.video.play();
-      this.isActive = !this.isActive;
-
-      // if (video.paused) {
-      // } else {
-      //   this.$refs.videoref.pause();
-      // }
-    }
-  },
-  computed: {
-    wrapButtonStateClasses() {
-      return [
-        {
-          "is-active": this.isActive,
-          "is-dark": this.reverseOverlay
-        }
-      ];
-    }
-  },
   head() {
     return {
-      title: "About"
+      title: "Contact"
     };
   }
 };

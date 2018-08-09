@@ -42,8 +42,12 @@ div[class*="page-"] {
  */
 
 .page-contact {
-  @mixin CoverImage;
-  background-image: url("/images/home-girl-1.jpg");
+  background-color: var(--c-neutral);
+
+  @media (--md) {
+    @mixin CoverImage;
+    background-image: url("/images/home-girl-1.jpg");
+  }
 }
 
 .page-contact .Footer a {
@@ -78,4 +82,40 @@ div[class*="page-"] {
 
 .u-initialCase {
   text-transform: initial !important;
+}
+
+.u-sm-textCenter {
+  @media (--sm) {
+    text-align: center;
+  }
+}
+
+.bg-sm-brand-bg {
+  @media (--sm) {
+    background-color: var(--c-brand-bg) !important;
+  }
+}
+
+.mo-FlexGrid--block {
+  @media (--mo) {
+    @mixin flexGrid 0, auto, var(--space);
+    margin: calc(-1 * var(--space));
+
+    & > * {
+      padding-top: var(--space);
+      padding-bottom: var(--space);
+    }
+  }
+}
+
+.b-mo-py3 {
+  @media (--mo) {
+    padding-top: calc(2 * var(--responsive-space));
+    padding-bottom: calc(2 * var(--responsive-space));
+  }
+}
+.b-mo-pb3 {
+  @media (--mo) {
+    padding-bottom: calc(2 * var(--responsive-space));
+  }
 }

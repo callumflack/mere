@@ -3,48 +3,40 @@
     nuxt-link.ClosePage(to="/shop")
       icon-base.c-brand.p-a3.p-sm-a5(icon-name="icon-close", height="48", width="48")
         icon-close
-    .b-py2.p-msm-b3
-      .Container.Container--sm
+    .b-py2
+      .Container
         h3.Heading.fw-medium.m-b3 {{ category }}
         h1.Product-title {{ title }}
       
     .Container.Container--su.b-pb3
-      .FlexGrid
+      .FlexGrid.mo-FlexGrid--block
         .w-sm-1x3
           .f-childrenCenter
             .w-100
               p.c-brand.u-textCenter.m-b3 ${{ price }}
               p.c-brand.u-textCenter {{ intro }}
               .u-textCenter.m-t4
-                .Heading.c-brand.fw-medium.m-b3
+                p.c-brand.m-b3
                   a.LinkUnderline(@click="handleToggle") 
                     span(v-if="isVisible") Show 
                     span(v-if="!isVisible") Hide 
                     span all ingredients
-                p.c-brand.u-textCenter.toggle(:class="{ 'is-hidden': isVisible }") {{ ingredients }}
+                p.fs-text-sm.c-brand.u-textCenter.toggle(:class="{ 'is-hidden': isVisible }") {{ ingredients }}
 
-        .w-sm-1x3
-          // .CssOnlyLightbox
-            .thumb-wrapper
-              a(href="#img1")
-                img.thumbnail(src="https://unsplash.it/800/400?image=179")
-              a(href="#img2")
-                img.thumbnail(src="https://unsplash.it/800/400?image=134")
-              a(href="#img3")
-                img.thumbnail(src="https://unsplash.it/800/400?image=22")
-
-            a.lightbox(href="#" id="img1")
-              img(src="https://unsplash.it/800/400?image=179")
-            a.lightbox(href="#" id="img2")
-              img(src="https://unsplash.it/800/400?image=134")
-            a.lightbox(href="#" id="img3")
-              img(src="https://unsplash.it/800/400?image=22")
-          
-          flickity.Slider(ref="flickity" :options="flickityOptions")
-            .Slider-cell(v-for="image in images" :key="image")
-              img(:src="image")
-          // p.Heading Super natural properties
+        .w-5x6.w-sm-1x3.m-mo-xA.p-mo-b5
+          .Tabs
+            input(id="tab-one" type="radio" name="grp" checked="checked")
+            label(for="tab-one") #[img(src="/images/products-pack-1.png")]
+            .Tab-content #[img(src="/images/products-pack-1.png")]
             
+            input(id="tab-two" type="radio" name="grp" checked="checked")
+            label(for="tab-two") #[img(src="/images/products-super-natural-dermal-serum-vaccine-bottle.png")]
+            .Tab-content #[img(src="/images/products-super-natural-dermal-serum-vaccine-bottle.png")]
+
+            input(id="tab-three" type="radio" name="grp" checked="checked")
+            label(for="tab-three") #[img(src="/images/products-pack-2.png")]
+            .Tab-content #[img(src="/images/products-pack-2.png")]
+
         .w-sm-1x3
           .f-childrenCenter
             .w-100
@@ -60,13 +52,13 @@
                 p.c-brand.u-textCenter.fs-text-sm
                   | Add more than $49 worth of MERE to your bag and receive free shipping on the order
     
-    .Container.Container--su.b-pb3
-      .FlexGrid--lg
+    .Container.Container--su.b-mo-pb3
+      .FlexGrid--lg.mo-FlexGrid--block
         .w-sm-1x2.one
           .Card.p-sm-l7.p-sm-b5
-            figure.Card-image
+            .Card-image
               img(src="/images/home-cactus.jpg")
-            .Card-block.bg-pale-green
+            .Card-block.u-textCenter.bg-pale-green
               | Ingredients
               br
               | ---
@@ -74,34 +66,34 @@
               | Prickly pear lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet 
         .w-sm-1x2.two
           .Card.p-sm-t5
-            figure.Card-image
+            .Card-image.mo-Extract-fullwidth
               img(src="/images/home-girl-1.jpg")
 
         .w-sm-1x3.three
           .Card
-            figure.Card-image
+            .Card-image
               img(src="/images/home-beach.jpg")
         .w-sm-1x3.four
           .f-childrenCenter(style="height:66%")
             .Card.p-sm-t5
-              .Card-block
+              .Card-block.u-textCenter.p-x0
                 | Customer insights
-                .Product-title.fs-text-lg.m-b0 Emma Rose-Lapthorn
+                p.fs-text-lg.c-text.m-b0.m-t3 Emma Rose-Lapthorn
                 | Lorem Ipsum Magazine
-                .Product-title.fs-text-lg
+                p.fs-text-lg.flh-reduced.c-text.m-t3
                   | “Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te facilisi”
         .w-sm-1x3.five
           .Card
-            .Card-block.p-sm-t4.p-sm-b5
+            .Card-block.u-textCenter.p-sm-t4.p-sm-b5.u-mo-hidden
               | Our Active Footprint
               br
               | ---
               br
               | Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet oreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequa 
             .w-sm-3x4.m-xA
-              figure.Card-image
+              .Card-image
                 img(src="/images/product-card-swimming-woman.jpg")
-              .Card-block.bg-pale-purple
+              .Card-block.u-textCenter.bg-pale-purple
                 | The Formula
                 br
                 | ---
@@ -110,7 +102,7 @@
         
         .w-sm-9x12.six
           .Card.p-sm-l6.p-sm-r5
-            figure.Card-image
+            .Card-image
               img(src="/images/product-card-blue-texture.jpg")
         .w-sm-3x12.u-hidden.u-sm-block
           .u-hiddenVisually yo!
@@ -134,7 +126,7 @@ export default {
       intro:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempo incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat",
       ingredients:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempo incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat",
+        "Water (Aqua), Sodium Laureth Sulfate, Cocamidopropyl Betaine, Sea Salt (Maris sal), Glycerin, Polysorbate 20, Citrus Nobilis (Mandarin Orange) Peel Oil, Lavandula Angustifolia (Lavender) Oil, Phenoxyethanol, Cananga Odorata Flower Oil, Magnesium Nitrate, Methylchloroisothiazolinone, Magnesium Chloride, Methylisothiazolinone, Citric Acid, Limonene, Linalool, Benzyl Benzoate.",
       images: [
         "/images/products-pack-1.png",
         "/images/products-super-natural-dermal-serum-vaccine-bottle.png",
@@ -181,23 +173,29 @@ export default {
 
 <style lang="postcss" scoped>
 @import "../../assets/styles/variables.css";
-@import "../../assets/styles/components/lightbox.css";
+@import "../../assets/styles/theme/tabs.css";
 
 .ClosePage {
   position: fixed;
-  top: var(--s-5);
-  right: 0;
+  right: 0.75rem;
+  top: calc(1.1 * var(--s-5));
   z-index: 1;
+
+  @media (--mo) {
+    & >>> svg {
+      height: 2rem;
+      width: 2rem;
+    }
+  }
+
+  @media (--sm) {
+    right: 0;
+    top: var(--s-5);
+  }
 }
 
 .Card {
   position: relative;
-}
-
-.Card-block {
-  color: var(--c-pale-text);
-  padding: var(--s-3b) var(--s-4);
-  text-align: center;
 }
 
 /* flickity wtf */
@@ -223,36 +221,30 @@ export default {
   transition: opacity var(--transition-speed), transform 0s var(--transition-speed);
 }
 
+/* utils */
+
+.mo-Extract-fullwidth {
+  @media (--mo) {
+    left: calc(-50vw + 50%);
+    position: relative;
+    width: 100vw;
+  }
+}
+
 /* flex cards */
 
-/* .one { 
+/* .one,
+.two,
+.three,
+.four,
+.five,
+.six {
   order: 1;
-}
-.two { 
-  order: 2; 
-}
-.three { 
-  order: 4;
-  @media (--sm) {
-    order: 3;
-  }
-}
-.four { 
-  order: 3; 
-  @media (--sm) {
-    order: 4;
-  }
-}
-.five { 
-  order: 5; 
-}
-.six { 
-  order: 6; 
 } */
 
 .six .Card {
   @media (--md) {
-    transform: translateY(-7vh);
+    transform: translateY(-12.5vh);
   }
 }
 </style>

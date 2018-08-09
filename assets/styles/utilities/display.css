@@ -86,8 +86,25 @@
 
  */
 
-/* @media (--sm) { */
-@media (min-width: 512px) {
+@media (--mo) {
+  .u-mo-hidden {
+    display: none !important;
+  }
+
+  .u-mo-block {
+    display: block !important;
+  }
+
+  .u-mo-flex {
+    display: flex !important;
+  }
+
+  .u-mo-inlineChildrenBlock {
+    @mixin InlineBlockChildren;
+  }
+}
+
+@media (--sm) {
   .u-sm-hidden {
     display: none !important;
   }
@@ -105,8 +122,7 @@
   }
 }
 
-/* @media (--md) { */
-@media (min-width: 768px) {
+@media (--md) {
   .u-md-hidden {
     display: none !important;
   }
@@ -124,8 +140,7 @@
   }
 }
 
-/* @media (--lg) { */
-@media (min-width: 1280px) {
+@media (--lg) {
   .u-lg-hidden {
     display: none !important;
   }

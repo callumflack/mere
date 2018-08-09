@@ -2,9 +2,9 @@
   .Toggle(:class="{ 'is-active': isActive }")
     button.Toggle-title.f.f-justifyBetween(@click="toggle")
       h2.Account-subtitle.fw-regular.m-b0 {{ item.title }}
-      icon-base.c-brand.m-t1(icon-name="icon-toggle" height="24" width="24")
+      icon-base.c-brand.m-sm-t1(icon-name="icon-toggle" height="24" width="24")
         icon-toggle
-    .Toggle-info(v-show="isActive" v-html="item.info")
+    .Toggle-info.p-mo-t1(v-show="isActive" v-html="item.info")
       
 </template>
 
@@ -44,9 +44,11 @@ export default {
 }
 
 .Toggle-title {
-  border-bottom: 1px solid var(--c-brand);
-  margin-bottom: var(--s-3b);
-  padding-bottom: var(--s-2a);
+  border-bottom: 1px solid var(--c-brand-rule);
+  /* margin-bottom: var(--s-3b);
+  padding-bottom: var(--s-2a); */
+  margin-bottom: calc(0.4 * var(--responsive-space));
+  padding-bottom: calc(0.25 * var(--responsive-space));
   width: 100%;
 
   &:focus {

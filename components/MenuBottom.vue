@@ -64,7 +64,7 @@ export default {
   }
 
   /* don't display on mobile */
-  @media (max-width: 512px) {
+  @media (--mo) {
     display: none;
   }
 }

@@ -2,12 +2,12 @@
   .b-py3
     .Container.Container--xl
       .FlexGrid
-        .w-1x3
+        .w-sm-1x3.b-mb3
           h1.Account-title.c-text 
             | Delivery
             br 
             | &amp; Returns
-        .w-2x3
+        .w-sm-2x3
           toggle-item(
             v-for="item in faqs"
             :key="item.title"

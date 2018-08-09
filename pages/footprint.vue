@@ -2,7 +2,7 @@
   div
     .b-py2
       .Container.Container--xl
-        .Card-block.p-msm-a0
+        .Card-block.p-mo-a0
           .c-block-brand
             h1.Product-title.Product-title--accent
               | A State Of Future Beauty
@@ -24,7 +24,7 @@
               | An Active Footprint In Nature
 
           .FlexGrid
-            .w-3x4.w-sm-5x12.u-relative.p-msm-b4
+            .w-3x4.w-sm-5x12.u-relative.p-mo-b4
               figure.Card-image.Card-image--adjacent
                 img(src="/images/footprint-hero.jpg")
             .w-sm-7x12

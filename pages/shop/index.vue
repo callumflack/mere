@@ -1,11 +1,11 @@
 <template lang="pug">
-.b-pb2
-  .b-py3
-    .Container.Container--sm
-      h1.Heading.fw-medium {{ pageTitle }}
+div
+  .b-py2
+    .Container
+      h1.Heading {{ pageTitle }}
       p.c-brand.u-textCenter {{ pageIntro }}
 
-  .Container.Container--su
+  .Container.Container--su.b-pb3
     .FlexGrid--block
       .Product.w-sm-1x2.w-lg-1x3(
         v-for="item in products" 
@@ -14,11 +14,13 @@
         // nuxt-link(:to="`/shop/${item.title}`")
         nuxt-link(to="/shop/id")
           .Product-heading
-            h5.Heading.fw-medium.fs-text-sm.m-b3 {{ item.category }}
+            h5.Heading.fs-text-sm.m-b3 {{ item.category }}
             h2.Product-title.fs-text-lg {{ item.title }}
           .Product-image
             img(:src="item.image")
-          .Product-button.Heading.fs-textMd.c-brand.u-noVisualLink ${{ item.price }} AUD
+          .Product-button.Heading.fs-textMd.c-brand.u-noVisualLink 
+            | ${{ item.price }} AUD
+            span.Product-title.fs-text.u-block.m-t2.m-b0 Buy Now
 
 </template>
 
@@ -74,8 +76,7 @@ export default {
   padding: var(--s-4) var(--s-4) var(--s-2);
 
   @media (--lg) {
-    & .Heading,
-    & .Product-title {
+    & > * {
       margin: auto;
       width: 66%;
     }
