@@ -1,9 +1,8 @@
 <template lang="pug">
 div
-  .b-py2
-    .Container
-      h1.Heading.u-textCenter {{ pageTitle }}
-      p.c-brand.u-textCenter {{ pageIntro }}
+  .Container.b-py2
+    h1.Heading.u-textCenter {{ pageTitle }}
+    p.c-brand.u-textCenter {{ pageIntro }}
 
   .Container.Container--su.b-pb3
     .FlexGrid--block
@@ -22,16 +21,40 @@ div
             | ${{ item.price }} AUD
             span.Product-title.fs-text.u-block.m-t2.m-b0 Buy Now
 
+
+  .Container
+    h3 Applonia
+    <ul>
+      <li v-for="post in posts" :key="post.id">
+        <router-link :to="`/post/${post.id}`" class='link'>
+          <div class='placeholder'>
+            <img :alt="post.title" :src="`https://media.graphcms.com/resize=w:100,h:100,fit:crop/${post.coverImage.handle}`"/>
+          </div>
+          <h3>{{post.title}}</h3>
+        </router-link>
+      </li>
+    </ul>
+
 </template>
 
 <script>
 import Logo from "~/components/Logo2.vue";
 import ProductCard from "~/components/ProductCard2.vue";
+import { POSTS_QUERY, POSTS_PER_PAGE } from "~/apollo/queries";
 
 export default {
   components: {
     Logo,
     ProductCard
+  },
+  apollo: {
+    posts: {
+      query: POSTS_QUERY,
+      variables: {
+        skip: 0,
+        first: POSTS_PER_PAGE
+      }
+    }
   },
   data() {
     return {
@@ -68,7 +91,7 @@ export default {
 };
 </script>
 
-<style lang="postcss">
+<style lang="css" scoped>
 @import "../../assets/styles/variables.css";
 
 .Product-heading > *,

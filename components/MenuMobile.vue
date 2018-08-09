@@ -139,7 +139,7 @@ export default {
 };
 </script>
 
-<style scoped lang="postcss">
+<style scoped lang="css">
 @import "../assets/styles/variables.css";
 
 .MobileNav {

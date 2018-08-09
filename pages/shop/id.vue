@@ -171,7 +171,7 @@ export default {
 };
 </script>
 
-<style lang="postcss" scoped>
+<style lang="css" scoped>
 @import "../../assets/styles/variables.css";
 @import "../../assets/styles/theme/tabs.css";
 

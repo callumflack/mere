@@ -54,7 +54,7 @@ export default {
 };
 </script>
 
-<style lang="postcss" scoped>
+<style lang="css" scoped>
 @import "../assets/styles/variables.css";
 
 .Card-block {

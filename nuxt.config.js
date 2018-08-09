@@ -1,11 +1,8 @@
 const pkg = require("./package");
 
-module.exports = {
+export default {
   mode: "universal",
 
-  /*
-  ** Headers of the page
-  */
   head: {
     title: pkg.name,
     meta: [
@@ -16,58 +13,38 @@ module.exports = {
     link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }]
   },
 
-  /*
-  ** Customize the progress-bar color
-  ** or loading: "~/components/PageLoading.vue",
-  */
   loading: { color: "hsl(77, 19%, 47%)" },
 
-  /*
-  ** Global CSS
-  */
   css: ["~/assets/styles/application.css"],
 
-  /*
-  ** Plugins to load before mounting the App
-  */
-  plugins: [{ src: "~/plugins/vue-flickity.js", ssr: false }],
-
-  /*
-  ** Nuxt.js modules
-  */
-  modules: [
-    // Doc: https://github.com/nuxt-community/axios-module#usage
-    // "@nuxtjs/axios"
-  ],
-  /*
-  ** Axios module configuration
-  */
-  axios: {
-    // See https://github.com/nuxt-community/axios-module#options
-  },
+  modules: ["@nuxtjs/apollo"],
 
   router: {
     middleware: "currentPage"
   },
 
-  /*
-  ** Build configuration
-  */
+  apollo: {
+    clientConfigs: {
+      default: "~/apollo/client-configs/default.js"
+    },
+    includeNodeModules: true
+  },
+
   build: {
-    /*
-    ** Add axios globally
-    */
-    vendor: ["axios", "vue-flickity"],
-    /*
-    ** You can extend webpack config here
-    */
+    loaders: [
+      {
+        test: /\.postcss$/,
+        use: [
+          "vue-style-loader",
+          "css-loader",
+          {
+            loader: "postcss-loader"
+          }
+        ]
+      }
+    ],
+    /* You can extend webpack config here */
     extend(config, ctx) {
-      // Add postcss loader for CSS files
-      // https://github.com/nuxt/nuxt.js/issues/846#issuecomment-309196303
-      let cssLoader = config.module.rules.find(
-        loader => loader.test.toString() === "/\\.css$/"
-      );
-      cssLoader.use.push("postcss-loader");
       // Run ESLint on save
       if (ctx.isDev && ctx.isClient) {
         config.module.rules.push({

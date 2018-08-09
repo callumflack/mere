@@ -25,7 +25,7 @@ export default {
 };
 </script>
 
-<style lang="postcss">
+<style lang="css">
 @import "../assets/styles/variables.css";
 
 .Product-inner {
@@ -47,7 +47,7 @@ export default {
   text-transform: initial;
 
   @media (--lg) {
-    width: 66%;
+    /* width: 66%; */
   }
 }
 

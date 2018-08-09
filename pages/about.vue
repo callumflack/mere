@@ -67,8 +67,7 @@ export default {
   data() {
     return {
       isActive: false,
-      vimeoSrc:
-        "https://player.vimeo.com/video/261113972?title=0&byline=0&portrait=0?api=1"
+      vimeoSrc: "https://player.vimeo.com/video/261113972?title=0&byline=0&portrait=0?api=1"
     };
   },
   methods: {
@@ -100,7 +99,7 @@ export default {
 };
 </script>
 
-<style lang="postcss" scoped>
+<style lang="css" scoped>
 @import "../assets/styles/variables.css";
 @import "../assets/styles/components/video-button.css";
 

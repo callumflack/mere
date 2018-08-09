@@ -53,7 +53,7 @@ export default {
 };
 </script>
 
-<style lang="postcss">
+<style lang="css">
 @import "../assets/styles/variables.css";
 
 .Footer {
