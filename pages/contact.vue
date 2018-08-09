@@ -58,7 +58,9 @@ export default {
 @import "../assets/styles/variables.css";
 
 .Card-block {
-  height: 866px;
-  padding: calc(1.5 * var(--s-4)) calc(1.666 * var(--s-4)) var(--s-2);
+  /* padding: calc(1.5 * var(--s-4)) calc(1.666 * var(--s-4)) var(--s-2); */
+  @media (--md) {
+    height: 866px;
+  }
 }
 </style>

@@ -2,7 +2,7 @@
 div
   .b-py2
     .Container
-      h1.Heading {{ pageTitle }}
+      h1.Heading.u-textCenter {{ pageTitle }}
       p.c-brand.u-textCenter {{ pageIntro }}
 
   .Container.Container--su.b-pb3
@@ -70,6 +70,11 @@ export default {
 
 <style lang="postcss">
 @import "../../assets/styles/variables.css";
+
+.Product-heading > *,
+.Product-button {
+  text-align: center;
+}
 
 .Product-heading {
   background-color: var(--c-neutral);

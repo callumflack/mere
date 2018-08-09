@@ -67,7 +67,7 @@ div[class*="page-"] {
 
 .Card-block {
   color: var(--c-pale-text);
-  padding: calc(0.9 * var(--responsive-space)) calc(1 * var(--responsive-space));
+  padding: calc(0.8 * var(--responsive-space)) calc(1 * var(--responsive-space));
 
   @media (--sm) {
     /* padding: calc(1.5 * var(--s-4)) calc(1.666 * var(--s-4)); */

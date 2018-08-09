@@ -5,8 +5,8 @@
         icon-close
     .b-py2
       .Container
-        h3.Heading.fw-medium.m-b3 {{ category }}
-        h1.Product-title {{ title }}
+        h3.Heading.fw-medium.u-textCenter.m-b3 {{ category }}
+        h1.Product-title.u-textCenter {{ title }}
       
     .Container.Container--su.b-pb3
       .FlexGrid.mo-FlexGrid--block
