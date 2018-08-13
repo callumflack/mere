@@ -47,7 +47,7 @@
 }
 
 /*
-  1. Promote fixed elements into a new layer for performance reasons.
+  Promote fixed elements into a new layer for performance reasons.
  */
 
 .u-fullScreen {
@@ -60,6 +60,10 @@
   backface-visibility: hidden; /* 1 */
   position: fixed;
 }
+
+/* 
+  Relative & static
+ */
 
 .u-relative {
   position: relative;

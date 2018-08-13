@@ -10,8 +10,11 @@
 .c-brand-hover {
   color: var(--c-brand-hover) !important;
 }
-.c-brand-light {
-  color: var(--c-brand-light) !important;
+.c-brand-highlight {
+  color: var(--c-brand-highlight) !important;
+}
+.c-brand-lowlight {
+  color: var(--c-brand-lowlight) !important;
 }
 .c-black {
   color: black !important;

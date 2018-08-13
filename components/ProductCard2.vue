@@ -25,7 +25,7 @@ export default {
 };
 </script>
 
-<style lang="css">
+<style lang="css" scoped>
 @import "../assets/styles/variables.css";
 
 .Product-inner {

@@ -74,7 +74,7 @@
 
   /* 
 
-    Space scale
+    Spacing
 
    */
 
@@ -114,10 +114,9 @@
   --ff-meta: var(--ff-text);
 
   --ff-stack-serif: Georgia, "Times New Roman", Times, serif;
-  --ff-stack-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial,
-    sans-serif;
-  --ff-stack-mono: "Courier New", "Consolas", "Andale Mono", "Lucida San Typewriter",
-    "Lucida Console", mono-spaced;
+  --ff-stack-sans: -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", Arial, sans-serif;
+  --ff-stack-mono: "Courier New", "Consolas", "Andale Mono", "Lucida San Typewriter", "Lucida Console",
+    mono-spaced;
 
   --ff-stack-text: var(--ff-stack-sans);
   --ff-stack-heading: var(--ff-stack-serif);
@@ -135,7 +134,7 @@
     <desired-pt-size>/<text-unit>/16 * 16
     48/19/16 * 16
 
-    <desired-pt-size>/<responsive-text-unit>/16 * 16
+    <desired-pt-size>/<responsive-text-unit-in-px>/16 * 16
     27/13/16 * 16
 
    */
@@ -165,7 +164,7 @@
 
   /* 
   
-    Font leading (line-height), tracking (letter-spacing) & weights
+    Font leading (line-height) & tracking (letter-spacing)
    
    */
 
@@ -187,16 +186,6 @@
   --fls-touch-positive: 0.02em;
   --fls-loose: 0.075em;
 
-  --fw-hairline: 100;
-  --fw-light: 200;
-  --fw-book: 300;
-  --fw-regular: 400;
-  --fw-medium: 500;
-  --fw-semibold: 600;
-  --fw-bold: 700;
-  --fw-heavy: 800;
-  --fw-black: 900;
-
   /* 
 
     Colors
@@ -215,6 +204,8 @@
   --c-brand-bg: hsl(77, 19%, 96%);
   --c-brand-hover: hsl(288, 100%, 40%);
   --c-brand-hover: #9bbbdc;
+  --c-brand-lowlight: var(--c-brand-hover);
+  --c-brand-highlight: var(--c-brand-hover);
 
   --c-black: hsl(0, 0%, 3%);
   --c-ash: hsl(213, 11%, 8%);
@@ -228,6 +219,8 @@
   --c-whitesmoke: hsl(200, 23%, 97%);
   --c-bg: #fdfdfd;
   --c-white: white;
+
+  --c-link: var(--c-text);
 
   --c-neutral: #ece9e2;
   --c-neutral-alt: rgba(23, 65, 112, 0.05);

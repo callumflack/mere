@@ -31,18 +31,13 @@ export default {
   },
 
   build: {
-    loaders: [
-      {
-        test: /\.postcss$/,
-        use: [
-          "vue-style-loader",
-          "css-loader",
-          {
-            loader: "postcss-loader"
-          }
-        ]
-      }
-    ],
+    /* 
+      import variables across all components & pages in one go:
+      https://nuxtjs.org/api/configuration-build#watch 
+     */
+    styleResources: {
+      css: "./assets/styles/variables.css"
+    },
     /* You can extend webpack config here */
     extend(config, ctx) {
       // Run ESLint on save

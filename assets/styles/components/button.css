@@ -16,6 +16,7 @@
   margin: 0;
   padding-left: var(--button-xpadding);
   padding-right: var(--button-xpadding);
+  padding-bottom: var(--button-text-alignment);
   position: relative;
   text-decoration: none;
   text-transform: var(--button-font-case);
@@ -86,16 +87,14 @@
 
   &:hover {
     border-color: var(--c-bg);
-    box-shadow: var(--button-box-shadow-color) 0 0 0
-        var(--button-box-shadow-stroke-inset) inset,
+    box-shadow: var(--button-box-shadow-color) 0 0 0 var(--button-box-shadow-stroke-inset) inset,
       var(--button-box-shadow-color) 0 0 0 var(--button-box-shadow-stroke-hover);
   }
 
   &:focus,
   &:active {
     border-color: var(--c-bg);
-    box-shadow: var(--button-box-shadow-color) 0 0 0
-        var(--button-box-shadow-stroke-inset) inset,
+    box-shadow: var(--button-box-shadow-color) 0 0 0 var(--button-box-shadow-stroke-inset) inset,
       var(--button-box-shadow-color) 0 0 0 var(--button-box-shadow-stroke-active);
   }
 }
@@ -108,16 +107,14 @@
 
   &:hover {
     border-color: var(--c-bg);
-    box-shadow: var(--button-box-shadow-color) 0 0 0
-        var(--button-box-shadow-stroke-inset) inset,
+    box-shadow: var(--button-box-shadow-color) 0 0 0 var(--button-box-shadow-stroke-inset) inset,
       var(--button-box-shadow-color) 0 0 0 var(--button-box-shadow-stroke-hover);
   }
 
   &:focus,
   &:active {
     border-color: var(--c-bg);
-    box-shadow: var(--button-box-shadow-color) 0 0 0
-        var(--button-box-shadow-stroke-inset) inset,
+    box-shadow: var(--button-box-shadow-color) 0 0 0 var(--button-box-shadow-stroke-inset) inset,
       var(--button-box-shadow-color) 0 0 0 var(--button-box-shadow-stroke-active);
   }
 }
