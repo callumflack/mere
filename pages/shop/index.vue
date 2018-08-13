@@ -13,11 +13,11 @@ div
         // nuxt-link(:to="`/shop/${item.title}`")
         nuxt-link(to="/shop/id")
           .Product-heading
-            h5.Heading.fs-text-sm.m-b3 {{ item.category }}
-            h2.Product-title.fs-text-lg {{ item.title }}
+            h5.Heading.fs-text-sm.u-textCenter.m-b3 {{ item.category }}
+            h2.Product-title.fs-text-lg.u-textCenter {{ item.title }}
           .Product-image
             img(:src="item.image")
-          .Product-button.Heading.fs-textMd.c-brand.u-noVisualLink 
+          .Product-button.Heading.u-textCenter.c-brand.u-noVisualLink 
             | ${{ item.price }} AUD
             span.Product-title.fs-text.u-block.m-t2.m-b0 Buy Now
 
@@ -93,11 +93,6 @@ export default {
 
 <style lang="css" scoped>
 @import "../../assets/styles/variables.css";
-
-.Product-heading > *,
-.Product-button {
-  text-align: center;
-}
 
 .Product-heading {
   background-color: var(--c-neutral);
