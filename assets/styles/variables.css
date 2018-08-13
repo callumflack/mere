@@ -316,8 +316,8 @@
 
   --transition-speed: 0.15s;
   --transition-easing: ease-out;
-  --transition-easing-cubic-state: cubic-bezier(0, 1.1, 1, 1.1);
   --transition-easing-cubic-state: cubic-bezier(0, -0.1, 1, -0.1);
+  --transition-easing-cubic-state: cubic-bezier(0, 1.1, 1, 1.1);
   --transition-easing-thisalso: cubic-bezier(0.19, 1, 0.22, 1);
 
   /* 

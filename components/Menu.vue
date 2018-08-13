@@ -178,11 +178,11 @@ export default {
 }
 
 .collapse {
-  animation: collapse 0.5s ease forwards;
+  animation: collapse 0.25s var(--transition-easing-cubic-state) forwards;
 }
 
 .open {
-  animation: open 1s ease forwards;
+  animation: open 0.5s ease-in-out forwards;
   /* box-shadow: 0 9px 25px 0 rgba(0, 0, 0, 0.25), 0 19px 70px 0 rgba(0, 0, 0, 0.1); */
   /* box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.15); */
 }
