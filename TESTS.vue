@@ -31,7 +31,7 @@
       query: POSTS_QUERY,
         variables: {
         skip: 0,
-          first: POSTS_PER_PAGE
+        first: POSTS_PER_PAGE
       }
     },
   }

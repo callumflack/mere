@@ -1,0 +1,24 @@
+{
+  shop {
+    productByHandle(handle: "activated-dermal-corrective-tonic") {
+      id
+      title
+      handle
+      productType
+      variants(first: 250) {
+        edges {
+          node {
+            price
+          }
+        }
+      }
+      images(first: 250) {
+        edges {
+          node {
+            originalSrc
+          }
+        }
+      }
+    }
+  }
+}

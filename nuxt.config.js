@@ -24,9 +24,11 @@ export default {
   },
 
   apollo: {
+    /* https://github.com/nuxt-community/apollo-module */
     clientConfigs: {
       default: "~/apollo/client-configs/default.js"
     },
+    /* include graphql-tag for node_modules folder */
     includeNodeModules: true
   },
 

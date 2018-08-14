@@ -5,16 +5,19 @@
         icon-close
     .b-py2
       .Container
-        h3.Heading.fw-medium.u-textCenter.m-b3 {{ category }}
-        h1.Product-title.u-textCenter {{ title }}
+        //- h3.Heading.fw-medium.u-textCenter.m-b3 {{ shop.productByHandle.productType }}
+        //- h1.Product-title.u-textCenter {{ shop.products.edges[0].product.node.title }}
+        //- h1.Product-title.u-textCenter {{ shop.productByHandle.title }}
+        h1.Product-title.u-textCenter product.title
+        h1.Product-title.u-textCenter number o' clicks: {{ numberOfClicks }}
       
     .Container.Container--su.b-pb3
       .FlexGrid.mo-FlexGrid--block
         .w-sm-1x3
           .f-childrenCenter
             .w-100
-              p.c-brand.u-textCenter.m-b3 ${{ price }}
-              p.c-brand.u-textCenter {{ intro }}
+              p.c-brand.u-textCenter.m-b3 $product.price
+              p.c-brand.u-textCenter product.intro
               .u-textCenter.m-t4
                 p.c-brand.m-b3
                   a.LinkUnderline(@click="handleToggle") 
@@ -112,6 +115,8 @@
 <script>
 import IconBase from "~/components/IconBase";
 import IconClose from "~/components/icons/IconClose";
+import shop from "~/apollo/queries/shop";
+// import gql from "graphql-tag";
 
 export default {
   name: "id",
@@ -119,12 +124,22 @@ export default {
     IconBase,
     IconClose
   },
+  apollo: {
+    shop: {
+      query: shop
+      /* variables() {
+        return {
+          id: this.product.id,
+          title: this.product.title
+        };
+      } */
+    }
+  },
   data() {
     return {
-      title: "Activated Dermal Corrective Tonic",
-      category: "Mere Phytisphere",
-      intro:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempo incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat",
+      shop: {},
+      product: {},
+      numberOfClicks: 0,
       ingredients:
         "Water (Aqua), Sodium Laureth Sulfate, Cocamidopropyl Betaine, Sea Salt (Maris sal), Glycerin, Polysorbate 20, Citrus Nobilis (Mandarin Orange) Peel Oil, Lavandula Angustifolia (Lavender) Oil, Phenoxyethanol, Cananga Odorata Flower Oil, Magnesium Nitrate, Methylchloroisothiazolinone, Magnesium Chloride, Methylisothiazolinone, Citric Acid, Limonene, Linalool, Benzyl Benzoate.",
       images: [
@@ -133,15 +148,18 @@ export default {
         "/images/products-pack-2.png"
       ],
       price: 69.95,
-      cart: 1,
-      flickityOptions: {
-        // autoPlay: true,
-        prevNextButtons: false,
-        pageDots: false,
-        wrapAround: true,
-        cellSelector: ".Slider-cell"
-      }
+      cart: 1
     };
+  },
+  created() {
+    // $on method will receive the updated count value from the sender component
+    this.$nuxt.$on("add-to-product-page", data => {
+      console.log(product);
+      this.product.node = data;
+    });
+    this.$root.$on("increment-count", data => {
+      this.numberOfClicks = data;
+    });
   },
   computed: {
     isVisible() {

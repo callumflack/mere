@@ -5,14 +5,20 @@ div
     p.c-brand.u-textCenter {{ pageIntro }}
 
   .Container.Container--su.b-pb3
-    //- h3 {{ shop.name }} Apollo tests
     .FlexGrid--block
       .Product.w-sm-1x2.w-lg-1x3(
-        v-for="product in shop.products.edges" 
+        v-for="(product, index) in shop.products.edges" 
         :key="product.node.id.toString()"
         :product="product.node"
       )
-        nuxt-link(to="/shop/id")
+        //- .f
+          .w-1x2 {{ count }}
+          .w-1x2
+            button.Button(@click="increment") Click here
+        //- div(@click="addToProductPage(product, index)")
+        //- on nuxt-link, use @click.native: https://github.com/nuxt/nuxt.js/issues/1786
+        //- nuxt-link(:to="`/shop/${product.node.handle}`")
+        nuxt-link(:to="`/shop/${product.node.handle}`" @click.native="addToProductPage(product, index)")
           .Product-heading
             h5.Heading.fs-text-sm.u-textCenter.m-b3 {{ product.node.productType }}
             h2.Product-title.fs-text-lg.u-textCenter {{ product.node.title }}
@@ -35,6 +41,9 @@ export default {
     Logo,
     ProductCard
   },
+  props: {
+    /* product: Object */
+  },
   apollo: {
     shop: {
       prefetch: true,
@@ -43,13 +52,23 @@ export default {
   },
   data() {
     return {
+      count: 0,
       shop: {},
-      products: [],
       pageTitle: "Beyond beautiful",
       pageIntro:
         "Our super natural skin care range champions the natural environment and provides cleaner and safer products of the highest quality",
       productLabel: "MERE PHYTISPHERE"
     };
+  },
+  methods: {
+    addToProductPage(product, index) {
+      console.log(product, index);
+      this.$nuxt.$emit("add-to-product-page", this.product);
+    },
+    increment() {
+      this.count++;
+      this.$root.$emit("increment-count", this.count);
+    }
   },
   computed: {
     currentPage: function() {
@@ -78,6 +97,8 @@ export default {
   padding: var(--s-4) var(--s-4) var(--s-2);
 
   @media (--lg) {
+    min-height: 132px;
+
     & > * {
       margin: auto;
       width: 66%;
