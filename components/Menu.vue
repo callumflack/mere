@@ -4,7 +4,7 @@
       .u-absolutePin.p-r4
         .f.f-justifyEnd.h-100
           a.u-noVisualLink.c-text(href="#" @click.prevent="handleNavToggle")
-            icon-base.MenuLink(icon-name="icon-hamburger-close" v-if="isVisible")
+            icMobileNavon-base.MenuLink(icon-name="icon-hamburger-close" v-if="isMobileNavVisible")
               icon-hamburger-close
             icon-base.MenuLink(icon-name="icon-hamburger" v-else)
               icon-hamburger
@@ -20,14 +20,7 @@
           :exact="item.exact"
         )
       .Nav-right
-        menu-link.Heading.fw-medium.c-brand(
-          v-for="item in menuLeftLinks"
-          :key="item.label"
-          :label="item.label"
-          :link="item.link"
-          :currentPage="currentPage"
-          :exact="item.exact"
-        )
+        button.MenuLink.Heading.fw-medium.c-brand(@click.prevent="handleCartToggle") Cart
 
     .Nav-logo.u-fixedCenter.f-childrenCenter
       nuxt-link(to="/" exact)
@@ -105,11 +98,17 @@ export default {
     };
   },
   computed: {
-    isVisible: function() {
+    isMobileNavVisible: function() {
       return this.$store.state.isMobileNavVisible;
+    },
+    isCartVisible: function() {
+      return this.$store.state.isCartVisible;
     }
   },
   methods: {
+    handleCartToggle() {
+      this.$store.commit("SET_CART_VISIBILITY", !this.$store.state.isCartVisible);
+    },
     handleNavToggle() {
       this.$store.commit("SET_MODAL_VISIBILITY", !this.$store.state.isMobileNavVisible);
       this.navBar.static = this.$store.state.isMobileNavVisible;
@@ -163,7 +162,7 @@ export default {
 };
 </script>
 
-<style scoped lang="css">
+<style lang="css" scoped>
 @import "../assets/styles/variables.css";
 
 .Nav {
@@ -173,7 +172,7 @@ export default {
   position: fixed;
   top: 0;
   width: 100%;
-  z-index: 999;
+  z-index: 1001;
   -webkit-backface-visibility: hidden;
 }
 

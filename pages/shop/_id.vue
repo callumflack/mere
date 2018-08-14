@@ -154,8 +154,8 @@ export default {
   created() {
     // $on method will receive the updated count value from the sender component
     this.$nuxt.$on("add-to-product-page", data => {
-      console.log(product);
-      this.product.node = data;
+      console.log(this.product);
+      this.product = data;
     });
     this.$root.$on("increment-count", data => {
       this.numberOfClicks = data;
@@ -192,25 +192,6 @@ export default {
 <style lang="css" scoped>
 @import "../../assets/styles/variables.css";
 @import "../../assets/styles/theme/tabs.css";
-
-.ClosePage {
-  position: fixed;
-  right: 0.75rem;
-  top: calc(1.1 * var(--s-5));
-  z-index: 1;
-
-  @media (--mo) {
-    & >>> svg {
-      height: 2rem;
-      width: 2rem;
-    }
-  }
-
-  @media (--sm) {
-    right: 0;
-    top: var(--s-5);
-  }
-}
 
 .Card {
   position: relative;

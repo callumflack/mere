@@ -76,6 +76,31 @@ div[class*="page-"] {
 
 /* 
 
+  Close page icon
+
+*/
+
+.ClosePage {
+  position: fixed;
+  right: 0.75rem;
+  top: calc(1.1 * var(--s-5));
+  z-index: 1;
+
+  @media (--mo) {
+    & >>> svg {
+      height: 2rem;
+      width: 2rem;
+    }
+  }
+
+  @media (--sm) {
+    right: 0;
+    top: var(--s-5);
+  }
+}
+
+/* 
+
   Utils
 
 */

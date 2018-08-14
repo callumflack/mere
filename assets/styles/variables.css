@@ -150,7 +150,7 @@
   --fs-text-xs: calc(var(--fs-text-unit) * 0.764705882em);
   --fs-text-sm: calc(var(--fs-text-unit) * 0.823529412em);
   --fs-text: calc(var(--fs-text-unit) * 1em);
-  --fs-text-md: calc(var(--fs-text-unit) * 1.25em);
+  --fs-text-md: calc(var(--fs-text-unit) * 1.294117647em);
   --fs-text-lg: calc(var(--fs-text-unit) * 1.5em);
   --fs-button: var(--fs-text-xs);
 
