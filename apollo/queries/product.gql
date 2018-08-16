@@ -1,9 +1,10 @@
-{
-  shop {
-    productByHandle(handle: "activated-dermal-corrective-tonic") {
-      id
+query productById($id: ID!) {
+  node(id: $id) {
+    id
+    ... on Product {
       title
       handle
+      description
       productType
       variants(first: 250) {
         edges {

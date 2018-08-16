@@ -1,0 +1,10 @@
+{
+  shop {
+    productByHandle(handle: "activated-dermal-corrective-tonic") {
+      id
+      title
+      handle
+      productType
+    }
+  }
+}

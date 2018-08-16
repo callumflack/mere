@@ -11,14 +11,8 @@ div
         :key="product.node.id.toString()"
         :product="product.node"
       )
-        //- .f
-          .w-1x2 {{ count }}
-          .w-1x2
-            button.Button(@click="increment") Click here
-        //- div(@click="addToProductPage(product, index)")
-        //- on nuxt-link, use @click.native: https://github.com/nuxt/nuxt.js/issues/1786
-        //- nuxt-link(:to="`/shop/${product.node.handle}`")
-        nuxt-link(:to="`/shop/${product.node.handle}`" @click.native="addToProductPage(product, index)")
+        //- nuxt-link(to="/shop/id")
+        nuxt-link(:to="`/shop/${product.node.handle}`")
           .Product-heading
             h5.Heading.fs-text-sm.u-textCenter.m-b3 {{ product.node.productType }}
             h2.Product-title.fs-text-lg.u-textCenter {{ product.node.title }}
@@ -56,25 +50,24 @@ export default {
       shop: {},
       pageTitle: "Beyond beautiful",
       pageIntro:
-        "Our super natural skin care range champions the natural environment and provides cleaner and safer products of the highest quality",
-      productLabel: "MERE PHYTISPHERE"
+        "Our super natural skin care range champions the natural environment and provides cleaner and safer products of the highest quality"
     };
   },
   methods: {
-    addToProductPage(product, index) {
+    /* addToProductPage(product, index) {
       console.log(product, index);
       this.$nuxt.$emit("add-to-product-page", this.product);
     },
     increment() {
       this.count++;
       this.$root.$emit("increment-count", this.count);
-    }
+    } */
   },
   computed: {
-    currentPage: function() {
+    /*currentPage: function() {
       return this.$store.state.currentPage;
     }
-    /* variantImage() {
+    variantImage() {
       return this.selectedVariantImage || this.product.images.edges[0].node.src;
     },
     productVariant() {
@@ -94,13 +87,19 @@ export default {
 
 .Product-heading {
   background-color: var(--c-neutral);
-  padding: var(--s-4) var(--s-4) var(--s-2);
+  padding: var(--s-4) 0 var(--s-2);
 
   @media (--lg) {
     min-height: 132px;
 
     & > * {
       margin: auto;
+      width: 80%;
+    }
+  }
+
+  @media (--xl) {
+    & > * {
       width: 66%;
     }
   }

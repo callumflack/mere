@@ -5,7 +5,7 @@
         icon-base.c-brand.p-a3.p-sm-a5(icon-name="icon-close", height="48", width="48")
           icon-close
     .Container.Container--xl
-      .b-py2
+      //- .b-py2
         .Nav.f.f-justifyBetween
           .Nav-item.f.f-col(v-for="(item) in CartNav" :key="item.label") 
             .Heading.fw-medium.fs-text-sm.c-brand.p-b2 {{ item.label }}
@@ -17,18 +17,18 @@
         .Cart-content
           .Cart-content-labels.Heading.fs-text-sm.fw-medium.c-brand.f.m-b4
             span.Cart-item-img.--withName Item
-            span.Cart-item-quantity Quantity
-            span.Cart-item-price Unit price
-            span.Cart-item-quantityPrice Total price
+            span.Cart-item-quantity.Text Quantity
+            span.Cart-item-price.Text Unit price
+            span.Cart-item-quantityPrice.Text Total price
 
           .Cart-items.m-b4.p-t1
             .Cart-item.f.f-alignItemsCenter.h-100
               .Cart-item-img
                 img(src="/images/products-super-natural-dermal-serum-vaccine-bottle.png", alt="")
               .Cart-item-name.Title.fs-text-md.m-b0 Bio-Repair Night Guardian Mask
-              .Cart-item-quantity 1
-              .Cart-item-price $69.95
-              .Cart-item-quantityPrice $69.95
+              .Cart-item-quantity.Text 1
+              .Cart-item-price.Text $69.95
+              .Cart-item-quantityPrice.Text $69.95
               button.Cart-item-remove
                 icon-base.c-brand(icon-name="icon-close", height="20", width="20")
                   icon-close
@@ -101,7 +101,15 @@ export default {
 /* @import "../assets/styles/variables.css"; */
 
 .Cart {
-  @mixin fullScreen;
+  /* @mixin fullScreen; */
+  bottom: 0;
+  height: 100%;
+  left: 0;
+  margin: auto;
+  position: fixed;
+  top: 0;
+  width: 100%;
+
   background-color: var(--c-neutral);
   height: calc(100vh - var(--menu-height));
   top: var(--menu-height);
@@ -130,7 +138,7 @@ export default {
 .Cart-item-quantity,
 .Cart-item-price,
 .Cart-item-quantityPrice {
-  @mixin Text;
+  /* @mixin Text; */
 }
 .Cart-item-quantity,
 .Cart-item-price,

@@ -1,0 +1,11 @@
+{
+  node(id: "Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0LzE0MTgxNDc2MjcwNzc=") {
+    id
+    ... on Product {
+      title
+      handle
+      description
+      productType
+    }
+  }
+}
