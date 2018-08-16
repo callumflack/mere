@@ -17,19 +17,19 @@ export default {
 
   css: ["~/assets/styles/application.css"],
 
-  modules: ["@nuxtjs/apollo"],
-
   router: {
     middleware: "currentPage"
   },
 
+  modules: ["@nuxtjs/apollo"],
+
   apollo: {
     /* https://github.com/nuxt-community/apollo-module */
+    /* include graphql-tag for node_modules folder */
+    includeNodeModules: true,
     clientConfigs: {
       default: "~/apollo/client-configs/default.js"
-    },
-    /* include graphql-tag for node_modules folder */
-    includeNodeModules: true
+    }
   },
 
   build: {
