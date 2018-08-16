@@ -1,7 +1,7 @@
 <template lang="pug">
   .Cart(:class="[{'u-hidden': !isCartVisible}]")
     //- .u-relative
-      button.ClosePage(@click="closeCart")
+      button.ClosePage(@click="handleCartClose2")
         icon-base.c-brand.p-a3.p-sm-a5(icon-name="icon-close", height="48", width="48")
           icon-close
     .Container.Container--xl
@@ -21,8 +21,8 @@
             span.Cart-item-price.Text Unit price
             span.Cart-item-quantityPrice.Text Total price
 
-          .Cart-items.m-b4.p-t1
-            .Cart-item.f.f-alignItemsCenter.h-100
+          .Cart-items.m-b4.p-t1(v-if="checkout")
+            //- .Cart-item.f.f-alignItemsCenter.h-100
               .Cart-item-img
                 img(src="/images/products-super-natural-dermal-serum-vaccine-bottle.png", alt="")
               .Cart-item-name.Title.fs-text-md.m-b0 Bio-Repair Night Guardian Mask
@@ -32,8 +32,15 @@
               button.Cart-item-remove
                 icon-base.c-brand(icon-name="icon-close", height="20", width="20")
                   icon-close
+            CartItem(
+              v-for="line_item in checkout.lineItems.edges"
+              :removeLineItemInCart="removeLineItemInCart"
+              :updateLineItemInCart="updateLineItemInCart"
+              :key="line_item.node.id.toString()"
+              :line_item="line_item.node"
+            )
           
-          .f.f-justifyBetween
+          .Cart-footer.f.f-justifyBetween
             .Cart-promo
               form
                 .form-entry
@@ -41,21 +48,33 @@
                   label(for="promo-code") Enter promo code
             .Cart-total.u-textRight
               .Heading.fs-text-sm.fw-medium.c-brand Total
-              .Account-title.fw-regular.u-textRight.m-b2 $139.95 AUD
-              .Text.fs-text-sm.c-brand.p-b3 Your discount of $37.50 has been applied 
-              button.Button Check out
+              .Account-title.fw-regular.u-textRight.m-b2 ${{checkout.subtotalPrice}} AUD
+              .Account-title.fw-regular.u-textRight.m-b2 ${{checkout.totalTax}} TAX
+              .Account-title.fw-regular.u-textRight.m-b2 ${{checkout.totalPrice}} TAX
+              //- .Text.fs-text-sm.c-brand.p-b3 Your discount of $37.50 has been applied 
+              button.Button(@click="openCheckout") Check out
 </template>
 
 <script>
+import CartItem from "~/components/CartItem.vue";
 import IconBase from "~/components/IconBase.vue";
 import IconClose from "~/components/icons/IconClose.vue";
 import IconTick from "~/components/icons/IconTick.vue";
 
 export default {
   components: {
+    CartItem,
     IconBase,
     IconClose,
     IconTick
+  },
+  props: {
+    checkout: Object,
+    isCartOpen: Boolean,
+    handleCartClose: Function,
+    removeLineItemInCart: Function,
+    updateLineItemInCart: Function,
+    customerAccessToken: String
   },
   data() {
     return {
@@ -90,10 +109,16 @@ export default {
     }
   },
   methods: {
-    closeCart() {
+    handleCartClose2() {
       this.$store.commit("SET_CART_VISIBILITY", false);
+    },
+    openCheckout() {
+      window.open(this.checkout.webUrl);
     }
   }
+  /* mounted() {
+    console.log("Component mounted.");
+  } */
 };
 </script>
 
