@@ -1,0 +1,8 @@
+query product($handle: String!) {
+  shop {
+    productByHandle(handle: $handle) {
+      id
+      title
+    }
+  }
+}

@@ -1,25 +1,60 @@
 <template lang="pug">
-  .u-relative
+  h2(v-if="loading > 0") Loading…
+  .u-relative(v-else)
     .b-py2
       .Container
+        //- h3.Heading.fw-medium.u-textCenter.m-b3 {{ shop.productByHandle.productType }}
         //- h1.Product-title.u-textCenter {{ shop.productByHandle.title }}
+    //- .Container.Container--su.b-pb3
+      .FlexGrid.mo-FlexGrid--block
+        .w-sm-1x3
+          .f-childrenCenter
+            .w-100
+              p.c-brand.u-textCenter.m-b3 $ {{ shop.productByHandle.variants.edges[0].node.price }} AUD
+              p.c-brand.u-textCenter {{ shop.productByHandle.description }}
+              .u-textCenter.m-t4
+                p.c-brand.m-b3
+                  a.LinkUnderline(@click="handleToggle")
+                    span(v-if="isVisible") Show 
+                    span(v-if="!isVisible") Hide 
+                    span all ingredients
+                p.fs-text-sm.c-brand.u-textCenter.toggle(:class="{ 'is-hidden': isVisible }") product.ingredients
 
 </template>
 
 <script>
-import shop from "~/apollo/queries/productByHandle";
+import product from "~/apollo/queries/product2";
+// import gql from "graphql-tag";
+// import schema from "~/apollo/schema";
 
 export default {
   apollo: {
-    shop: {
-      query: shop
+    $loadingKey: 'loading',
+    product: {
+      query: product,
+      prefetch: ({ route }) => {
+        return {
+          id: route.params.id
+        };
+        console.log(id);
+      },
+      variables() {
+        return {
+          id: this.id
+        };
+      }
     }
   },
+  props: ["id"],
   data() {
     return {
       /* initialise apollo data */
-      shop: {}
+      loading: 0,
+      product: {},
     };
+  },
+  mounted() {
+    console.log("$route: ", this.$route.params.id);
   }
 };
 </script>

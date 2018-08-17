@@ -1,5 +1,6 @@
 <template lang="pug">
-div
+h2(v-if="loading > 0") Loading…
+.u-relative(v-else)
   .Container.b-py2
     h1.Heading.u-textCenter {{ pageTitle }}
     p.c-brand.u-textCenter {{ pageIntro }}
@@ -39,6 +40,7 @@ export default {
     /* product: Object */
   },
   apollo: {
+    $loadingKey: 'loading',
     shop: {
       prefetch: true,
       query: shop
@@ -47,6 +49,7 @@ export default {
   data() {
     return {
       count: 0,
+      loading: 0,
       shop: {},
       pageTitle: "Beyond beautiful",
       pageIntro:

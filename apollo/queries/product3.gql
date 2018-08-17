@@ -1,0 +1,8 @@
+query product($id: ID!) {
+  node(id: $id) {
+    id
+    ... on Product {
+      title
+    }
+  }
+}
