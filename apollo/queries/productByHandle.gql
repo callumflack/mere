@@ -1,6 +1,6 @@
-{
+query productByHandle($handle: String!) {
   shop {
-    productByHandle(handle: "activated-dermal-corrective-tonic") {
+    productByHandle(handle: $handle) {
       id
       title
       handle
@@ -9,6 +9,7 @@
       variants(first: 250) {
         edges {
           node {
+            id
             price
           }
         }
