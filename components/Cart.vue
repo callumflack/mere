@@ -113,7 +113,7 @@ export default {
       this.$store.commit("SET_CART_VISIBILITY", false);
     },
     openCheckout() {
-      window.open(this.checkout.webUrl);
+      window.open(this.checkout.webUrl, "_self");
     }
   }
   /* mounted() {
