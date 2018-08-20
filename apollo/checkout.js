@@ -171,7 +171,7 @@ export function addVariantToCart(variantId, quantity) {
     });
   });
 
-  this.handleCartOpen();
+  // this.handleCartOpen();
 }
 
 export function updateLineItemInCart(lineItemId, quantity) {

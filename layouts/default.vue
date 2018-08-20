@@ -65,11 +65,11 @@ export default {
     }
   },
   methods: {
-    checkoutLineItemsAdd() {},
+    /* checkoutLineItemsAdd() {}, */
     checkoutLineItemsUpdate() {},
     checkoutLineItemsRemove() {},
     checkoutCustomerAssociate() {},
-    addVariantToCart(variantId, quantity) {
+    /* addVariantToCart(variantId, quantity) {
       this.$apollo
         .mutate({
           // Query
@@ -86,8 +86,8 @@ export default {
         .catch(error => {
           console.error(error);
         });
-      this.handleCartOpen();
-    },
+      // this.handleCartOpen();
+    }, */
     updateLineItemInCart(lineItemId, quantity) {
       this.$apollo
         .mutate({

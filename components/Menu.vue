@@ -20,7 +20,10 @@
           :exact="item.exact"
         )
       .Nav-right
-        button.MenuLink.Heading.fw-medium.c-brand(@click.prevent="handleCartToggle") Cart
+        //- button.MenuLink.Heading.fw-medium.c-brand(@click="isCartOpen = true")
+        button.MenuLink.Heading.fw-medium.c-brand.NoBtnOutline(@click.prevent="handleCartToggle")
+          | Cart
+          //- span.badge.badge-light.ml-1 {{itemsInCart}}
 
     .Nav-logo.u-fixedCenter.f-childrenCenter
       nuxt-link(to="/" exact)
@@ -58,10 +61,13 @@ export default {
   },
   props: {
     currentPage: String,
-    index: Boolean
+    index: Boolean,
+    isCartOpen: Boolean
   },
   data() {
     return {
+      // checkout: { lineItems: { edges: [] } },
+
       // Classes assigned to nav on scroll
       navBar: {
         collapse: false,
@@ -104,6 +110,12 @@ export default {
     isCartVisible: function() {
       return this.$store.state.isCartVisible;
     }
+    /* itemsInCart() {
+      if (this.checkout) {
+        return 0;
+      }
+      return this.checkout.lineItems.edges.length;
+    } */
   },
   methods: {
     handleCartToggle() {
@@ -164,6 +176,13 @@ export default {
 
 <style lang="css" scoped>
 @import "../assets/styles/variables.css";
+
+.NoBtnOutline {
+  &:active,
+  &:focus {
+    outline: none;
+  }
+}
 
 .Nav {
   background-color: var(--c-brand-bg);
