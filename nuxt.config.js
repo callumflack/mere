@@ -13,7 +13,8 @@ export default {
     link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }]
   },
 
-  loading: { color: "hsl(77, 19%, 47%)" },
+  /* loading: { color: "hsl(77, 19%, 47%)" }, */
+  loading: false,
 
   css: ["~/assets/styles/application.css"],
 

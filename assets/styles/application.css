@@ -63,4 +63,5 @@
 @import "./theme/link.css";
 @import "./theme/menu.css";
 @import "./theme/page.css";
+@import "./theme/page-transitions.css";
 @import "./theme/type.css";
