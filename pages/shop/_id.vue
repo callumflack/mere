@@ -63,7 +63,7 @@
                   //- button.Button.Button--transparent.w-1x3(v-on:click="removeFromCart") -
                   label Quantity
                     input(min="1" type="number" v-model="selectedVariantQuantity")
-                button.Button.u-block.w-100(@click="addVariantToCart(selectedVariantQuantity)")
+                button.Button.u-block.w-100(@click="addVariantToCart(variant.id, selectedVariantQuantity)")
                   | add to cart
               .w-sm-3x4.m-xA
                 p.c-brand.u-textCenter 
@@ -182,6 +182,10 @@ export default {
       // return this.selectedVariantImage || this.product.images.edges[0].node.src;
       return this.selectedVariantImage || this.shop.productByHandle.images.edges[0].node.originalSrc;
     }, */
+    variant() {
+      // return this.selectedVariant || this.product.variants.edges[0].node;
+      return this.selectedVariant;
+    },
     isVisible() {
       return !this.$store.state.isToggleVisible;
     }
