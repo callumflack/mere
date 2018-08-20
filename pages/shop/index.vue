@@ -1,5 +1,7 @@
 <template lang="pug">
-h2(v-if="loading > 0") Loading…
+.Container.b-py2(v-if="loading > 0")
+    h1.Heading.u-textCenter Loading…
+
 .u-relative(v-else)
   .Container.b-py2
     h1.Heading.u-textCenter {{ pageTitle }}
@@ -40,7 +42,7 @@ export default {
     /* product: Object */
   },
   apollo: {
-    $loadingKey: 'loading',
+    $loadingKey: "loading",
     shop: {
       prefetch: true,
       query: shop
