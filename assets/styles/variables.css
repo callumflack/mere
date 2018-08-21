@@ -70,7 +70,7 @@
   @custom-media --md-landscape (min-width: 1024px);
   @custom-media --lg (min-width: 1280px);
   @custom-media --xl (min-width: 1500px);
-  @custom-media --su (min-width: 1900px);
+  @custom-media --su (min-width: 1800px);
 
   /* 
 
@@ -261,7 +261,7 @@
 
   --button-background-color: var(--c-brand);
   --button-border-color: inherit;
-  --button-border-color: currentcolor;
+  --button-border-color: var(--c-brand);
   --button-border-width: 1px;
   --button-border-radius: 0;
   --button-box-shadow-color: var(--c-brand);

@@ -45,3 +45,14 @@
 .u-linkPointer:active {
   cursor: pointer !important;
 }
+
+/* 
+  Don't show an outline on a link
+ */
+
+.u-linkNoOutline {
+  &:active,
+  &:focus {
+    outline: 0;
+  }
+}
