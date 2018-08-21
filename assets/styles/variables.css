@@ -260,7 +260,6 @@
    */
 
   --button-background-color: var(--c-brand);
-  --button-border-color: inherit;
   --button-border-color: var(--c-brand);
   --button-border-width: 1px;
   --button-border-radius: 0;
@@ -319,6 +318,7 @@
   --transition-easing-cubic-state: cubic-bezier(0, -0.1, 1, -0.1);
   --transition-easing-cubic-state: cubic-bezier(0, 1.1, 1, 1.1);
   --transition-easing-thisalso: cubic-bezier(0.19, 1, 0.22, 1);
+  --transition-easing-theme: cubic-bezier(1, 0.5, 0.8, 1);
 
   /* 
 

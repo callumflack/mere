@@ -60,7 +60,7 @@ export default {
     currentPageClass() {
       // requires middleware function
       // https://nuxtjs.org/guide/routing/#middleware
-      return `fs-scale-reset u-relative page-${this.$store.state.currentPage}`;
+      return `fs-scale-reset u-relative body-page-${this.$store.state.currentPage}`;
       // return [{ home: $store.state.currentPage === "/" }];
     }
   },

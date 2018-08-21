@@ -9,12 +9,16 @@
 
 .page-enter-active,
 .page-leave-active {
-  transition: all 0.15s ease;
+  transition: all 1s ease;
   background-color: var(--c-bg);
   /* height: 100vh; */
   /* opacity: 1; */
   /* width: 100vw; */
-  z-index: 999;
+  /* z-index: 999; */
+}
+
+.page-leave-active {
+  /* transition: all 20s ease; */
 }
 
 .page-enter-active,
@@ -23,10 +27,23 @@
 }
 
 .page-leave-active {
-  transition: all 0.4s cubic-bezier(1, 0.5, 0.8, 1);
+  transition: all 0.4s var(--transition-easing-theme);
 }
 .page-enter,
 .page-leave-to {
   transform: translateX(10px);
   opacity: 0;
+}
+
+/* WHAT THE FUCK JINK */
+
+.page-enter .ClosePage {
+  opacity: 0;
+  transition: opacity 400ms var(--transition-easing-theme);
+  transition-delay: 3s;
+}
+.page-enter-active .ClosePage {
+  opacity: 1;
+  transition: opacity 400ms var(--transition-easing-theme);
+  transition-delay: 3s;
 }

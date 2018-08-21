@@ -1,6 +1,7 @@
 <template lang="pug">
-.Container.b-py2(v-if="loading > 0")
-    h1.Heading.u-textCenter Loading…
+.u-relative(v-if="loading > 0")
+  .Container.b-py2
+      h1.Heading.u-textCenter Loading…
 
 .u-relative(v-else)
   .Container.b-py2

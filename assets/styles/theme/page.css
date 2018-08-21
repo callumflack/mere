@@ -10,22 +10,22 @@
 
 */
 
-div[class*="page-"] {
+div[class*="body-page-"] {
   display: flex;
   min-height: 100vh;
   flex-direction: column;
 }
 
 /* the home page is different… */
-.page- .Content,
-.home .Content {
+.body-page- .Content,
+.body-home .Content {
   height: auto;
 }
 
 /* move everything below the nav */
 .Content {
   flex: 1;
-  margin-top: var(--menu-height);
+  padding-top: var(--menu-height);
   /* height: 100vh; */
 }
 
@@ -41,7 +41,7 @@ div[class*="page-"] {
 
  */
 
-.page-contact {
+.body-page-contact {
   background-color: var(--c-neutral);
 
   @media (--md) {
@@ -50,12 +50,12 @@ div[class*="page-"] {
   }
 }
 
-.page-contact .Footer a {
+.body-page-contact .Footer a {
   color: var(--c-bg);
 }
 
-.page-faqs,
-.page-delivery-and-returns {
+.body-page-faqs,
+.body-page-delivery-and-returns {
   background-color: var(--c-neutral);
 }
 
@@ -83,7 +83,7 @@ div[class*="page-"] {
 .ClosePage {
   position: fixed;
   right: 0.75rem;
-  top: calc(1.1 * var(--s-5));
+  top: 0;
   z-index: 1;
 
   @media (--mo) {

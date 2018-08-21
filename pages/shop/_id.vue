@@ -1,6 +1,18 @@
 <template lang="pug">
-  .Container.b-py2(v-if="loading > 0")
-    h1.Heading.u-textCenter Loading…
+
+  //- transition(name="slide-fade")
+    nuxt-link.ClosePage(
+      to="/shop"
+      @click.native="showCloseIcon = !showCloseIcon"
+      :class="{'u-hidden': !showCloseIcon}"
+    )
+      icon-base.c-brand.p-a3.p-sm-a5(icon-name="icon-close", height="48", width="48")
+        icon-close
+  
+  .u-relative(v-if="loading > 0")
+    .b-py2
+      .Container
+        h3.Heading.u-textCenter Loading…
 
   .u-relative(v-else)
     nuxt-link.ClosePage(to="/shop")
@@ -9,7 +21,7 @@
 
     .b-py2
       .Container
-        h3.Heading.fw-medium.u-textCenter.m-b3 {{ shop.productByHandle.productType }}
+        h3.Heading.u-textCenter.m-b3 {{ shop.productByHandle.productType }}
         h1.Product-title.u-textCenter {{ shop.productByHandle.title }}
 
     .Container.Container--su.b-pb3
@@ -51,7 +63,8 @@
               )
               label(:for="`image-${index}`") 
                 img(:src="image.node.originalSrc")
-              .Tab-content #[img(:src="image.node.originalSrc")]
+              .Tab-content 
+                img(:src="image.node.originalSrc")
 
         .w-sm-1x3
           .f-childrenCenter
@@ -143,6 +156,11 @@ export default {
           handle: this.handle,
           id: this.id
         };
+      },
+      result({ data }) {
+        if (!data) {
+          this.$router.push("/404");
+        }
       }
     }
   },
@@ -168,7 +186,8 @@ export default {
       selectedVariantQuantity: 1,
       cart: 1,
       ingredients:
-        "Water (Aqua), Sodium Laureth Sulfate, Cocamidopropyl Betaine, Sea Salt (Maris sal), Glycerin, Polysorbate 20, Citrus Nobilis (Mandarin Orange) Peel Oil, Lavandula Angustifolia (Lavender) Oil, Phenoxyethanol, Cananga Odorata Flower Oil, Magnesium Nitrate, Methylchloroisothiazolinone, Magnesium Chloride, Methylisothiazolinone, Citric Acid, Limonene, Linalool, Benzyl Benzoate."
+        "Water (Aqua), Sodium Laureth Sulfate, Cocamidopropyl Betaine, Sea Salt (Maris sal), Glycerin, Polysorbate 20, Citrus Nobilis (Mandarin Orange) Peel Oil, Lavandula Angustifolia (Lavender) Oil, Phenoxyethanol, Cananga Odorata Flower Oil, Magnesium Nitrate, Methylchloroisothiazolinone, Magnesium Chloride, Methylisothiazolinone, Citric Acid, Limonene, Linalool, Benzyl Benzoate.",
+      showCloseIcon: true
     };
   },
   computed: {
@@ -236,6 +255,27 @@ export default {
 <style lang="css" scoped>
 @import "../../assets/styles/variables.css";
 @import "../../assets/styles/theme/tabs.css";
+
+/* .page-leave-to >>> .ClosePage {
+  opacity: 0;
+}
+.page-leave-active >>> .ClosePage {
+  opacity: 1;
+  transition: all 150ms var(--transition-easing-theme);
+} */
+
+/* .slide-fade-enter-active {
+  transition: all 0.3s ease;
+  transition-delay: 2s;
+}
+.slide-fade-leave-active {
+  transition: all 0.8s cubic-bezier(1, 0.5, 0.8, 1);
+  transition-delay: 2s;
+}
+.slide-fade-enter,
+.slide-fade-leave-to {
+  opacity: 0;
+} */
 
 .Card {
   position: relative;
