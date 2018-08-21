@@ -5,10 +5,16 @@
       local
       card
     )
+
+    //- for typography
     .u-hidden.f-sm.f-alignItemsCenter.h-100.u-relative(v-if="title")
       .w-100
         h2.Title.Title--reversed.u-textCenter.c-white.m-b0(v-html="title")
         h3.Title.Title--reversed.u-textCenter.c-white.m-t3(v-if="subtitle", v-html="subtitle")
+
+    //- for the newsletter
+    slot
+
 </template>
 
 <script>

@@ -21,7 +21,7 @@
         )
       .Nav-right
         //- button.MenuLink.Heading.fw-medium.c-brand(@click="isCartOpen = true")
-        button.MenuLink.Heading.fw-medium.c-brand.NoBtnOutline(@click.prevent="handleCartToggle")
+        button.MenuLink.Heading.fw-medium.c-brand.u-linkNoOutline(@click.prevent="handleCartToggle")
           | Cart
           //- span.badge.badge-light.ml-1 {{itemsInCart}}
 
@@ -104,10 +104,10 @@ export default {
     };
   },
   computed: {
-    isMobileNavVisible: function() {
+    isMobileNavVisible() {
       return this.$store.state.isMobileNavVisible;
     },
-    isCartVisible: function() {
+    isCartVisible() {
       return this.$store.state.isCartVisible;
     }
     /* itemsInCart() {
@@ -122,7 +122,7 @@ export default {
       this.$store.commit("SET_CART_VISIBILITY", !this.$store.state.isCartVisible);
     },
     handleNavToggle() {
-      this.$store.commit("SET_MODAL_VISIBILITY", !this.$store.state.isMobileNavVisible);
+      this.$store.commit("SET_MOBILENAV_VISIBILITY", !this.$store.state.isMobileNavVisible);
       this.navBar.static = this.$store.state.isMobileNavVisible;
     },
     scrollDetect(home, down, up) {
@@ -176,13 +176,6 @@ export default {
 
 <style lang="css" scoped>
 @import "../assets/styles/variables.css";
-
-.NoBtnOutline {
-  &:active,
-  &:focus {
-    outline: none;
-  }
-}
 
 .Nav {
   background-color: var(--c-brand-bg);

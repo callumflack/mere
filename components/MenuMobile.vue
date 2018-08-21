@@ -133,7 +133,7 @@ export default {
   },
   methods: {
     close() {
-      this.$store.commit("SET_MODAL_VISIBILITY", false);
+      this.$store.commit("SET_MOBILENAV_VISIBILITY", false);
     }
   }
 };

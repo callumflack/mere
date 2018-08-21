@@ -9,20 +9,24 @@
   )
   image-card.five.bottom(src="/images/home-cactus.jpg")
   image-card.six.bottom.right(src="/images/home-girl-2.jpg")
+    .u-absolutePin.u-hidden.f-lg.f-childrenCenter
+      NewsletterSignupForm.w-5x6.m-xA.b-mt4.z-1000
   
   .u-absolutePin.u-hidden.f-lg.f-childrenCenter.vh-100
-    // span.u-icon.u-icon--logo.c-white.z-1000
-    logo.c-white.z-1000
+    Logo.c-white.z-100
+    
 </template>
 
 <script>
 import Logo from "~/components/Logo2.vue";
 import ImageCard from "~/components/ImageCard.vue";
+import NewsletterSignupForm from "~/components/NewsletterSignupForm.vue";
 
 export default {
   components: {
     Logo,
-    ImageCard
+    ImageCard,
+    NewsletterSignupForm
   }
 };
 </script>

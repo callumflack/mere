@@ -1,6 +1,7 @@
 export function state() {
   return {
     currentPage: "/",
+    isNewsletterFormVisible: true,
     isMobileNavVisible: false,
     isToggleVisible: false,
     isCartVisible: false,
@@ -13,7 +14,11 @@ export const mutations = {
     state.currentPage = page;
   },
 
-  SET_MODAL_VISIBILITY(state, visibility) {
+  SET_NEWSLETTERFORM_VISIBILITY(state, visibility) {
+    state.isNewsletterFormVisible = visibility;
+  },
+
+  SET_MOBILENAV_VISIBILITY(state, visibility) {
     state.isMobileNavVisible = visibility;
   },
 
