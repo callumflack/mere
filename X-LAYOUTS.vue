@@ -1,4 +1,28 @@
 <template lang="pug">
+  //- cart close page & subnav
+  .u-relative
+    button.ClosePage(@click="handleCartClose2")
+      icon-base.c-brand.p-a3.p-sm-a5(icon-name="icon-close", height="48", width="48")
+        icon-close
+  .b-py2
+    .Nav.f.f-justifyBetween
+      .Nav-item.f.f-col(v-for="(item) in CartNav" :key="item.label")
+        .Heading.fw-medium.fs-text-sm.c-brand.p-b2 {{ item.label }}
+        //- .Nav-item-index.f.f-childrenCenter.m-aA(:class="[{'is-active': isCartSummaryVisible}]")
+        .Nav-item-index.f.f-childrenCenter.m-aA
+          icon-base.c-neutral(icon-name="icon-tick", height="20", width="20")
+            icon-tick
+
+  //- cart promo: first child in cart footer
+  .Cart-promo
+    form
+      .form-entry
+        input(type="text" id="promo-code" placeholder="Enter promo code")
+        label(for="promo-code") Enter promo code
+
+  //- cart promo above checkout button
+  .Text.fs-text-sm.c-brand.p-b3 Your discount of $37.50 has been applied
+
   //- product 3 columns
   .Container.Container--su.b-pb3
       .FlexGrid.mo-FlexGrid--block
@@ -87,4 +111,26 @@
       }
     },
   }
+
+  // cart subnav array
+  CartNav: [
+        {
+          label: "cart"
+        },
+        {
+          label: "billing"
+        },
+        {
+          label: "delivery"
+        },
+        {
+          label: "shipping"
+        },
+        {
+          label: "payment"
+        },
+        {
+          label: "confirm"
+        }
+      ]
 </script>
