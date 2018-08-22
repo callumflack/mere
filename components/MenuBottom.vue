@@ -16,7 +16,7 @@ import MenuLink from "~/components/MenuLink.vue";
 import MenuSocialLinks from "~/components/MenuSocialLinks.vue";
 
 export default {
-  name: "Menu",
+  name: "FooterMenu",
   components: {
     MenuLink,
     MenuSocialLinks
