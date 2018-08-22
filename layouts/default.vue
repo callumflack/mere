@@ -50,17 +50,17 @@ export default {
     };
   },
   computed: {
-    itemsInCart() {
+    /* itemsInCart() {
       if (this.checkout) {
         return 0;
       }
       return this.checkout.lineItems.edges.length;
-    },
+    }, */
     currentPageClass() {
       // requires middleware function
       // https://nuxtjs.org/guide/routing/#middleware
-      return `fs-scale-reset u-relative body-page-${this.$store.state.currentPage}`;
       // return [{ home: $store.state.currentPage === "/" }];
+      return `fs-scale-reset u-relative body-page-${this.$store.state.currentPage}`;
     }
   },
   methods: {
@@ -120,9 +120,9 @@ export default {
         .then(res => {
           this.checkout = res.data.checkoutLineItemsRemove.checkout;
           this.$store.commit("SET_CHECKOUT", res.data.checkoutLineItemsRemove.checkout);
-          if (!this.itemsInCart) {
+          /* if (!this.itemsInCart) {
             this.handleCartClose();
-          }
+          } */
         })
         .catch(error => {
           console.error(error);
