@@ -35,8 +35,8 @@
               .u-textCenter.m-t4
                 p.c-brand.m-b3
                   a.LinkUnderline(@click="handleToggle")
-                    span(v-if="isVisible") Show
-                    span(v-if="!isVisible") Hide
+                    span(v-if="isVisible") Show 
+                    span(v-if="!isVisible") Hide 
                     span ingredients
                 p.fs-text-sm.c-brand.u-textCenter.toggle(:class="{ 'is-hidden': isVisible }") product.ingredients
 
