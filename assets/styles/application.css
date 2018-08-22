@@ -58,6 +58,7 @@
 
 /* Theme */
 @import "./theme/card.css";
+@import "./theme/cart.css";
 @import "./theme/colors.css";
 @import "./theme/form.css";
 @import "./theme/link.css";
