@@ -7,21 +7,21 @@
     .Container.Container--xl
       //- .b-py2
         .Nav.f.f-justifyBetween
-          .Nav-item.f.f-col(v-for="(item) in CartNav" :key="item.label") 
+          .Nav-item.f.f-col(v-for="(item) in CartNav" :key="item.label")
             .Heading.fw-medium.fs-text-sm.c-brand.p-b2 {{ item.label }}
             //- .Nav-item-index.f.f-childrenCenter.m-aA(:class="[{'is-active': isCartSummaryVisible}]")
             .Nav-item-index.f.f-childrenCenter.m-aA
               icon-base.c-neutral(icon-name="icon-tick", height="20", width="20")
                 icon-tick
       .b-py2
-        .Cart-content
+        .Cart-content(v-if="$store.state.checkout")
           .Cart-content-labels.Heading.fs-text-sm.fw-medium.c-brand.f.m-b4
             span.Cart-item-img.--withName Item
             span.Cart-item-quantity.Text Quantity
             span.Cart-item-price.Text Unit price
             span.Cart-item-quantityPrice.Text Total price
 
-          .Cart-items.m-b4.p-t1(v-if="checkout")
+          .Cart-items.m-b4.p-t1
             //- .Cart-item.f.f-alignItemsCenter.h-100
               .Cart-item-img
                 img(src="/images/products-super-natural-dermal-serum-vaccine-bottle.png", alt="")
@@ -33,13 +33,13 @@
                 icon-base.c-brand(icon-name="icon-close", height="20", width="20")
                   icon-close
             CartItem(
-              v-for="line_item in checkout.lineItems.edges"
+              v-for="line_item in items"
               :removeLineItemInCart="removeLineItemInCart"
               :updateLineItemInCart="updateLineItemInCart"
               :key="line_item.node.id.toString()"
               :line_item="line_item.node"
             )
-          
+
           .Cart-footer.f.f-justifyBetween
             .Cart-promo
               form
@@ -51,7 +51,7 @@
               .Account-title.fw-regular.u-textRight.m-b2 ${{checkout.subtotalPrice}} AUD
               .Account-title.fw-regular.u-textRight.m-b2 ${{checkout.totalTax}} TAX
               .Account-title.fw-regular.u-textRight.m-b2 ${{checkout.totalPrice}} TAX
-              //- .Text.fs-text-sm.c-brand.p-b3 Your discount of $37.50 has been applied 
+              //- .Text.fs-text-sm.c-brand.p-b3 Your discount of $37.50 has been applied
               button.Button(@click="openCheckout") Check out
 </template>
 
@@ -69,7 +69,6 @@ export default {
     IconTick
   },
   props: {
-    checkout: Object,
     isCartOpen: Boolean,
     handleCartClose: Function,
     removeLineItemInCart: Function,
@@ -97,7 +96,7 @@ export default {
         {
           label: "confirm"
         }
-      ]
+      ],
     };
   },
   computed: {
@@ -106,7 +105,13 @@ export default {
     },
     isCartSummaryVisible() {
       return this.$store.state.isCartSummaryVisible;
-    }
+    },
+    checkout() {
+      return this.$store.state.checkout;
+    },
+    items() {
+      return this.$store.state.checkout.lineItems ? this.$store.state.checkout.lineItems.edges : [];
+    },
   },
   methods: {
     handleCartClose2() {
@@ -179,7 +184,7 @@ export default {
   text-align: center;
 }
 
-/* 
+/*
 
   NAV
 
@@ -222,4 +227,3 @@ export default {
   }
 }
 </style>
-

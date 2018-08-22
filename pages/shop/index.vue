@@ -11,7 +11,7 @@
   .Container.Container--su.b-pb3
     .FlexGrid--block
       .Product.w-sm-1x2.w-lg-1x3(
-        v-for="(product, index) in shop.products.edges" 
+        v-for="(product, index) in shop.products.edges"
         :key="product.node.id.toString()"
         :product="product.node"
       )
@@ -22,10 +22,10 @@
             h2.Product-title.fs-text-lg.u-textCenter {{ product.node.title }}
           .Product-image
             img(:src="product.node.images.edges[0].node.originalSrc" alt="`${product.node.title}` product picture")
-          .Product-button.Heading.u-textCenter.c-brand.u-noVisualLink 
+          .Product-button.Heading.u-textCenter.c-brand.u-noVisualLink
             | ${{ product.node.variants.edges[0].node.price }} AUD
             span.Product-title.fs-text.u-block.m-t2.m-b0 Buy Now
-          
+
 
 </template>
 
