@@ -26,6 +26,15 @@
 
 /* variations */
 
+.MenuLink--btn {
+  background-color: var(--c-bg);
+  padding: 0 var(--s-3b);
+
+  @media (--sm) {
+    padding: 0 var(--s-4);
+  }
+}
+
 .MenuLink--block {
   align-items: center;
   display: flex;

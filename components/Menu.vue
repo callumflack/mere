@@ -11,18 +11,16 @@
     
     .u-hidden.f-lg.f-justifyBetween
       .Nav-left
-        menu-link.Heading.fw-medium.c-brand(
-          v-for="item in menuRightLinks"
+        menu-link.Heading.c-brand(
+          v-for="item in menuLeftLinks"
           :exact="item.exact"
           :key="item.label"
           :label="item.label"
           :link="item.link"
-          v-on:handleCartClose="handleCartCloseSurely"
+          v-on:handleCartClose="handleCartClose"
         )
       .Nav-right
-        button.MenuLink.Heading.fw-medium.c-brand.u-linkNoOutline(@click="handleCartToggle")
-          | Cart
-          span.Cart-items 1
+        CartMenuButton
 
     .Nav-logo.u-fixedCenter.f-childrenCenter
       nuxt-link(to="/" exact)
@@ -33,7 +31,7 @@
 </template>
 
 <script>
-import MenuFixedOnScroll from "~/components/MenuFixedOnScroll.vue";
+import CartMenuButton from "~/components/CartMenuButton.vue";
 import Logo from "~/components/Logo2.vue";
 import MenuLink from "~/components/MenuLink.vue";
 import MenuMobile from "~/components/MenuMobile.vue";
@@ -52,7 +50,7 @@ import IconHamburgerClose from "~/components/icons/IconHamburgerClose.vue";
 export default {
   name: "Menu",
   components: {
-    MenuFixedOnScroll,
+    CartMenuButton,
     MenuLink,
     MenuMobile,
     Logo,
@@ -63,8 +61,6 @@ export default {
   props: {},
   data() {
     return {
-      // checkout: { lineItems: { edges: [] } },
-
       // Classes assigned to nav on scroll
       navBar: {
         collapse: false,
@@ -74,7 +70,7 @@ export default {
       // Used to keep track of scroll position
       scrollState: 0,
       // Menu list
-      menuRightLinks: [
+      menuLeftLinks: [
         {
           label: "shop",
           link: "/shop"
@@ -87,39 +83,17 @@ export default {
           label: "footprint",
           link: "/footprint"
         }
-      ],
-      menuLeftLinks: [
-        {
-          label: "login",
-          link: "/login"
-        },
-        {
-          label: "cart",
-          link: "/cart"
-        }
       ]
     };
   },
   computed: {
     isMobileNavVisible() {
       return this.$store.state.isMobileNavVisible;
-    },
-    isCartVisible() {
-      return this.$store.state.isCartVisible;
     }
-    /* itemsInCart() {
-      if (this.checkout) {
-        return 0;
-      }
-      return this.checkout.lineItems.edges.length;
-    } */
   },
   methods: {
-    handleCartCloseSurely() {
+    handleCartClose() {
       this.$store.commit("SET_CART_VISIBILITY", false);
-    },
-    handleCartToggle() {
-      this.$store.commit("SET_CART_VISIBILITY", !this.$store.state.isCartVisible);
     },
     handleNavToggle() {
       this.$store.commit("SET_MOBILENAV_VISIBILITY", !this.$store.state.isMobileNavVisible);
@@ -226,29 +200,18 @@ export default {
 }
 
 .Nav-left {
-  padding-left: var(--s-4);
+  padding: 0 var(--s-3b);
+
+  @media (--sm) {
+    padding: 0 var(--s-4);
+  }
 }
 
 .Nav-right {
-  background-color: var(--c-bg);
-  padding: 0 var(--s-4);
 }
 
 .Nav-logo {
   width: 25%;
   position: absolute;
-}
-
-.Cart-items {
-  background-color: var(--c-brand);
-  border-radius: 999px;
-  color: var(--c-bg);
-  font-size: 0.7em;
-  font-weight: 500;
-  margin-left: var(--s-2);
-
-  height: 18px;
-  line-height: 18px;
-  width: 18px;
 }
 </style>
