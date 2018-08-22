@@ -37,7 +37,7 @@
 
 /* WHAT THE FUCK JINK */
 
-.page-enter .ClosePage {
+/* .page-enter .ClosePage {
   opacity: 0;
   transition: opacity 400ms var(--transition-easing-theme);
   transition-delay: 3s;
@@ -46,4 +46,4 @@
   opacity: 1;
   transition: opacity 400ms var(--transition-easing-theme);
   transition-delay: 3s;
-}
+} */

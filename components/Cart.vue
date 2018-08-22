@@ -15,14 +15,14 @@
                 icon-tick
       .b-py2
         .Cart-content
-          .Cart-content-labels.Heading.fs-text-sm.fw-medium.c-brand.f.m-b4
+          .Cart-content-labels.Heading.fs-text-sm.c-brand.f.m-b4
             span.Cart-item-img.--withName Item
             span.Cart-item-quantity.Text Quantity
             span.Cart-item-price.Text Unit price
             span.Cart-item-quantityPrice.Text Total price
 
           .Cart-items.m-b4.p-t1(v-if="checkout")
-            //- .Cart-item.f.f-alignItemsCenter.h-100
+            .Cart-item.f.f-alignItemsCenter.h-100
               .Cart-item-img
                 img(src="/images/products-super-natural-dermal-serum-vaccine-bottle.png", alt="")
               .Cart-item-name.Title.fs-text-md.m-b0 Bio-Repair Night Guardian Mask
@@ -30,18 +30,18 @@
               .Cart-item-price.Text $69.95
               .Cart-item-quantityPrice.Text $69.95
               button.Cart-item-remove
-                icon-base.c-brand(icon-name="icon-close", height="20", width="20")
-                  icon-close
-            CartItem(
-              v-for="line_item in checkout.lineItems.edges"
-              :removeLineItemInCart="removeLineItemInCart"
-              :updateLineItemInCart="updateLineItemInCart"
-              :key="line_item.node.id.toString()"
-              :line_item="line_item.node"
-            )
+                icon-base.c-brand(icon-name="icon-close", height="30", width="30")
+                  icon-close-sm
+            //- CartItem(
+            //-   v-for="line_item in checkout.lineItems.edges"
+            //-   :removeLineItemInCart="removeLineItemInCart"
+            //-   :updateLineItemInCart="updateLineItemInCart"
+            //-   :key="line_item.node.id.toString()"
+            //-   :line_item="line_item.node"
+            //- )
           
-          .Cart-footer.f.f-justifyBetween
-            .Cart-promo
+          .Cart-footer.f.f-justifyEnd
+            //- .Cart-promo
               form
                 .form-entry
                   input(type="text" id="promo-code" placeholder="Enter promo code")
@@ -58,20 +58,20 @@
 <script>
 import CartItem from "~/components/CartItem.vue";
 import IconBase from "~/components/IconBase.vue";
-import IconClose from "~/components/icons/IconClose.vue";
+import IconCloseSm from "~/components/icons/IconCloseSm.vue";
 import IconTick from "~/components/icons/IconTick.vue";
 
 export default {
   components: {
     CartItem,
     IconBase,
-    IconClose,
+    IconCloseSm,
     IconTick
   },
   props: {
     checkout: Object,
-    isCartOpen: Boolean,
-    handleCartClose: Function,
+    /* isCartOpen: Boolean, */
+    /* handleCartClose: Function, */
     removeLineItemInCart: Function,
     updateLineItemInCart: Function,
     customerAccessToken: String
@@ -103,15 +103,12 @@ export default {
   computed: {
     isCartVisible() {
       return this.$store.state.isCartVisible;
-    },
-    isCartSummaryVisible() {
-      return this.$store.state.isCartSummaryVisible;
     }
   },
   methods: {
-    handleCartClose2() {
+    /* handleCartClose2() {
       this.$store.commit("SET_CART_VISIBILITY", false);
-    },
+    }, */
     openCheckout() {
       window.open(this.checkout.webUrl, "_self");
     }
