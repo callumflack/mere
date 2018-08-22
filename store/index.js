@@ -4,8 +4,7 @@ export function state() {
     isNewsletterFormVisible: true,
     isMobileNavVisible: false,
     isToggleVisible: false,
-    isCartVisible: false,
-    isCartSummaryVisible: true
+    isCartVisible: false
   };
 }
 
@@ -28,9 +27,5 @@ export const mutations = {
 
   SET_CART_VISIBILITY(state, visibility) {
     state.isCartVisible = visibility;
-  },
-
-  SET_CART_SUMMARY_VISIBILITY(state, visibility) {
-    state.isCartSummaryVisible = visibility;
   }
 };
