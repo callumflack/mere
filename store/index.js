@@ -4,7 +4,8 @@ export function state() {
     isNewsletterFormVisible: true,
     isMobileNavVisible: false,
     isToggleVisible: false,
-    isCartVisible: false
+    isCartVisible: false,
+    checkout: null
   };
 }
 
@@ -27,5 +28,9 @@ export const mutations = {
 
   SET_CART_VISIBILITY(state, visibility) {
     state.isCartVisible = visibility;
+  },
+
+  SET_CHECKOUT(state, checkout) {
+    state.checkout = checkout;
   }
 };

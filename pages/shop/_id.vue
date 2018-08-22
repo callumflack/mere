@@ -23,6 +23,7 @@
       .Container
         h3.Heading.u-textCenter.m-b3 {{ shop.productByHandle.productType }}
         h1.Product-title.u-textCenter {{ shop.productByHandle.title }}
+        //- pre CHECKOUT: {{ storejson }}
 
     .Container.Container--su.b-pb3
       .FlexGrid.mo-FlexGrid--block
@@ -34,8 +35,8 @@
               .u-textCenter.m-t4
                 p.c-brand.m-b3
                   a.LinkUnderline(@click="handleToggle")
-                    span(v-if="isVisible") Show 
-                    span(v-if="!isVisible") Hide 
+                    span(v-if="isVisible") Show
+                    span(v-if="!isVisible") Hide
                     span ingredients
                 p.fs-text-sm.c-brand.u-textCenter.toggle(:class="{ 'is-hidden': isVisible }") product.ingredients
 
@@ -44,7 +45,7 @@
             input(id="tab-one" type="radio" name="grp" checked="checked")
             label(for="tab-one") #[img(:src="shop.productByHandle.images.edges[0].node.originalSrc")]
             .Tab-content #[img(:src="shop.productByHandle.images.edges[0].node.originalSrc")]
-            
+
             input(id="tab-two" type="radio" name="grp" checked="checked")
             label(for="tab-two") #[img(:src="shop.productByHandle.images.edges[1].node.originalSrc")]
             .Tab-content #[img(:src="shop.productByHandle.images.edges[1].node.originalSrc")]
@@ -57,11 +58,11 @@
               input(
                 :id="`image-${index}`"
                 :key="image.node.originalSrc"
-                type="radio" 
-                name="grp" 
+                type="radio"
+                name="grp"
                 checked="checked"
               )
-              label(:for="`image-${index}`") 
+              label(:for="`image-${index}`")
                 img(:src="image.node.originalSrc")
               .Tab-content 
                 img(:src="image.node.originalSrc")
@@ -76,10 +77,10 @@
                   //- button.Button.Button--transparent.w-1x3(v-on:click="removeFromCart") -
                   label Quantity
                     input(min="1" type="number" v-model="selectedVariantQuantity")
-                button.Button.u-block.w-100(@click="addVariantToCart(variant.id, selectedVariantQuantity)")
+                button.Button.u-block.w-100(@click="addVariantToCart(shop.productByHandle.variants.edges[0].node.id, selectedVariantQuantity)")
                   | add to cart
               .w-sm-3x4.m-xA
-                p.c-brand.u-textCenter 
+                p.c-brand.u-textCenter
                   | Free shipping on orders over $89
                 p.c-brand.u-textCenter.fs-text-sm
                   | Add more than $49 worth of MERE to your bag and receive free shipping on the order
@@ -95,7 +96,7 @@
               br
               | ---
               br
-              | Prickly pear lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet 
+              | Prickly pear lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet
         .w-sm-1x2.two
           .Card.p-sm-t5
             .Card-image.mo-Extract-fullwidth
@@ -121,7 +122,7 @@
               br
               | ---
               br
-              | Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet oreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequa 
+              | Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet oreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequa
             .w-sm-3x4.m-xA
               .Card-image
                 img(src="/images/product-card-swimming-woman.jpg")
@@ -130,8 +131,8 @@
                 br
                 | ---
                 br
-                | Prickly pear lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam. 
-        
+                | Prickly pear lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam.
+
         .w-sm-9x12.six
           .Card.p-sm-l6.p-sm-r5
             .Card-image
@@ -180,7 +181,6 @@ export default {
       shop: {},
       handle: this.$route.params.id,
       id: this.$route.params.id,
-      checkout: { lineItems: { edges: [] } },
       /* products: [], */
       /* selectedVariantImage: "", */
       selectedVariantQuantity: 1,
@@ -207,10 +207,13 @@ export default {
     },
     isVisible() {
       return !this.$store.state.isToggleVisible;
+    },
+    storejson() {
+      return JSON.stringify(this.$store.state.checkout, null, 2);
     }
   },
   methods: {
-    checkoutLineItemsAdd() {},
+    //checkoutLineItemsAdd() {},
     addVariantToCart(variantId, quantity) {
       this.$apollo
         .mutate({
@@ -218,12 +221,12 @@ export default {
           mutation: checkoutLineItemsAdd,
           // Parameters
           variables: {
-            checkoutId: this.checkout.id,
+            checkoutId: this.$store.state.checkout.id,
             lineItems: [{ variantId, quantity: parseInt(quantity, 10) }]
           }
         })
         .then(res => {
-          this.checkout = res.data.checkoutLineItemsAdd.checkout;
+          this.$store.commit("SET_CHECKOUT", res.data.checkoutLineItemsAdd.checkout);
         })
         .catch(error => {
           console.error(error);

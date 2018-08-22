@@ -10,7 +10,7 @@
       :removeLineItemInCart="removeLineItemInCart"
       :updateLineItemInCart="updateLineItemInCart"
       :checkout="checkout"
-      :isCartOpen="isCartOpen"
+      :isCartOpen="$store.state.isCartOpen"
       :handleCartClose="handleCartClose"
       :customerAccessToken="customerAccessToken"
     )
@@ -41,7 +41,6 @@ export default {
   },
   data() {
     return {
-      isCartOpen: false,
       isCustomerAuthOpen: false,
       isNewCustomer: false,
       customerAccessToken: "",
@@ -114,12 +113,13 @@ export default {
           mutation: checkoutLineItemsRemove,
           // Parameters
           variables: {
-            checkoutId: this.checkout.id,
+            checkoutId: this.$store.state.checkout.id,
             lineItemIds: [lineItemId]
           }
         })
         .then(res => {
           this.checkout = res.data.checkoutLineItemsRemove.checkout;
+          this.$store.commit("SET_CHECKOUT", res.data.checkoutLineItemsRemove.checkout);
           if (!this.itemsInCart) {
             this.handleCartClose();
           }
@@ -159,16 +159,17 @@ export default {
         })
         .then(res => {
           this.checkout = res.data.checkoutCreate.checkout;
+          this.$store.commit("SET_CHECKOUT", res.data.checkoutCreate.checkout);
         })
         .catch(error => {
           console.error(error);
         });
     },
     handleCartClose() {
-      this.isCartOpen = false;
+      this.$store.commit("SET_CART_VISIBILITY", false);
     },
     handleCartOpen() {
-      this.isCartOpen = true;
+      this.$store.commit("SET_CART_VISIBILITY", true);
     },
     openCustomerAuth(event) {
       if (event.target.getAttribute("data-customer-type") === "new-customer") {

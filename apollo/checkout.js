@@ -159,6 +159,7 @@ export const checkoutCustomerAssociate = gql`
   ${CheckoutFragment}
 `;
 
+/*
 export function addVariantToCart(variantId, quantity) {
   this.checkoutLineItemsAdd({
     variables: {
@@ -207,3 +208,4 @@ export function associateCustomerCheckout(customerAccessToken) {
     });
   });
 }
+*/
