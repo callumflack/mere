@@ -2,7 +2,7 @@
 .Cart-item.f.f-alignItemsCenter.h-100
   .Cart-item-img
     img(
-      :src="line_item.variant.image.originalSrc"
+      :src="line_item.variant.image.src"
       :alt="`${line_item.title} product image`"
     )
   .Cart-item-name.Title.fs-text-md.m-b0 {{ line_item.title }}
@@ -12,7 +12,7 @@
     button(@click="incrementQuantity(line_item.id)") +
   .Cart-item-price.Text ${{ lineItemPrice }}
   .Cart-item-quantityPrice.Text $69.95
-  button.Cart-item-remove(@click="removeLineItemInCart(line_item.id)")
+  button.Cart-item-remove.u-linkNoOutline(@click="removeLineItemInCart(line_item.id)")
     icon-base.c-brand(icon-name="icon-close", height="20", width="20")
       icon-close
 </template>
@@ -32,6 +32,9 @@ export default {
     line_item: Object
   },
   computed: {
+    items() {
+      return this.$store.state.checkout.lineItems ? this.$store.state.checkout.lineItems.edges : [];
+    },
     lineItemPrice() {
       return (this.line_item.quantity * this.line_item.variant.price).toFixed(2);
     }

@@ -1,37 +1,17 @@
 <template lang="pug">
   .Cart(:class="[{'u-hidden': !isCartVisible}]")
-    //- .u-relative
-      button.ClosePage(@click="handleCartClose2")
-        icon-base.c-brand.p-a3.p-sm-a5(icon-name="icon-close", height="48", width="48")
-          icon-close
     .Container.Container--xl
-      //- .b-py2
-        .Nav.f.f-justifyBetween
-          .Nav-item.f.f-col(v-for="(item) in CartNav" :key="item.label")
-            .Heading.fw-medium.fs-text-sm.c-brand.p-b2 {{ item.label }}
-            //- .Nav-item-index.f.f-childrenCenter.m-aA(:class="[{'is-active': isCartSummaryVisible}]")
-            .Nav-item-index.f.f-childrenCenter.m-aA
-              icon-base.c-neutral(icon-name="icon-tick", height="20", width="20")
-                icon-tick
       .b-py2
         .Cart-content(v-if="$store.state.checkout")
-          .Cart-content-labels.Heading.fs-text-sm.c-brand.f.m-b4
+          .Cart-content-labels.Heading.fs-text-sm.c-brand.f.m-b3
             span.Cart-item-img.--withName Item
             span.Cart-item-quantity.Text Quantity
             span.Cart-item-price.Text Unit price
             span.Cart-item-quantityPrice.Text Total price
 
           .Cart-items.m-b4.p-t1
-            //- .Cart-item.f.f-alignItemsCenter.h-100
-              .Cart-item-img
-                img(src="/images/products-super-natural-dermal-serum-vaccine-bottle.png", alt="")
-              .Cart-item-name.Title.fs-text-md.m-b0 Bio-Repair Night Guardian Mask
-              .Cart-item-quantity.Text 1
-              .Cart-item-price.Text $69.95
-              .Cart-item-quantityPrice.Text $69.95
-              button.Cart-item-remove
-                icon-base.c-brand(icon-name="icon-close", height="20", width="20")
-                  icon-close
+            .Cart-item.f.f-alignItemsCenter.f-justifyCenter.h-100(v-if="checkout.totalPrice < 1")
+              .Title Your cart is empty
             CartItem(
               v-for="line_item in items"
               :removeLineItemInCart="removeLineItemInCart"
@@ -40,18 +20,12 @@
               :line_item="line_item.node"
             )
 
-          .Cart-footer.f.f-justifyEnd
-            //- .Cart-promo
-              form
-                .form-entry
-                  input(type="text" id="promo-code" placeholder="Enter promo code")
-                  label(for="promo-code") Enter promo code
+          .Cart-footer.f.f-justifyEnd(v-if="checkout.totalPrice > 0")
             .Cart-total.u-textRight
               .Heading.fs-text-sm.fw-medium.c-brand Total
               .Account-title.fw-regular.u-textRight.m-b2 ${{checkout.subtotalPrice}} AUD
               .Account-title.fw-regular.u-textRight.m-b2 ${{checkout.totalTax}} TAX
               .Account-title.fw-regular.u-textRight.m-b2 ${{checkout.totalPrice}} TAX
-              //- .Text.fs-text-sm.c-brand.p-b3 Your discount of $37.50 has been applied
               button.Button(@click="openCheckout") Check out
 </template>
 
@@ -78,26 +52,7 @@ export default {
   },
   data() {
     return {
-      CartNav: [
-        {
-          label: "cart"
-        },
-        {
-          label: "billing"
-        },
-        {
-          label: "delivery"
-        },
-        {
-          label: "shipping"
-        },
-        {
-          label: "payment"
-        },
-        {
-          label: "confirm"
-        }
-      ]
+      CartNav: []
     };
   },
   computed: {
@@ -112,75 +67,15 @@ export default {
     }
   },
   methods: {
-    /* handleCartClose2() {
-      this.$store.commit("SET_CART_VISIBILITY", false);
-    }, */
     openCheckout() {
       window.open(this.checkout.webUrl, "_self");
     }
   }
-  /* mounted() {
-    console.log("Component mounted.");
-  } */
 };
 </script>
 
 <style lang="css" scoped>
 /* @import "../assets/styles/variables.css"; */
-
-.Cart {
-  /* @mixin fullScreen; */
-  bottom: 0;
-  height: 100%;
-  left: 0;
-  margin: auto;
-  position: fixed;
-  top: 0;
-  width: 100%;
-
-  background-color: var(--c-neutral);
-  height: calc(100vh - var(--menu-height));
-  top: var(--menu-height);
-  width: 100%;
-  z-index: 1001;
-}
-
-.Cart-item {
-  background-color: var(--c-bg);
-  padding: 2.5rem 0;
-}
-.Cart-item-img {
-  width: 15%;
-
-  & img {
-    margin: auto;
-    width: 4rem;
-  }
-}
-.--withName {
-  margin-right: 40%;
-}
-.Cart-item-name {
-  width: 40%;
-}
-.Cart-item-quantity,
-.Cart-item-price,
-.Cart-item-quantityPrice {
-  /* @mixin Text; */
-}
-.Cart-item-quantity,
-.Cart-item-price,
-.Cart-item-quantityPrice,
-.Cart-item-remove {
-  width: calc(45% / 4);
-}
-.Cart-item-img,
-.Cart-item-quantity,
-.Cart-item-price,
-.Cart-item-quantityPrice,
-.Cart-item-remove {
-  text-align: center;
-}
 
 /*
 
