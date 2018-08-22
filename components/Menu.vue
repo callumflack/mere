@@ -4,7 +4,7 @@
       .u-absolutePin.p-r4
         .f.f-justifyEnd.h-100
           a.u-noVisualLink.c-text(href="#" @click.prevent="handleNavToggle")
-            icMobileNavon-base.MenuLink(icon-name="icon-hamburger-close" v-if="isMobileNavVisible")
+            icon-base.MenuLink(icon-name="icon-hamburger-close" v-if="isMobileNavVisible")
               icon-hamburger-close
             icon-base.MenuLink(icon-name="icon-hamburger" v-else)
               icon-hamburger
@@ -13,17 +13,16 @@
       .Nav-left
         menu-link.Heading.fw-medium.c-brand(
           v-for="item in menuRightLinks"
+          :exact="item.exact"
           :key="item.label"
           :label="item.label"
           :link="item.link"
-          :currentPage="currentPage"
-          :exact="item.exact"
+          v-on:handleCartClose="handleCartCloseSurely"
         )
       .Nav-right
-        //- button.MenuLink.Heading.fw-medium.c-brand(@click="isCartOpen = true")
-        button.MenuLink.Heading.fw-medium.c-brand.u-linkNoOutline(@click.prevent="handleCartToggle")
+        button.MenuLink.Heading.fw-medium.c-brand.u-linkNoOutline(@click="handleCartToggle")
           | Cart
-          //- span.badge.badge-light.ml-1 {{itemsInCart}}
+          span.Cart-items 1
 
     .Nav-logo.u-fixedCenter.f-childrenCenter
       nuxt-link(to="/" exact)
@@ -34,6 +33,7 @@
 </template>
 
 <script>
+import MenuFixedOnScroll from "~/components/MenuFixedOnScroll.vue";
 import Logo from "~/components/Logo2.vue";
 import MenuLink from "~/components/MenuLink.vue";
 import MenuMobile from "~/components/MenuMobile.vue";
@@ -52,6 +52,7 @@ import IconHamburgerClose from "~/components/icons/IconHamburgerClose.vue";
 export default {
   name: "Menu",
   components: {
+    MenuFixedOnScroll,
     MenuLink,
     MenuMobile,
     Logo,
@@ -59,11 +60,7 @@ export default {
     IconHamburger,
     IconHamburgerClose
   },
-  props: {
-    currentPage: String,
-    index: Boolean,
-    isCartOpen: Boolean
-  },
+  props: {},
   data() {
     return {
       // checkout: { lineItems: { edges: [] } },
@@ -118,6 +115,9 @@ export default {
     } */
   },
   methods: {
+    handleCartCloseSurely() {
+      this.$store.commit("SET_CART_VISIBILITY", false);
+    },
     handleCartToggle() {
       this.$store.commit("SET_CART_VISIBILITY", !this.$store.state.isCartVisible);
     },
@@ -237,5 +237,18 @@ export default {
 .Nav-logo {
   width: 25%;
   position: absolute;
+}
+
+.Cart-items {
+  background-color: var(--c-brand);
+  border-radius: 999px;
+  color: var(--c-bg);
+  font-size: 0.7em;
+  font-weight: 500;
+  margin-left: var(--s-2);
+
+  height: 18px;
+  line-height: 18px;
+  width: 18px;
 }
 </style>

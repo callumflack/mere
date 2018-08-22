@@ -1,24 +1,28 @@
 <template lang="pug">
-  nuxt-link(
-    :class="classes"
+  nuxt-link.MenuLink(
     :to="link"
     :exact="exact"
+    v-on:click.native="$emit('handleCartClose')"
   )
     span {{ label }}
 </template>
 
 <script>
+/* 
+
+  The $emit thing: https://vuejs.org/v2/guide/components.html#Sending-Messages-to-Parents-with-Events
+
+*/
 export default {
   name: "MenuLink",
   props: {
+    /* external: Boolean, */
+    exact: Boolean,
     label: String,
-    year: String,
-    link: String,
-    external: Boolean,
-    exact: Boolean
+    link: String
   },
   computed: {
-    classes() {
+    /* classes() {
       return ["currentPage", "MenuLink"];
     },
     currentPage() {
@@ -31,11 +35,7 @@ export default {
         classes.push("");
       }
       return classes.join(" ");
-    }
+    } */
   }
 };
 </script>
-
-<style scoped>
-@import "../assets/styles/variables.css";
-</style>
