@@ -1,6 +1,6 @@
 <template lang="pug">
   .MobileNav(
-    @click="close"
+    @click="handleToggle"
     :class="[{'u-hidden': !isVisible}]"
   )
     .Container.f.f-col.f-justifyCenter
@@ -11,7 +11,6 @@
             :key="item.label"
             :label="item.label"
             :link="item.link"
-            :currentPage="currentPage"
             :exact="item.exact"
             block
           )
@@ -24,7 +23,6 @@
               :key="item.label"
               :label="item.label"
               :link="item.link"
-              :currentPage="currentPage"
             )
           hr.bg-brand-rule
 
@@ -35,7 +33,6 @@
               :key="item.label"
               :label="item.label"
               :link="item.link"
-              :currentPage="currentPage"
             )
           .f.f-justifyCenter.c-brand
             nuxt-link.MenuLink(to="tbc")
@@ -126,13 +123,10 @@ export default {
   computed: {
     isVisible: function() {
       return this.$store.state.isMobileNavVisible;
-    },
-    currentPage: function() {
-      return this.$store.state.currentPage;
     }
   },
   methods: {
-    close() {
+    handleToggle() {
       this.$store.commit("SET_MOBILENAV_VISIBILITY", false);
     }
   }
