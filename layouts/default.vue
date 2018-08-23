@@ -1,7 +1,11 @@
 <template lang="pug">
   // div(:class="currentPage.substring(currentPage.lastIndexOf('/') + 1)")
   // div(:class="currentPageClass.slice(4)")
-  div(:class="currentPageClass.split('-/').join('-')")
+  div(
+    :class="currentPageClass.split('-/').join('-').split('/').join('-')" 
+    :style="staticBody"
+    v-on:emitCartIsToggled="staticBody"
+  )
     c-menu
     .Content
       nuxt
@@ -25,7 +29,7 @@
 </template>
 
 <script>
-import Menu from "~/components/Menu-withoutScroll.vue";
+import Menu from "~/components/Menu.vue";
 import Footer from "~/components/MenuBottom.vue";
 import Cart from "~/components/Cart.vue";
 import CustomerAuthWithMutation from "~/components/CustomerAuthWithMutation.vue";
@@ -60,10 +64,13 @@ export default {
   },
   computed: {
     currentPageClass() {
-      // requires middleware function
       // https://nuxtjs.org/guide/routing/#middleware
       // return [{ home: $store.state.currentPage === "/" }];
       return `fs-scale-reset u-relative body-page-${this.$store.state.currentPage}`;
+    },
+    staticBody() {
+      return this.$store.state.isCartVisible && `height:100vh;overflow:hidden;`;
+      // return this.$store.state.isMobileNavVisible && `height:100vh;overflow:hidden;`;
     }
   },
   methods: {

@@ -1,5 +1,5 @@
 <template lang="pug">
-  nav.Nav(:class="navBar")
+  MenuFixedOnScroll.Nav
     .u-lg-hidden.h-100
       .u-absolutePin.p-r4
         .f.f-justifyEnd.h-100
@@ -26,11 +26,12 @@
       nuxt-link(to="/" exact)
         logo.MenuLink.c-text(width="99" height="23")
     
-    menu-mobile
+    MenuMobile
 
 </template>
 
 <script>
+import MenuFixedOnScroll from "~/components/MenuFixedOnScroll.vue";
 import CartMenuButton from "~/components/CartMenuButton.vue";
 import Logo from "~/components/Logo2.vue";
 import MenuLink from "~/components/MenuLink.vue";
@@ -39,18 +40,11 @@ import IconBase from "~/components/IconBase.vue";
 import IconHamburger from "~/components/icons/IconHamburger.vue";
 import IconHamburgerClose from "~/components/icons/IconHamburgerClose.vue";
 
-/*
-
-  Fixed menu functions taken from:
-  https://blog.christopherianmurphy.com/2017/05/expand-collapse-navbar/
-  https://codepen.io/Splode/pen/WjQewW
-
-*/
-
 export default {
   name: "Menu",
   components: {
     CartMenuButton,
+    MenuFixedOnScroll,
     MenuLink,
     MenuMobile,
     Logo,
@@ -61,15 +55,6 @@ export default {
   props: {},
   data() {
     return {
-      // Classes assigned to nav on scroll
-      navBar: {
-        collapse: false,
-        open: false,
-        static: false
-      },
-      // Used to keep track of scroll position
-      scrollState: 0,
-      // Menu list
       menuLeftLinks: [
         {
           label: "shop",
@@ -89,6 +74,9 @@ export default {
   computed: {
     isMobileNavVisible() {
       return this.$store.state.isMobileNavVisible;
+    },
+    isCartVisible() {
+      return this.$store.state.isCartVisible;
     }
   },
   methods: {
@@ -97,52 +85,10 @@ export default {
     },
     handleNavToggle() {
       this.$store.commit("SET_MOBILENAV_VISIBILITY", !this.$store.state.isMobileNavVisible);
-      this.navBar.static = this.$store.state.isMobileNavVisible;
-    },
-    scrollDetect(home, down, up) {
-      // Current scroll position
-      const currentScroll = this.scrollTop();
-
-      // Do nothing if scroll position is above the window
-      // Handles iOS bounce scrolling
-      if (this.scrollState < 0) {
-        return;
-      }
-
-      if (currentScroll > this.scrollState) {
-        down();
-      } else if (currentScroll < this.scrollState) {
-        up();
-      } else {
-        home();
-      }
-
-      // Set previous scroll position
-      this.scrollState = this.scrollTop();
-    },
-    // Returns current scroll position
-    scrollTop() {
-      return window.scrollY;
-    },
-    // Called when scroll is in initial position
-    scrollHome() {},
-    // Called when scrolled down
-    scrollDown() {
-      this.navBar.collapse = true;
-      this.navBar.open = false;
-    },
-    // Called when scolled up
-    scrollUp() {
-      this.navBar.collapse = false;
-      this.navBar.open = true;
-    }
-  },
-  created() {
-    // https://nuxtjs.org/faq/window-document-undefined
-    if (process.browser) {
-      window.addEventListener("scroll", () => {
-        this.scrollDetect(this.scrollHome, this.scrollDown, this.scrollUp);
-      });
+      /* move this: */
+      /* this.navBar.static = this.$store.state.isMobileNavVisible; */
+      /* to MenuFixedOnScroll via $emit: */
+      this.$emit("emitMobileNavIsToggled");
     }
   }
 };
@@ -162,49 +108,8 @@ export default {
   -webkit-backface-visibility: hidden;
 }
 
-.collapse {
-  animation: collapse 0.25s var(--transition-easing-cubic-state) forwards;
-}
-
-.open {
-  animation: open 0.5s ease-in-out forwards;
-  /* box-shadow: 0 9px 25px 0 rgba(0, 0, 0, 0.25), 0 19px 70px 0 rgba(0, 0, 0, 0.1); */
-  /* box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.15); */
-}
-
-.static {
-  animation: initial;
-}
-
-@keyframes collapse {
-  from {
-    opacity: 1;
-    top: 0;
-  }
-  to {
-    opacity: 0;
-    /* top: calc(-1 * var(--fixedMenuHeight)); */
-    /* top: -100%; */
-  }
-}
-
-@keyframes open {
-  from {
-    opacity: 0;
-    /* top: -100%; */
-  }
-  to {
-    opacity: 1;
-    top: 0;
-  }
-}
-
 .Nav-left {
-  padding: 0 var(--s-3b);
-
-  @media (--sm) {
-    padding: 0 var(--s-4);
-  }
+  padding-left: var(--s-4);
 }
 
 .Nav-right {

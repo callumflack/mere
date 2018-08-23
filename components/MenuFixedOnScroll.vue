@@ -98,7 +98,7 @@ export default {
 }
 
 .open {
-  animation: open 0.5s ease-in-out forwards;
+  animation: open 0.7s ease-in-out forwards;
   /* box-shadow: 0 9px 25px 0 rgba(0, 0, 0, 0.25), 0 19px 70px 0 rgba(0, 0, 0, 0.1); */
   /* box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.15); */
 }
@@ -116,14 +116,14 @@ export default {
   to {
     opacity: 0;
     /* top: calc(-1 * var(--fixedMenuHeight)); */
-    /* top: -100%; */
+    top: -100%;
   }
 }
 
 @keyframes open {
   from {
     opacity: 0;
-    /* top: -100%; */
+    top: -100%;
   }
   to {
     opacity: 1;
