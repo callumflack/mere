@@ -1,5 +1,9 @@
 <template lang="pug">
-  nav(:class="navBar", v-on:mobileNavIsVisible="setNavStatic")
+  nav(
+    :class="navBar"
+    :style="fixMobileNav"
+    v-on:mobileNavIsVisible="fixMobileNav"
+  )
     slot
 </template>
 
@@ -27,18 +31,12 @@ export default {
     };
   },
   computed: {
-    isMobileNavVisible() {
-      return this.$store.state.isMobileNavVisible;
+    fixMobileNav() {
+      return this.$store.state.isMobileNavVisible && `animation:initial;`;
     }
   },
   methods: {
-    setNavStatic() {
-      // this.navBar.static = this.$store.state.isMobileNavVisible;
-      if ((isMobileNavVisible = true)) {
-        return (this.navBar.static = true);
-      }
-    },
-    scrollDetect(home, down, up) {
+    scrollDetect(home, down, up, fixed) {
       // Current scroll position
       const currentScroll = this.scrollTop();
 
@@ -47,7 +45,6 @@ export default {
       if (this.scrollState < 0) {
         return;
       }
-
       if (currentScroll > this.scrollState) {
         down();
       } else if (currentScroll < this.scrollState) {
@@ -59,18 +56,22 @@ export default {
       // Set previous scroll position
       this.scrollState = this.scrollTop();
     },
+
     // Returns current scroll position
     scrollTop() {
       return window.scrollY;
     },
+
     // Called when scroll is in initial position
     scrollHome() {},
+
     // Called when scrolled down
     scrollDown() {
       this.navBar.collapse = true;
       this.navBar.open = false;
     },
-    // Called when scolled up
+
+    // Called when scrolled up
     scrollUp() {
       this.navBar.collapse = false;
       this.navBar.open = true;
@@ -100,7 +101,8 @@ export default {
   /* box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.15); */
 }
 
-.static {
+.static,
+.noMenuAnimation {
   animation: initial;
 }
 

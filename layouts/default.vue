@@ -17,7 +17,7 @@
 </template>
 
 <script>
-import Menu from "~/components/Menu.vue";
+import Menu from "~/components/Menu-withoutScroll.vue";
 import Footer from "~/components/MenuBottom.vue";
 import Cart from "~/components/Cart.vue";
 import {
@@ -50,12 +50,6 @@ export default {
     };
   },
   computed: {
-    /* itemsInCart() {
-      if (this.checkout) {
-        return 0;
-      }
-      return this.checkout.lineItems.edges.length;
-    }, */
     currentPageClass() {
       // requires middleware function
       // https://nuxtjs.org/guide/routing/#middleware
@@ -68,25 +62,6 @@ export default {
     checkoutLineItemsUpdate() {},
     checkoutLineItemsRemove() {},
     checkoutCustomerAssociate() {},
-    /* addVariantToCart(variantId, quantity) {
-      this.$apollo
-        .mutate({
-          // Query
-          mutation: checkoutLineItemsAdd,
-          // Parameters
-          variables: {
-            checkoutId: this.checkout.id,
-            lineItems: [{ variantId, quantity: parseInt(quantity, 10) }]
-          }
-        })
-        .then(res => {
-          this.checkout = res.data.checkoutLineItemsAdd.checkout;
-        })
-        .catch(error => {
-          console.error(error);
-        });
-      // this.handleCartOpen();
-    }, */
     updateLineItemInCart(lineItemId, quantity) {
       this.$apollo
         .mutate({

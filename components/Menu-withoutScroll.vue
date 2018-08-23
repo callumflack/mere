@@ -17,23 +17,22 @@
           :key="item.label"
           :label="item.label"
           :link="item.link"
-          v-on:handleCartClose="handleCartToggle"
+          v-on:handleCartClose="handleCartClose"
         )
       .Nav-right
-        button.MenuLink.Heading.fw-medium.c-brand.u-linkNoOutline(@click="handleCartToggle")
-          | Cart
-          span.Cart-items 1
+        CartMenuButton
 
     .Nav-logo.u-fixedCenter.f-childrenCenter
       nuxt-link(to="/" exact)
         logo.MenuLink.c-text(width="99" height="23")
     
-    menu-mobile
+    MenuMobile
 
 </template>
 
 <script>
 import MenuFixedOnScroll from "~/components/MenuFixedOnScroll.vue";
+import CartMenuButton from "~/components/CartMenuButton.vue";
 import Logo from "~/components/Logo2.vue";
 import MenuLink from "~/components/MenuLink.vue";
 import MenuMobile from "~/components/MenuMobile.vue";
@@ -41,17 +40,10 @@ import IconBase from "~/components/IconBase.vue";
 import IconHamburger from "~/components/icons/IconHamburger.vue";
 import IconHamburgerClose from "~/components/icons/IconHamburgerClose.vue";
 
-/*
-
-  Fixed menu functions taken from:
-  https://blog.christopherianmurphy.com/2017/05/expand-collapse-navbar/
-  https://codepen.io/Splode/pen/WjQewW
-
-*/
-
 export default {
-  name: "MenuImportingScrollFunction",
+  name: "Menu",
   components: {
+    CartMenuButton,
     MenuFixedOnScroll,
     MenuLink,
     MenuMobile,
@@ -63,7 +55,6 @@ export default {
   props: {},
   data() {
     return {
-      // checkout: { lineItems: { edges: [] } },
       menuRightLinks: [
         {
           label: "shop",
@@ -77,16 +68,6 @@ export default {
           label: "footprint",
           link: "/footprint"
         }
-      ],
-      menuLeftLinks: [
-        {
-          label: "login",
-          link: "/login"
-        },
-        {
-          label: "cart",
-          link: "/cart"
-        }
       ]
     };
   },
@@ -97,21 +78,10 @@ export default {
     isCartVisible() {
       return this.$store.state.isCartVisible;
     }
-    /* itemsInCart() {
-      if (this.checkout) {
-        return 0;
-      }
-      return this.checkout.lineItems.edges.length;
-    } */
   },
   methods: {
-    surelyCloseCart() {
-      if ((this.$store.state.isCartVisible = true)) {
-        return this.$store.state.isCartVisible;
-      }
-    },
-    handleCartToggle() {
-      this.$store.commit("SET_CART_VISIBILITY", !this.$store.state.isCartVisible);
+    handleCartClose() {
+      this.$store.commit("SET_CART_VISIBILITY", false);
     },
     handleNavToggle() {
       this.$store.commit("SET_MOBILENAV_VISIBILITY", !this.$store.state.isMobileNavVisible);
@@ -143,25 +113,10 @@ export default {
 }
 
 .Nav-right {
-  background-color: var(--c-bg);
-  padding: 0 var(--s-4);
 }
 
 .Nav-logo {
   width: 25%;
   position: absolute;
-}
-
-.Cart-items {
-  background-color: var(--c-brand);
-  border-radius: 999px;
-  color: var(--c-bg);
-  font-size: 0.7em;
-  font-weight: 500;
-  margin-left: var(--s-2);
-
-  height: 18px;
-  line-height: 18px;
-  width: 18px;
 }
 </style>
