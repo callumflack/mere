@@ -1,32 +1,32 @@
 <template lang="pug">
-  .Cart(:class="[{'u-hidden': !isCartVisible}]")
-    .Container.Container--xl
-      .b-py2
-        .Cart-content(v-if="$store.state.checkout")
-          .Cart-content-labels.Heading.fs-text-sm.c-brand.f.m-b3(v-if="checkout.totalPrice > 0")
-            span.Cart-item-img.--withName Item
-            span.Cart-item-quantity.Text Quantity
-            span.Cart-item-price.Text Unit price
-            span.Cart-item-quantityPrice.Text Total price
+.u-relative
+  .Container.Container--xl
+    .b-py2
+      .Cart-content(v-if="$store.state.checkout")
+        .Cart-content-labels.Heading.fs-text-sm.c-brand.f.m-b3(v-if="checkout.totalPrice > 0")
+          span.Cart-item-img.--withName Item
+          span.Cart-item-quantity.Text Quantity
+          span.Cart-item-price.Text Unit price
+          span.Cart-item-quantityPrice.Text Total price
 
-          .Cart-items.m-b4.p-t1
-            .Cart-item.f.f-alignItemsCenter.f-justifyCenter.h-100(v-if="checkout.totalPrice < 1")
-              .Title Your cart is empty
-            CartLineItem(
-              v-for="line_item in items"
-              :removeLineItemInCart="removeLineItemInCart"
-              :updateLineItemInCart="updateLineItemInCart"
-              :key="line_item.node.id.toString()"
-              :line_item="line_item.node"
-            )
+        .Cart-items.m-b4.p-t1
+          .Cart-item.f.f-alignItemsCenter.f-justifyCenter.h-100(v-if="checkout.totalPrice < 1")
+            .Title Your cart is empty
+          CartLineItem(
+            v-for="line_item in items"
+            :removeLineItemInCart="removeLineItemInCart"
+            :updateLineItemInCart="updateLineItemInCart"
+            :key="line_item.node.id.toString()"
+            :line_item="line_item.node"
+          )
 
-          .Cart-footer.f.f-justifyEnd(v-if="checkout.totalPrice > 0")
-            .Cart-total.u-textRight
-              .Heading.fs-text-sm.fw-medium.c-brand Total
-              .Account-title.fw-regular.u-textRight.m-b2 ${{checkout.subtotalPrice}} AUD
-              .Account-title.fw-regular.u-textRight.m-b2 ${{checkout.totalTax}} TAX
-              .Account-title.fw-regular.u-textRight.m-b2 ${{checkout.totalPrice}} TAX
-              button.Button(@click="openCheckout") Check out
+        .Cart-footer.f.f-justifyEnd(v-if="checkout.totalPrice > 0")
+          .Cart-total.u-textRight
+            .Heading.fs-text-sm.fw-medium.c-brand Total
+            .Account-title.fw-regular.u-textRight.m-b2 ${{checkout.subtotalPrice}} AUD
+            .Account-title.fw-regular.u-textRight.m-b2 ${{checkout.totalTax}} TAX
+            .Account-title.fw-regular.u-textRight.m-b2 ${{checkout.totalPrice}} TAX
+            button.Button(@click="openCheckout") Check out
 </template>
 
 <script>
@@ -35,7 +35,17 @@ import IconBase from "~/components/IconBase.vue";
 import IconCloseSm from "~/components/icons/IconCloseSm.vue";
 import IconTick from "~/components/icons/IconTick.vue";
 
+/* Cart(
+  :removeLineItemInCart="removeLineItemInCart"
+  :updateLineItemInCart="updateLineItemInCart"
+  :checkout="checkout"
+  :isCartOpen="$store.state.isCartOpen"
+  :handleCartClose="handleCartClose"
+  :customerAccessToken="customerAccessToken"
+) */
+
 export default {
+  name: "cart",
   components: {
     CartLineItem,
     IconBase,

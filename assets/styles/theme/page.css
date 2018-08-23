@@ -55,7 +55,8 @@ div[class*="body-page-"] {
 }
 
 .body-page-faqs,
-.body-page-delivery-and-returns {
+.body-page-delivery-and-returns,
+.body-page-cart {
   background-color: var(--c-neutral);
 }
 

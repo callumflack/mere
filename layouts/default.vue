@@ -6,14 +6,7 @@
     .Content
       nuxt
     c-footer
-    Cart(
-      :removeLineItemInCart="removeLineItemInCart"
-      :updateLineItemInCart="updateLineItemInCart"
-      :checkout="checkout"
-      :isCartOpen="$store.state.isCartOpen"
-      :handleCartClose="handleCartClose"
-      :customerAccessToken="customerAccessToken"
-    )
+    
     //- CustomerAuthWithMutation(
     //-   :closeCustomerAuth="closeCustomerAuth"
     //-   :isCustomerAuthOpen="isCustomerAuthOpen"
@@ -27,7 +20,6 @@
 <script>
 import Menu from "~/components/Menu-withoutScroll.vue";
 import Footer from "~/components/MenuBottom.vue";
-import Cart from "~/components/Cart.vue";
 import CustomerAuthWithMutation from "~/components/CustomerAuthWithMutation.vue";
 import {
   getShopData,
@@ -46,7 +38,7 @@ export default {
   components: {
     "c-menu": Menu,
     "c-footer": Footer,
-    Cart
+    CustomerAuthWithMutation
   },
   data() {
     return {

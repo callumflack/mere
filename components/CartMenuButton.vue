@@ -1,5 +1,5 @@
 <template lang="pug">
-  button.MenuLink.MenuLink--btn.Heading.c-brand.u-linkNoOutline(@click="handleCartToggle")
+  nuxt-link.MenuLink.MenuLink--btn.Heading.c-brand(to="/cart")
     | Cart
     span.Cart-items(v-if="itemsInCart > 0") 
       span {{ itemsInCart }}
@@ -13,9 +13,6 @@ export default {
     };
   },
   computed: {
-    isCartVisible() {
-      return this.$store.state.isCartVisible;
-    },
     itemsInCart() {
       // if (this.checkout) {
       // if (this.checkout.lineItems.edges === []) {
@@ -26,12 +23,6 @@ export default {
       // return this.checkout.lineItems.edges.length;
       // return this.$store.state.checkout.lineItems.edges.length;
       return this.$store.state.checkout.lineItems.edges.length;
-    }
-  },
-  methods: {
-    handleCartToggle() {
-      this.$store.commit("SET_CART_VISIBILITY", !this.$store.state.isCartVisible);
-      this.$emit("emitCartIsToggled");
     }
   }
 };
