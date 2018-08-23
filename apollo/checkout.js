@@ -84,6 +84,11 @@ const CheckoutFragment = gql`
   }
 `;
 
+/* 
+
+  CREATE CHECKOUT 
+
+ */
 export const createCheckout = gql`
   mutation checkoutCreate($input: CheckoutCreateInput!) {
     checkoutCreate(input: $input) {
@@ -99,6 +104,11 @@ export const createCheckout = gql`
   ${CheckoutFragment}
 `;
 
+/* 
+
+  UPDATE CART LINE ITEMS 
+
+ */
 export const checkoutLineItemsAdd = gql`
   mutation checkoutLineItemsAdd($checkoutId: ID!, $lineItems: [CheckoutLineItemInput!]!) {
     checkoutLineItemsAdd(checkoutId: $checkoutId, lineItems: $lineItems) {
@@ -144,37 +154,11 @@ export const checkoutLineItemsRemove = gql`
   ${CheckoutFragment}
 `;
 
-export const checkoutCustomerAssociate = gql`
-  mutation checkoutCustomerAssociate($checkoutId: ID!, $customerAccessToken: String!) {
-    checkoutCustomerAssociate(checkoutId: $checkoutId, customerAccessToken: $customerAccessToken) {
-      userErrors {
-        field
-        message
-      }
-      checkout {
-        ...CheckoutFragment
-      }
-    }
-  }
-  ${CheckoutFragment}
-`;
+/* 
 
-/*
-export function addVariantToCart(variantId, quantity) {
-  this.checkoutLineItemsAdd({
-    variables: {
-      checkoutId: this.state.checkout.id,
-      lineItems: [{ variantId, quantity: parseInt(quantity, 10) }]
-    }
-  }).then(res => {
-    this.setState({
-      checkout: res.data.checkoutLineItemsAdd.checkout
-    });
-  });
+  MANAGE LINE ITEMS IN CART 
 
-  // this.handleCartOpen();
-}
-
+ */
 export function updateLineItemInCart(lineItemId, quantity) {
   this.checkoutLineItemsUpdate({
     variables: {
@@ -198,6 +182,42 @@ export function removeLineItemInCart(lineItemId) {
   });
 }
 
+/* 
+
+  ADD PRODUCT VARIANT TO CART (UNUSED IN MERE)
+
+ */
+export function addVariantToCart(variantId, quantity) {
+  this.checkoutLineItemsAdd({
+    variables: {
+      checkoutId: this.state.checkout.id,
+      lineItems: [{ variantId, quantity: parseInt(quantity, 10) }]
+    }
+  }).then(res => {
+    this.setState({
+      checkout: res.data.checkoutLineItemsAdd.checkout
+    });
+  });
+
+  // this.handleCartOpen();
+}
+
+/* export const checkoutCustomerAssociate = gql`
+  mutation checkoutCustomerAssociate($checkoutId: ID!, $customerAccessToken: String!) {
+    checkoutCustomerAssociate(checkoutId: $checkoutId, customerAccessToken: $customerAccessToken) {
+      userErrors {
+        field
+        message
+      }
+      checkout {
+        ...CheckoutFragment
+      }
+    }
+  }
+  ${CheckoutFragment}
+`; */
+
+/*
 export function associateCustomerCheckout(customerAccessToken) {
   this.checkoutCustomerAssociate({
     variables: { checkoutId: this.state.checkout.id, customerAccessToken: customerAccessToken }
