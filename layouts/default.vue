@@ -6,7 +6,7 @@
     .Content
       nuxt
     c-footer
-    cart(
+    Cart(
       :removeLineItemInCart="removeLineItemInCart"
       :updateLineItemInCart="updateLineItemInCart"
       :checkout="checkout"
@@ -14,12 +14,21 @@
       :handleCartClose="handleCartClose"
       :customerAccessToken="customerAccessToken"
     )
+    //- CustomerAuthWithMutation(
+    //-   :closeCustomerAuth="closeCustomerAuth"
+    //-   :isCustomerAuthOpen="isCustomerAuthOpen"
+    //-   :newCustomer="isNewCustomer"
+    //-   :associateCustomerCheckout="associateCustomerCheckout"
+    //-   :showAccountVerificationMessage="showAccountVerificationMessage"
+    //- )
+
 </template>
 
 <script>
 import Menu from "~/components/Menu-withoutScroll.vue";
 import Footer from "~/components/MenuBottom.vue";
 import Cart from "~/components/Cart.vue";
+import CustomerAuthWithMutation from "~/components/CustomerAuthWithMutation.vue";
 import {
   getShopData,
   createCheckout,
@@ -41,12 +50,12 @@ export default {
   },
   data() {
     return {
+      accountVerificationMessage: "",
+      checkout: { lineItems: { edges: [] } },
+      customerAccessToken: "",
       isCustomerAuthOpen: false,
       isNewCustomer: false,
-      customerAccessToken: "",
-      accountVerificationMessage: "",
-      products: [],
-      checkout: { lineItems: { edges: [] } }
+      products: []
     };
   },
   computed: {
@@ -58,10 +67,11 @@ export default {
     }
   },
   methods: {
-    /* checkoutLineItemsAdd() {}, */
+    checkoutLineItemsAdd() {},
     checkoutLineItemsUpdate() {},
     checkoutLineItemsRemove() {},
     checkoutCustomerAssociate() {},
+
     updateLineItemInCart(lineItemId, quantity) {
       this.$apollo
         .mutate({
@@ -103,7 +113,7 @@ export default {
           console.error(error);
         });
     },
-    associateCustomerCheckout(customerAccessToken) {
+    /* associateCustomerCheckout(customerAccessToken) {
       this.$apollo
         .mutate({
           // Query
@@ -121,7 +131,7 @@ export default {
         .catch(error => {
           console.error(error);
         });
-    },
+    }, */
     createCheckout() {
       this.$apollo
         .mutate({
@@ -145,8 +155,8 @@ export default {
     },
     handleCartOpen() {
       this.$store.commit("SET_CART_VISIBILITY", true);
-    },
-    openCustomerAuth(event) {
+    }
+    /* openCustomerAuth(event) {
       if (event.target.getAttribute("data-customer-type") === "new-customer") {
         this.isNewCustomer = true;
         this.isCustomerAuthOpen = true;
@@ -163,7 +173,7 @@ export default {
     },
     closeCustomerAuth() {
       this.isCustomerAuthOpen = false;
-    }
+    } */
   },
   mounted() {
     this.createCheckout();
