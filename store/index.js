@@ -3,7 +3,7 @@ export function state() {
     currentPage: "/",
     isNewsletterFormVisible: true,
     isMobileNavVisible: false,
-    isToggleVisible: false,
+    isIngrToggleVisible: false,
     isCartVisible: false,
     checkout: null
   };
@@ -22,8 +22,8 @@ export const mutations = {
     state.isMobileNavVisible = visibility;
   },
 
-  SET_TOGGLE_VISIBILITY(state, visibility) {
-    state.isToggleVisible = visibility;
+  SET_INGR_TOGGLE_VISIBILITY(state, visibility) {
+    state.isIngrToggleVisible = visibility;
   },
 
   SET_CART_VISIBILITY(state, visibility) {
