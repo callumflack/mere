@@ -3,7 +3,7 @@
     .Container.Container--xl
       .b-py2
         .Cart-content(v-if="$store.state.checkout")
-          .Cart-content-labels.Heading.fs-text-sm.c-brand.f.m-b3
+          .Cart-content-labels.Heading.fs-text-sm.c-brand.f.m-b3(v-if="checkout.totalPrice > 0")
             span.Cart-item-img.--withName Item
             span.Cart-item-quantity.Text Quantity
             span.Cart-item-price.Text Unit price
@@ -12,7 +12,7 @@
           .Cart-items.m-b4.p-t1
             .Cart-item.f.f-alignItemsCenter.f-justifyCenter.h-100(v-if="checkout.totalPrice < 1")
               .Title Your cart is empty
-            CartItem(
+            CartLineItem(
               v-for="line_item in items"
               :removeLineItemInCart="removeLineItemInCart"
               :updateLineItemInCart="updateLineItemInCart"
@@ -30,29 +30,30 @@
 </template>
 
 <script>
-import CartItem from "~/components/CartItem.vue";
+import CartLineItem from "~/components/CartLineItem.vue";
 import IconBase from "~/components/IconBase.vue";
 import IconCloseSm from "~/components/icons/IconCloseSm.vue";
 import IconTick from "~/components/icons/IconTick.vue";
 
 export default {
   components: {
-    CartItem,
+    CartLineItem,
     IconBase,
     IconCloseSm,
     IconTick
   },
   props: {
-    /* checkout: Object, */
+    /* checkout: Object,
     isCartOpen: Boolean,
-    handleCartClose: Function,
+    handleCartClose: Function, */
     removeLineItemInCart: Function,
     updateLineItemInCart: Function,
     customerAccessToken: String
   },
   data() {
     return {
-      CartNav: []
+      // turning this off used to error, even tho unused…
+      // CartNav: []
     };
   },
   computed: {

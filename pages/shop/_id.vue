@@ -34,25 +34,13 @@
               p.c-brand.u-textCenter {{ shop.productByHandle.description }}
               .u-textCenter.m-t4
                 p.c-brand.m-b3
-                  a.LinkUnderline(@click="handleToggle")
+                  a.LinkUnderline(@click="handleIngrToggle")
                     span(v-if="isVisible") Show 
                     span(v-if="!isVisible") Hide 
                     span ingredients
                 p.fs-text-sm.c-brand.u-textCenter.toggle(:class="{ 'is-hidden': isVisible }") product.ingredients
 
         .w-5x6.w-sm-1x3.m-mo-xA.p-mo-b5
-          //- .Tabs
-            input(id="tab-one" type="radio" name="grp" checked="checked")
-            label(for="tab-one") #[img(:src="shop.productByHandle.images.edges[0].node.originalSrc")]
-            .Tab-content #[img(:src="shop.productByHandle.images.edges[0].node.originalSrc")]
-
-            input(id="tab-two" type="radio" name="grp" checked="checked")
-            label(for="tab-two") #[img(:src="shop.productByHandle.images.edges[1].node.originalSrc")]
-            .Tab-content #[img(:src="shop.productByHandle.images.edges[1].node.originalSrc")]
-
-            input(id="tab-three" type="radio" name="grp" checked="checked")
-            label(for="tab-three") #[img(:src="shop.productByHandle.images.edges[2].node.originalSrc")]
-            .Tab-content #[img(:src="shop.productByHandle.images.edges[2].node.originalSrc")]
           .Tabs
             template(v-for="(image, index) in shop.productByHandle.images.edges")
               input(
@@ -72,10 +60,11 @@
             .w-100
               .Product-add.w-sm-3x4.m-xA.m-b4
                 .Button.Button--outline.Button--stateless.f.f-justifyBetween.p-x0.m-b3
-                  //- button.Button.Button--transparent.w-1x3(v-on:click="addToCart") +
-                  //- span.u-textCenter.w-1x3 {{ cart }}
-                  //- button.Button.Button--transparent.w-1x3(v-on:click="removeFromCart") -
-                  label Quantity
+                  button.Button.Button--transparent.fs-text-md.w-1x3(@click="removeQuantity") -
+                  span.u-textCenter.w-1x3.fw-medium(v-model="selectedVariantQuantity") 
+                    | {{ selectedVariantQuantity }}
+                  button.Button.Button--transparent.fs-text-md.w-1x3(@click="addQuantity") +
+                  //- label Quantity
                     input(min="1" type="number" v-model="selectedVariantQuantity")
                 button.Button.u-block.w-100(@click="addVariantToCart(shop.productByHandle.variants.edges[0].node.id, selectedVariantQuantity)")
                   | add to cart
@@ -144,8 +133,8 @@
 <script>
 import IconBase from "~/components/IconBase";
 import IconClose from "~/components/icons/IconClose";
-import product from "~/apollo/queries/productByHandle";
-import { getShopData, checkoutLineItemsAdd, addVariantToCart } from "~/apollo/checkout";
+import product from "~/apollo/productByHandle";
+import { addVariantToCart, checkoutLineItemsAdd } from "~/apollo/checkout";
 
 export default {
   apollo: {
@@ -169,22 +158,17 @@ export default {
     IconBase,
     IconClose
   },
-  /* props: {
-    addVariantToCart: Function,
-    id: Array
-  }, */
+  props: {
+    /* addVariantToCart: Function */
+  },
   /* props: ["id"], */
   data() {
     return {
-      /* initialise apollo data */
       loading: 0,
       shop: {},
       handle: this.$route.params.id,
       id: this.$route.params.id,
-      /* products: [], */
-      /* selectedVariantImage: "", */
       selectedVariantQuantity: 1,
-      cart: 1,
       ingredients:
         "Water (Aqua), Sodium Laureth Sulfate, Cocamidopropyl Betaine, Sea Salt (Maris sal), Glycerin, Polysorbate 20, Citrus Nobilis (Mandarin Orange) Peel Oil, Lavandula Angustifolia (Lavender) Oil, Phenoxyethanol, Cananga Odorata Flower Oil, Magnesium Nitrate, Methylchloroisothiazolinone, Magnesium Chloride, Methylisothiazolinone, Citric Acid, Limonene, Linalool, Benzyl Benzoate.",
       showCloseIcon: true
@@ -193,27 +177,27 @@ export default {
   computed: {
     /* hasImage() {
       return this.product.images.edges.length;
-    }, */
-    /* variantImage() {
+    },
+    variantImage() {
       if (!this.hasImage) {
         return "";
       }
       // return this.selectedVariantImage || this.product.images.edges[0].node.src;
       return this.selectedVariantImage || this.shop.productByHandle.images.edges[0].node.originalSrc;
-    }, */
+    }, 
     variant() {
       // return this.selectedVariant || this.product.variants.edges[0].node;
       return this.selectedVariant;
-    },
+    },*/
     isVisible() {
-      return !this.$store.state.isToggleVisible;
+      return !this.$store.state.isIngrToggleVisible;
     },
     storejson() {
       return JSON.stringify(this.$store.state.checkout, null, 2);
     }
   },
   methods: {
-    //checkoutLineItemsAdd() {},
+    checkoutLineItemsAdd() {},
     addVariantToCart(variantId, quantity) {
       this.$apollo
         .mutate({
@@ -233,18 +217,19 @@ export default {
         });
       // this.handleCartOpen();
     },
-    addToCart() {
-      this.cart += 1;
+    addQuantity() {
+      this.selectedVariantQuantity += 1;
+      // console.log(this.selectedVariantQuantity);
     },
-    removeFromCart() {
-      if (this.cart <= 1) {
-        this.cart = 1;
+    removeQuantity() {
+      if (this.selectedVariantQuantity <= 1) {
+        this.selectedVariantQuantity = 1;
       } else {
-        this.cart -= 1;
+        this.selectedVariantQuantity -= 1;
       }
     },
-    handleToggle() {
-      this.$store.commit("SET_TOGGLE_VISIBILITY", !this.$store.state.isToggleVisible);
+    handleIngrToggle() {
+      this.$store.commit("SET_INGR_TOGGLE_VISIBILITY", !this.$store.state.isIngrToggleVisible);
     }
   },
   head() {
@@ -286,13 +271,13 @@ export default {
 
 /* flickity wtf */
 
-.Slider-cell {
+/* .Slider-cell {
   width: 420px;
 }
 .Slider-cell img {
   height: auto;
   margin: auto;
-}
+} */
 
 /* simple toggle */
 

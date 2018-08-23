@@ -17,15 +17,21 @@ export default {
       return this.$store.state.isCartVisible;
     },
     itemsInCart() {
-      if (this.checkout.lineItems.edges === []) {
+      // if (this.checkout) {
+      // if (this.checkout.lineItems.edges === []) {
+      // if (this.checkout.lineItems === null) {
+      if (this.$store.state.checkout === null) {
         return 0;
       }
+      // return this.checkout.lineItems.edges.length;
+      // return this.$store.state.checkout.lineItems.edges.length;
       return this.$store.state.checkout.lineItems.edges.length;
     }
   },
   methods: {
     handleCartToggle() {
       this.$store.commit("SET_CART_VISIBILITY", !this.$store.state.isCartVisible);
+      this.$emit("emitCartIsToggled");
     }
   }
 };

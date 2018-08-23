@@ -31,15 +31,12 @@
 <script>
 import Logo from "~/components/Logo2.vue";
 import ProductCard from "~/components/ProductCard2.vue";
-import shop from "~/apollo/queries/shop";
+import shop from "~/apollo/shop";
 
 export default {
   components: {
     Logo,
     ProductCard
-  },
-  props: {
-    /* product: Object */
   },
   apollo: {
     $loadingKey: "loading",
@@ -48,9 +45,9 @@ export default {
       query: shop
     }
   },
+  props: {},
   data() {
     return {
-      count: 0,
       loading: 0,
       shop: {},
       pageTitle: "Beyond beautiful",
@@ -58,27 +55,8 @@ export default {
         "Our super natural skin care range champions the natural environment and provides cleaner and safer products of the highest quality"
     };
   },
-  methods: {
-    /* addToProductPage(product, index) {
-      console.log(product, index);
-      this.$nuxt.$emit("add-to-product-page", this.product);
-    },
-    increment() {
-      this.count++;
-      this.$root.$emit("increment-count", this.count);
-    } */
-  },
-  computed: {
-    /*currentPage: function() {
-      return this.$store.state.currentPage;
-    }
-    variantImage() {
-      return this.selectedVariantImage || this.product.images.edges[0].node.src;
-    },
-    productVariant() {
-      return this.node.variants.edges[0].node;
-    } */
-  },
+  methods: {},
+  computed: {},
   head() {
     return {
       title: "Shop"
