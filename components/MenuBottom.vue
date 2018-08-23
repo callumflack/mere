@@ -69,7 +69,7 @@ export default {
   }
 }
 
-.page- .Footer {
+.body-page- .Footer {
   bottom: 0;
   left: 0;
   position: fixed;
