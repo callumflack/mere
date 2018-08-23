@@ -15,7 +15,6 @@
         :key="product.node.id.toString()"
         :product="product.node"
       )
-        //- nuxt-link(to="/shop/id")
         nuxt-link(:to="`/shop/${product.node.handle}`")
           .Product-heading
             h5.Heading.fs-text-sm.u-textCenter.m-b3 {{ product.node.productType }}
