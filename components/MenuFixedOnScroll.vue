@@ -2,7 +2,7 @@
   nav(
     :class="navBar"
     :style="fixMobileNav"
-    v-on:mobileNavIsVisible="fixMobileNav"
+    v-on:emitMobileNavIsToggled="fixMobileNav"
   )
     slot
 </template>
@@ -32,6 +32,8 @@ export default {
   },
   computed: {
     fixMobileNav() {
+      // could also add class to body with
+      // height: 100%; overflow:hiddden?
       return this.$store.state.isMobileNavVisible && `animation:initial;`;
     }
   },

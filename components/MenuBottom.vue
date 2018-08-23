@@ -2,7 +2,7 @@
   footer.Footer
     .f.f-justifyCenter.f-sm-justifyEnd
       div
-        menu-link.Heading.fw-medium(
+        menu-link.Heading(
           v-for="item in footerLinks"
           :key="item.label"
           :label="item.label"

@@ -11,8 +11,8 @@
     
     .u-hidden.f-lg.f-justifyBetween
       .Nav-left
-        menu-link.Heading.fw-medium.c-brand(
-          v-for="item in menuRightLinks"
+        menu-link.Heading.c-brand(
+          v-for="item in menuLeftLinks"
           :exact="item.exact"
           :key="item.label"
           :label="item.label"
@@ -55,7 +55,7 @@ export default {
   props: {},
   data() {
     return {
-      menuRightLinks: [
+      menuLeftLinks: [
         {
           label: "shop",
           link: "/shop"
@@ -88,7 +88,7 @@ export default {
       /* move this: */
       /* this.navBar.static = this.$store.state.isMobileNavVisible; */
       /* to MenuFixedOnScroll via $emit: */
-      this.$emit("mobileNavIsVisible");
+      this.$emit("emitMobileNavIsToggled");
     }
   }
 };
