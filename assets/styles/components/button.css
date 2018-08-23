@@ -54,13 +54,13 @@
 
 .Button {
   &:hover {
-    box-shadow: var(--button-box-shadow-color) 0 0 0 2px;
+    box-shadow: var(--button-box-shadow-color) 0 0 0 1px;
   }
 
   &:focus,
   &:active {
     outline: 0;
-    box-shadow: var(--button-box-shadow-color) 0 0 0 3px;
+    box-shadow: var(--button-box-shadow-color) 0 0 0 2px;
   }
 }
 
@@ -86,14 +86,14 @@
   --button-color: var(--c-brand);
 
   &:hover {
-    border-color: var(--c-bg);
+    /* border-color: var(--c-bg); */
     box-shadow: var(--button-box-shadow-color) 0 0 0 var(--button-box-shadow-stroke-inset) inset,
       var(--button-box-shadow-color) 0 0 0 var(--button-box-shadow-stroke-hover);
   }
 
   &:focus,
   &:active {
-    border-color: var(--c-bg);
+    /* border-color: var(--c-bg); */
     box-shadow: var(--button-box-shadow-color) 0 0 0 var(--button-box-shadow-stroke-inset) inset,
       var(--button-box-shadow-color) 0 0 0 var(--button-box-shadow-stroke-active);
   }
@@ -123,6 +123,7 @@
   --button-background-color: transparent;
   --button-border-color: transparent;
   --button-box-shadow-color: var(--button-border-color);
+  --button-color: currentColor;
 
   &:hover {
     border-color: none;
