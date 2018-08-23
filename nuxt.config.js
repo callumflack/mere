@@ -22,7 +22,11 @@ export default {
     middleware: "currentPage"
   },
 
-  modules: ["@nuxtjs/apollo"],
+  modules: ["@nuxtjs/apollo", "@nuxtjs/axios"],
+
+  /* ['@nuxtjs/axios', {
+    baseURL: 'http://localhost:8000'
+  }] */
 
   apollo: {
     /* https://github.com/nuxt-community/apollo-module */
@@ -31,6 +35,12 @@ export default {
     clientConfigs: {
       default: "~/apollo/client-configs/default.js"
     }
+  },
+
+  axios: {
+    // baseURL: "https://baseurl.com",
+    // browserBaseURL: "/"
+    // proxyHeaders: false
   },
 
   build: {

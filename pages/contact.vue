@@ -6,30 +6,81 @@
           h1.Product-title.c-text.u-sm-textCenter We would love to hear from you. 
           p.c-brand.u-sm-textCenter.m-a0 Please enter your details below and we will be in touch. 
         .c-block-brand
-          form
+          //- form(
+          //-   action="https://formspree.io/callum@callumflack.design"
+          //-   method="POST"
+          //-   @submit.prevent="handleSubmit"
+          //- )
+          form(
+            @submit.prevent="handleSubmit"
+          )
             .form-entry
-              input(type="text" id="first-name" placeholder="First name*" required)
-              label(for="first-name") First name*
+              input(
+                type="text" 
+                id="firstName" 
+                name="firstName" 
+                v-model="firstName" 
+                placeholder="First name*" 
+                required
+              )
+              label(for="firstName") First name*
               span.help-text
+
             .form-entry
-              input(type="text" placeholder="Last name*" required)
+              input(
+                type="text" 
+                name="lastName"
+                v-model="lastName" 
+                placeholder="Last name*" 
+                required
+              )
               label Last name*
+
             .form-entry
-              input(type="email" placeholder="Email*" required)
+              input(
+                type="email" 
+                name="_replyto" 
+                v-model="email" 
+                placeholder="Email*" 
+                required
+              )
               label Email*
+
             .form-entry
-              input(type="tel" placeholder="Phone number*" required)
+              input(
+                type="tel" 
+                name="phoneNumber"
+                v-model="phoneNumber" 
+                placeholder="Phone number*" 
+                required
+              )
               label Phone*
+
             .form-entry
-              textarea(id="textarea" placeholder="Enter your message*" rows="4")
+              textarea(
+                id="textarea" 
+                name="message" 
+                v-model="message" 
+                placeholder="Enter your message*" 
+                rows="4"
+              )
+
+            .form-entry.u-hidden
+              input(
+                type="hidden" 
+                name="_subject" 
+                v-model="subject" 
+                value="Website inquiry" 
+                style="display:none"
+              )
 
             p.u-textCenter.m-y5
-              a.Button Submit
+              button.Button(type="submit") Submit
 
           p.u-textCenter.fs-text-sm
             span.ff-title.fs-text.c-text.m-r3 DERMACO PTY LTD
             | Po Box 663 NSW 1655 Australia
-      
+
       // submitted state
       // .Card-block.bg-brand-bg
         .f-childrenCenter
@@ -42,10 +93,54 @@
 </template>
 
 <script>
-// import IconClose from "~/components/icons/IconClose";
+// import axios from "@nuxtjs/axios";
 
 export default {
   components: {},
+  data() {
+    return {
+      firstName: "",
+      lastName: "",
+      email: "",
+      phoneNumber: "",
+      subject: "",
+      message: "",
+      sent: false
+    };
+  },
+  methods: {
+    handleSubmit() {
+      console.log("submission: ", { name: this.firstName });
+      // https://axios.nuxtjs.org/usage.html
+      // axios post request method alias:
+      // https://github.com/axios/axios#request-method-aliases
+      // axios
+      //   .post("https://formspree.io/callum@callumflack.design", {
+      //     firstName: this.firstName
+      //   })
+      //   .then(function(response) {
+      //     console.log(response);
+      //   })
+      //   .catch(function(error) {
+      //     console.log(error);
+      //   });
+      // console.log({ name: this.firstName });
+      // axios({
+      //   method: "post",
+      //   url: "https://formspree.io/callum@callumflack.design",
+      //   data: {
+      //     firstName: this.firstName
+      //   },
+      //   headers: { "X-Custom-Header": "foobar" }
+      // })
+      //   .then(response => {
+      //     this.result = response.data;
+      //   })
+      //   .catch(error => {
+      //     // handle error
+      //   });
+    }
+  },
   head() {
     return {
       title: "Contact"
