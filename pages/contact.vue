@@ -6,12 +6,9 @@
           h1.Product-title.c-text.u-sm-textCenter We would love to hear from you. 
           p.c-brand.u-sm-textCenter.m-a0 Please enter your details below and we will be in touch. 
         .c-block-brand
-          //- form(
-          //-   action="https://formspree.io/callum@callumflack.design"
-          //-   method="POST"
-          //-   @submit.prevent="handleSubmit"
-          //- )
           form(
+            action="https://formspree.io/mnvkyadm"
+            method="POST"
             @submit.prevent="handleSubmit"
           )
             .form-entry
@@ -70,9 +67,15 @@
                 type="hidden" 
                 name="_subject" 
                 v-model="subject" 
-                value="Website inquiry" 
+                value="Mere website inquiry" 
                 style="display:none"
               )
+              input(
+                type="text" 
+                name="_gotcha" 
+                v-model="gotcha" 
+                style="display:none"
+              ) 
 
             p.u-textCenter.m-y5
               button.Button(type="submit") Submit
@@ -104,13 +107,27 @@ export default {
       email: "",
       phoneNumber: "",
       subject: "",
-      message: "",
-      sent: false
+      gotcha: "",
+      message: ""
     };
   },
   methods: {
     handleSubmit() {
       console.log("submission: ", { name: this.firstName });
+
+      // const formspreeId = "mnvkyadm";
+
+      // async submit(model) {
+      //   const response = await fetch(`https://formspree.io/${formspreeId}`, {
+      //     method: "POST",
+      //     headers: {
+      //       Accept: "application/json",
+      //       "Content-Type": "application/json",
+      //     },
+      //     body: JSON.stringify(model),
+      //   });
+      // }
+
       // https://axios.nuxtjs.org/usage.html
       // axios post request method alias:
       // https://github.com/axios/axios#request-method-aliases
