@@ -6,14 +6,12 @@
       :alt="`${line_item.title} product image`"
     )
   .Cart-item-name.Title.fs-text-md.m-b0 {{ line_item.title }}
-
   .Cart-item-quantity.Text
     button.Button.Button--transparent.w-1x3(@click="decrementQuantity(line_item.id)") -
     span.u-textCenter.w-1x3 {{ line_item.quantity }}
     button.Button.Button--transparent.w-1x3(@click="incrementQuantity(line_item.id)") +
-
-  .Cart-item-price.Text ${{ lineItemPrice }}
-  .Cart-item-quantityPrice.Text $69.95
+  .Cart-item-price.Text ${{ line_item.variant.price }}
+  .Cart-item-quantityPrice.Text ${{ lineItemPrice }}
   button.Cart-item-remove.u-linkNoOutline(@click="removeLineItemInCart(line_item.id)")
     icon-base.c-brand(icon-name="icon-close", height="20", width="20")
       icon-close
