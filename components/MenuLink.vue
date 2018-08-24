@@ -2,7 +2,7 @@
   nuxt-link.MenuLink(
     :to="link"
     :exact="exact"
-    v-on:click.native="$emit('handleCartClose')"
+    v-on:click.native="$emit('emitHandleCartClose')"
   )
     span {{ label }}
 </template>

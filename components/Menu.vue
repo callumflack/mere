@@ -17,7 +17,7 @@
           :key="item.label"
           :label="item.label"
           :link="item.link"
-          v-on:handleCartClose="handleCartClose"
+          v-on:emitHandleCartClose="handleCartClose"
         )
       .Nav-right
         CartMenuButton
