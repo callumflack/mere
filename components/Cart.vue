@@ -14,7 +14,7 @@
               div
                 .Title.m-b4 Your cart is empty
                 p.u-textCenter
-                  nuxt-link.Button(to="/shop", @click.prevent="handleCartClose") Return to shop
+                  button.Button(@click="handleCartClose") Close cart
             CartLineItem(
               v-for="line_item in items"
               :removeLineItemInCart="removeLineItemInCart"
