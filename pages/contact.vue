@@ -1,12 +1,12 @@
 <template lang="pug">
   .b-py3
     .Container
-      .Card-block.bg-sm-brand-bg.p-mo-a0
+      .Card-block.bg-sm-brand-bg.p-mo-a0(v-if="!formSubmitted")
         .b-mb1
           h1.Product-title.c-text.u-sm-textCenter We would love to hear from you.
           p.c-brand.u-sm-textCenter.m-a0 Please enter your details below and we will be in touch.
         .c-block-brand
-          form(@submit.prevent="handleSubmit")
+          form(@submit="handleSubmit")
             .form-entry
               input(
                 type="text"
@@ -65,8 +65,8 @@
             span.ff-title.fs-text.c-text.m-r3 DERMACO PTY LTD
             | Po Box 663 NSW 1655 Australia
 
-      // submitted state
-      // .Card-block.bg-brand-bg
+      //- submitted state
+      .Card-block.bg-brand-bg(v-else)
         .f-childrenCenter
           .m-b5
             h2.Product-title.c-text.fs-supertitle Thank you
@@ -77,7 +77,7 @@
 </template>
 
 <script>
-const FORMSPREE_ID = "mnvkyadm";
+const FORMSPREE_ID = "xjrqnwax";
 
 export default {
   components: {},
@@ -88,7 +88,8 @@ export default {
       email: "",
       phoneNumber: "",
       subject: "Mere website inquiry",
-      message: ""
+      message: "",
+      formSubmitted: false
     };
   },
   methods: {
@@ -97,7 +98,7 @@ export default {
         method: "POST",
         headers: {
           Accept: "application/json",
-          "Content-Type": "application/json",
+          "Content-Type": "application/json"
         },
         body: JSON.stringify({
           firstName: this.firstName,
@@ -106,7 +107,8 @@ export default {
           phoneNumber: this.phoneNumber,
           subject: this.subject,
           message: this.message,
-        }),
+          formSubmitted: true
+        })
       });
     }
   },
