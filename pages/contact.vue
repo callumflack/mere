@@ -80,6 +80,7 @@
 const FORMSPREE_ID = "xjrqnwax";
 
 export default {
+  layout: "shopifyless",
   components: {},
   data() {
     return {
@@ -121,7 +122,7 @@ export default {
 </script>
 
 <style lang="css" scoped>
-@import "../assets/styles/variables.css";
+/* @import "../assets/styles/variables.css"; */
 
 .Card-block {
   /* padding: calc(1.5 * var(--s-4)) calc(1.666 * var(--s-4)) var(--s-2); */
