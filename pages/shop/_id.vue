@@ -244,27 +244,6 @@ export default {
 @import "../../assets/styles/variables.css";
 @import "../../assets/styles/theme/tabs.css";
 
-/* .page-leave-to >>> .ClosePage {
-  opacity: 0;
-}
-.page-leave-active >>> .ClosePage {
-  opacity: 1;
-  transition: all 150ms var(--transition-easing-theme);
-} */
-
-/* .slide-fade-enter-active {
-  transition: all 0.3s ease;
-  transition-delay: 2s;
-}
-.slide-fade-leave-active {
-  transition: all 0.8s cubic-bezier(1, 0.5, 0.8, 1);
-  transition-delay: 2s;
-}
-.slide-fade-enter,
-.slide-fade-leave-to {
-  opacity: 0;
-} */
-
 .Card {
   position: relative;
 }
