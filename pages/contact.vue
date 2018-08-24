@@ -3,21 +3,17 @@
     .Container
       .Card-block.bg-sm-brand-bg.p-mo-a0
         .b-mb1
-          h1.Product-title.c-text.u-sm-textCenter We would love to hear from you. 
-          p.c-brand.u-sm-textCenter.m-a0 Please enter your details below and we will be in touch. 
+          h1.Product-title.c-text.u-sm-textCenter We would love to hear from you.
+          p.c-brand.u-sm-textCenter.m-a0 Please enter your details below and we will be in touch.
         .c-block-brand
-          form(
-            action="https://formspree.io/mnvkyadm"
-            method="POST"
-            @submit.prevent="handleSubmit"
-          )
+          form(@submit.prevent="handleSubmit")
             .form-entry
               input(
-                type="text" 
-                id="firstName" 
-                name="firstName" 
-                v-model="firstName" 
-                placeholder="First name*" 
+                type="text"
+                id="firstName"
+                name="firstName"
+                v-model="firstName"
+                placeholder="First name*"
                 required
               )
               label(for="firstName") First name*
@@ -25,57 +21,42 @@
 
             .form-entry
               input(
-                type="text" 
+                type="text"
                 name="lastName"
-                v-model="lastName" 
-                placeholder="Last name*" 
+                v-model="lastName"
+                placeholder="Last name*"
                 required
               )
               label Last name*
 
             .form-entry
               input(
-                type="email" 
-                name="_replyto" 
-                v-model="email" 
-                placeholder="Email*" 
+                type="email"
+                name="_replyto"
+                v-model="email"
+                placeholder="Email*"
                 required
               )
               label Email*
 
             .form-entry
               input(
-                type="tel" 
+                type="tel"
                 name="phoneNumber"
-                v-model="phoneNumber" 
-                placeholder="Phone number*" 
+                v-model="phoneNumber"
+                placeholder="Phone number*"
                 required
               )
               label Phone*
 
             .form-entry
               textarea(
-                id="textarea" 
-                name="message" 
-                v-model="message" 
-                placeholder="Enter your message*" 
+                id="textarea"
+                name="message"
+                v-model="message"
+                placeholder="Enter your message*"
                 rows="4"
               )
-
-            .form-entry.u-hidden
-              input(
-                type="hidden" 
-                name="_subject" 
-                v-model="subject" 
-                value="Mere website inquiry" 
-                style="display:none"
-              )
-              input(
-                type="text" 
-                name="_gotcha" 
-                v-model="gotcha" 
-                style="display:none"
-              ) 
 
             p.u-textCenter.m-y5
               button.Button(type="submit") Submit
@@ -88,7 +69,7 @@
       // .Card-block.bg-brand-bg
         .f-childrenCenter
           .m-b5
-            h2.Product-title.c-text.fs-supertitle Thank you 
+            h2.Product-title.c-text.fs-supertitle Thank you
             p.c-brand.u-textCenter.m-b5 Our team will be in touch soon.
             p.u-textCenter
               nuxt-link.Button(to="/shop") Return to shop
@@ -96,7 +77,7 @@
 </template>
 
 <script>
-// import axios from "@nuxtjs/axios";
+const FORMSPREE_ID = "mnvkyadm";
 
 export default {
   components: {},
@@ -106,56 +87,27 @@ export default {
       lastName: "",
       email: "",
       phoneNumber: "",
-      subject: "",
-      gotcha: "",
+      subject: "Mere website inquiry",
       message: ""
     };
   },
   methods: {
-    handleSubmit() {
-      console.log("submission: ", { name: this.firstName });
-
-      // const formspreeId = "mnvkyadm";
-
-      // async submit(model) {
-      //   const response = await fetch(`https://formspree.io/${formspreeId}`, {
-      //     method: "POST",
-      //     headers: {
-      //       Accept: "application/json",
-      //       "Content-Type": "application/json",
-      //     },
-      //     body: JSON.stringify(model),
-      //   });
-      // }
-
-      // https://axios.nuxtjs.org/usage.html
-      // axios post request method alias:
-      // https://github.com/axios/axios#request-method-aliases
-      // axios
-      //   .post("https://formspree.io/callum@callumflack.design", {
-      //     firstName: this.firstName
-      //   })
-      //   .then(function(response) {
-      //     console.log(response);
-      //   })
-      //   .catch(function(error) {
-      //     console.log(error);
-      //   });
-      // console.log({ name: this.firstName });
-      // axios({
-      //   method: "post",
-      //   url: "https://formspree.io/callum@callumflack.design",
-      //   data: {
-      //     firstName: this.firstName
-      //   },
-      //   headers: { "X-Custom-Header": "foobar" }
-      // })
-      //   .then(response => {
-      //     this.result = response.data;
-      //   })
-      //   .catch(error => {
-      //     // handle error
-      //   });
+    async handleSubmit() {
+      const response = await fetch(`https://formspree.io/${FORMSPREE_ID}`, {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          firstName: this.firstName,
+          lastName: this.lastName,
+          email: this.email,
+          phoneNumber: this.phoneNumber,
+          subject: this.subject,
+          message: this.message,
+        }),
+      });
     }
   },
   head() {
