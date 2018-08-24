@@ -84,9 +84,9 @@ const CheckoutFragment = gql`
   }
 `;
 
-/* 
+/*
 
-  CREATE CHECKOUT 
+  CREATE CHECKOUT
 
  */
 export const createCheckout = gql`
@@ -104,9 +104,9 @@ export const createCheckout = gql`
   ${CheckoutFragment}
 `;
 
-/* 
+/*
 
-  UPDATE CART LINE ITEMS 
+  UPDATE CART LINE ITEMS
 
  */
 export const checkoutLineItemsAdd = gql`
@@ -154,9 +154,16 @@ export const checkoutLineItemsRemove = gql`
   ${CheckoutFragment}
 `;
 
-/* 
 
-  MANAGE LINE ITEMS IN CART 
+/**
+ * NOTE:
+ * this.setState used in the below functions is a react function,
+ * how the returned data gets stored will have to be modified to work with vue
+ */
+
+/*
+
+  MANAGE LINE ITEMS IN CART
 
  */
 export function updateLineItemInCart(lineItemId, quantity) {
@@ -182,7 +189,7 @@ export function removeLineItemInCart(lineItemId) {
   });
 }
 
-/* 
+/*
 
   ADD PRODUCT VARIANT TO CART (UNUSED IN MERE)
 

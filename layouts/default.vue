@@ -2,7 +2,7 @@
   // div(:class="currentPage.substring(currentPage.lastIndexOf('/') + 1)")
   // div(:class="currentPageClass.slice(4)")
   div(
-    :class="currentPageClass.split('-/').join('-').split('/').join('-')" 
+    :class="currentPageClass.split('-/').join('-').split('/').join('-')"
     :style="staticBody"
     v-on:emitCartIsToggled="staticBody"
   )
@@ -86,13 +86,13 @@ export default {
           mutation: checkoutLineItemsUpdate,
           // Parameters
           variables: {
-            checkoutId: this.checkout.id,
+            checkoutId: this.$store.state.checkout.id,
             lineItems: [{ id: lineItemId, quantity: parseInt(quantity, 10) }]
           }
         })
         .then(res => {
           console.log(res);
-          this.checkout = res.data.checkoutLineItemsUpdate.checkout;
+          this.$store.commit("SET_CHECKOUT", res.data.checkoutLineItemsUpdate.checkout);
         })
         .catch(error => {
           console.error(error);
@@ -110,7 +110,7 @@ export default {
           }
         })
         .then(res => {
-          this.checkout = res.data.checkoutLineItemsRemove.checkout;
+          //this.checkout = res.data.checkoutLineItemsRemove.checkout;
           this.$store.commit("SET_CHECKOUT", res.data.checkoutLineItemsRemove.checkout);
           /* if (!this.itemsInCart) {
             this.handleCartClose();
@@ -150,7 +150,7 @@ export default {
           }
         })
         .then(res => {
-          this.checkout = res.data.checkoutCreate.checkout;
+          //this.checkout = res.data.checkoutCreate.checkout;
           this.$store.commit("SET_CHECKOUT", res.data.checkoutCreate.checkout);
         })
         .catch(error => {

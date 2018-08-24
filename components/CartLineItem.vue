@@ -43,12 +43,9 @@ export default {
   },
   methods: {
     decrementQuantity(lineItemId) {
-      console.log(lineItemId);
       this.updateLineItemInCart(lineItemId, this.line_item.quantity - 1);
-      console.log(line_item.quantity);
     },
     incrementQuantity(lineItemId) {
-      console.log(lineItemId);
       this.updateLineItemInCart(lineItemId, this.line_item.quantity + 1);
     }
   }
