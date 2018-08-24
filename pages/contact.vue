@@ -6,7 +6,7 @@
           h1.Product-title.c-text.u-sm-textCenter We would love to hear from you.
           p.c-brand.u-sm-textCenter.m-a0 Please enter your details below and we will be in touch.
         .c-block-brand
-          form(@submit="handleSubmit")
+          form(@submit.prevent="handleSubmit")
             .form-entry
               input(
                 type="text"
@@ -108,9 +108,10 @@ export default {
           phoneNumber: this.phoneNumber,
           subject: this.subject,
           message: this.message,
-          formSubmitted: true
         })
       });
+
+      this.formSubmitted = true;
     }
   },
   head() {
