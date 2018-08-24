@@ -10,8 +10,11 @@
             span.Cart-item-quantityPrice.Text Total price
 
           .Cart-items.m-b4.p-t1
-            .Cart-item.f.f-alignItemsCenter.f-justifyCenter.h-100(v-if="checkout.totalPrice < 1")
-              .Title Your cart is empty
+            .Cart-item.f.f-alignItemsCenter.f-justifyCenter.h-100.bg-neutral(v-if="checkout.totalPrice < 1")
+              div
+                .Title.m-b4 Your cart is empty
+                p.u-textCenter
+                  nuxt-link.Button(to="/shop", @click.prevent="handleCartClose") Return to shop
             CartLineItem(
               v-for="line_item in items"
               :removeLineItemInCart="removeLineItemInCart"
@@ -70,6 +73,9 @@ export default {
   methods: {
     openCheckout() {
       window.open(this.checkout.webUrl, "_self");
+    },
+    handleCartClose() {
+      this.$store.commit("SET_CART_VISIBILITY", false);
     }
   }
 };
