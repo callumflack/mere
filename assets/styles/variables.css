@@ -20,6 +20,8 @@
     :root { --s-title: 40px; }
   }
 
+  But fuck it, I think they're too good to ignore.
+
 
 
 
@@ -270,6 +272,7 @@
   --button-color: var(--c-bg);
   --button-disabled-opacity: 0.6;
   --button-height: calc(1 * var(--field-height));
+  --button-inline-spacing: 0;
   --button-xpadding: 1.5em;
 
   /* typography */
@@ -279,9 +282,6 @@
   --button-font-weight: 400;
   --button-letter-spacing-case: var(--fls-loose);
   --button-text-alignment: 0.5px;
-
-  /* button + button inline spacing */
-  --button-inline-spacing: 0;
 
   /* 
 
