@@ -2,8 +2,8 @@
 module.exports = {
   map: true,
   plugins: {
-    "postcss-easy-import": {},
     "postcss-mixins": {},
+    "postcss-easy-import": {},
     "postcss-preset-env": {
       stage: 0,
       features: ["css-nesting"]
